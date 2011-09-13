@@ -1,3 +1,10 @@
+python-pyhsm (1.0.2b-1) unstable; urgency=low
+
+  * Make package ready for Debian.
+  * Rename yhsm-common to yhsm-tools because it contains command line tools.
+
+ -- Simon Josefsson <simon@josefsson.org>  Tue, 13 Sep 2011 14:28:09 +0200
+
 python-pyhsm (1.0.2b-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
 
   * New upstream release. Adds OTP support to yhsm-keystore-unlock,
