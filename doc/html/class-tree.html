@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class Hierarchy</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyhsm-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Trees&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >pyhsm</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">&nbsp;</td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="class-tree.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<center><b>
+ [ <a href="module-tree.html">Module Hierarchy</a>
+ | <a href="class-tree.html">Class Hierarchy</a> ]
+</b></center><br />
+<h1 class="epydoc">Class Hierarchy</h1>
+<ul class="nomargin-top">
+    <li> <strong class="uidlink"><a href="pyhsm.base.YHSM-class.html">pyhsm.base.YHSM</a></strong>:
+      <em class="summary">Base class for accessing a YubiHSM.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.cmd.YHSM_Cmd-class.html">pyhsm.cmd.YHSM_Cmd</a></strong>:
+      <em class="summary">Base class for YubiHSM commands.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html">pyhsm.aead_cmd.YHSM_AEAD_Cmd</a></strong>:
+      <em class="summary">Class for common non-trivial parse_result for commands returning a 
+        YSM_AEAD_GENERATE_RESP.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="pyhsm.aead_cmd.YHSM_Cmd_AEAD_Generate-class.html">pyhsm.aead_cmd.YHSM_Cmd_AEAD_Generate</a></strong>:
+      <em class="summary">Generate AEAD block from data for a specific key.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP-class.html">pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP</a></strong>:
+      <em class="summary">Request the YubiHSM to validate an OTP using an externally stored 
+        AEAD.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.aead_cmd.YHSM_Cmd_AEAD_Decrypt_Cmp-class.html">pyhsm.aead_cmd.YHSM_Cmd_AEAD_Decrypt_Cmp</a></strong>:
+      <em class="summary">Validate an AEAD using the YubiHSM, matching it against some known 
+        plain text.</em>
+    </li>
+    <li> <strong class="uidlink">pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB</strong>:
+      <em class="summary">Common code for command classes in this module.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Compare-class.html">pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Compare</a></strong>:
+      <em class="summary">Have the YubiHSM AES ECB decrypt something using the key of a key 
+        handle, and then compare it with a plaintext we supply.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Decrypt-class.html">pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Decrypt</a></strong>:
+      <em class="summary">Have the YubiHSM AES ECB decrypt something using the key of a key 
+        handle.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Encrypt-class.html">pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Encrypt</a></strong>:
+      <em class="summary">Have the YubiHSM AES ECB encrypt something using the key of a key 
+        handle.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load-class.html">pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load</a></strong>:
+      <em class="summary">Ask YubiHSM to load some data into it's internal buffer.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Random_Load-class.html">pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Random_Load</a></strong>:
+      <em class="summary">Ask YubiHSM to generate a secret for a specific public_id</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP-class.html">pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP</a></strong>:
+      <em class="summary">Request the YubiHSM to validate an OTP for a YubiKey stored in the 
+        internal database.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_Store-class.html">pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_Store</a></strong>:
+      <em class="summary">Ask YubiHSM to store data about a YubiKey in the internal database 
+        (not buffer).</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.basic_cmd.YHSM_Cmd_Echo-class.html">pyhsm.basic_cmd.YHSM_Cmd_Echo</a></strong>:
+      <em class="summary">Send something to the stick, and expect to get it echoed back.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write-class.html">pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write</a></strong>:
+      <em class="summary">Calculate HMAC SHA1 using a key_handle in the YubiHSM.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock-class.html">pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock</a></strong>:
+      <em class="summary">Have the YubiHSM unlock the HSM operations (those involving the 
+        keystore) with a YubiKey OTP.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.basic_cmd.YHSM_Cmd_Key_Storage_Unlock-class.html">pyhsm.basic_cmd.YHSM_Cmd_Key_Storage_Unlock</a></strong>:
+      <em class="summary">Have the YubiHSM unlock it's key storage using the HSM password.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.basic_cmd.YHSM_Cmd_Key_Store_Decrypt-class.html">pyhsm.basic_cmd.YHSM_Cmd_Key_Store_Decrypt</a></strong>:
+      <em class="summary">Have the YubiHSM decrypt it's key store using the master key.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.debug_cmd.YHSM_Cmd_Monitor_Exit-class.html">pyhsm.debug_cmd.YHSM_Cmd_Monitor_Exit</a></strong>:
+      <em class="summary">Send magics to YubiHSM in debug mode, and get it to exit to 
+        configuration mode again.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get-class.html">pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get</a></strong>:
+      <em class="summary">Get nonce value from YubiHSM - causes it to increment by one (or a 
+        specified number).</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.basic_cmd.YHSM_Cmd_Random-class.html">pyhsm.basic_cmd.YHSM_Cmd_Random</a></strong>:
+      <em class="summary">Ask stick to generate a number of random bytes.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.basic_cmd.YHSM_Cmd_Random_Reseed-class.html">pyhsm.basic_cmd.YHSM_Cmd_Random_Reseed</a></strong>:
+      <em class="summary">Provide YubiHSM DRBG_CTR with a new seed.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.basic_cmd.YHSM_Cmd_System_Info-class.html">pyhsm.basic_cmd.YHSM_Cmd_System_Info</a></strong>:
+      <em class="summary">Request system information from the YubiHSM.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_Load-class.html">pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_Load</a></strong>:
+      <em class="summary">Load an AEAD into the phantom key handle 0xffffffff.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.aead_cmd.YHSM_GeneratedAEAD-class.html">pyhsm.aead_cmd.YHSM_GeneratedAEAD</a></strong>:
+      <em class="summary">Small class to represent a YHSM_AEAD_GENERATE_RESP.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.hmac_cmd.YHSM_GeneratedHMACSHA1-class.html">pyhsm.hmac_cmd.YHSM_GeneratedHMACSHA1</a></strong>:
+      <em class="summary">Small class to represent a YHSM_HMAC_SHA1_GENERATE_RESP.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.basic_cmd.YHSM_NonceResponse-class.html">pyhsm.basic_cmd.YHSM_NonceResponse</a></strong>:
+      <em class="summary">Small class to hold response of Nonce_Get command.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.stick.YHSM_Stick-class.html">pyhsm.stick.YHSM_Stick</a></strong>:
+      <em class="summary">The current YHSM is a USB device using serial communication.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.validate_cmd.YHSM_ValidationResult-class.html">pyhsm.validate_cmd.YHSM_ValidationResult</a></strong>:
+      <em class="summary">The result of a Validate operation.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.version.YHSM_Version-class.html">pyhsm.version.YHSM_Version</a></strong>:
+      <em class="summary">Keeps the YubiHSM's version number and can tell what capabilities 
+        it has.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.aead_cmd.YHSM_YubiKeySecret-class.html">pyhsm.aead_cmd.YHSM_YubiKeySecret</a></strong>:
+      <em class="summary">Small class to represent a YUBIKEY_SECRETS struct.</em>
+    </li>
+    <li> <strong class="uidlink">object</strong>:
+      <em class="summary">The most base type</em>
+    <ul>
+    <li> <strong class="uidlink">exceptions.BaseException</strong>:
+      <em class="summary">Common base class for all exceptions</em>
+    <ul>
+    <li> <strong class="uidlink">exceptions.Exception</strong>:
+      <em class="summary">Common base class for all non-exit exceptions.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="pyhsm.exception.YHSM_Error-class.html">pyhsm.exception.YHSM_Error</a></strong>:
+      <em class="summary">Base class for YHSM exceptions in this package.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="pyhsm.exception.YHSM_CommandFailed-class.html">pyhsm.exception.YHSM_CommandFailed</a></strong>:
+      <em class="summary">Exception raised when a command sent to the YubiHSM returned an 
+        error.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.exception.YHSM_InputTooLong-class.html">pyhsm.exception.YHSM_InputTooLong</a></strong>:
+      <em class="summary">Exception raised for too long input to some function.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.exception.YHSM_InputTooShort-class.html">pyhsm.exception.YHSM_InputTooShort</a></strong>:
+      <em class="summary">Exception raised for too short input to some function.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.exception.YHSM_WrongInputSize-class.html">pyhsm.exception.YHSM_WrongInputSize</a></strong>:
+      <em class="summary">Exception raised for errors in the size of an argument to some 
+        function.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="pyhsm.exception.YHSM_WrongInputType-class.html">pyhsm.exception.YHSM_WrongInputType</a></strong>:
+      <em class="summary">Exception raised for errors in the type of an argument to some 
+        function.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+</ul>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyhsm-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Trees&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >pyhsm</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sun Aug 21 17:40:20 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+#!/usr/bin/env python
+"""
+Small network server decrypting YubiKey OTPs using an attached YubiHSM.
+
+To support unlimited numbers of YubiKeys, the YubiKey AES keys are
+stored in AEAD's (Authenticated Encryption with Associated Data) on
+the host computer.
+
+When an OTP is received, we find the right AEAD for this key (based on
+the public ID of the YubiKey), and then send the AEAD together with the
+OTP to the YubiHSM. The YubiHSM is able to decrypt the AEAD (if it has
+the appropriate key handle configured), and then able to decrypt the
+YubiKey OTP using the AES key stored in the AEAD.
+
+The information the YubiKey encrypted using it's AES key is then
+returned in clear text from the YubiHSM. This includes the counter
+information and also (relative) timestamps.
+
+It is not the job of the KSM (or YubiHSM) to ensure that the OTP has
+not been seen before - that is done by the validation server (using
+the database) :
+
+     O            +----------+
+    /|\           |Validation|     +-----+   +---------+
+     |  -- OTP--> |  server  | --> | KSM +---| YubiHSM |
+    / \           +----------+     +-----+   +---------+
+                        |
+    user             +--+--+
+                     | DB  |
+                     +-----+
+
+Copyright (c) 2011, Yubico AB
+All rights reserved.
+"""
+
+import os
+import sys
+import BaseHTTPServer
+import argparse
+import syslog
+import re
+sys.path.append('Lib');
+import pyhsm
+import pyhsm.yubikey
+import serial
+
+default_device = "/dev/ttyACM0"
+default_dir = "/var/cache/yubikey-ksm/aeads"
+default_serve_url = "/wsapi/decrypt?otp="
+default_listen_addr = "127.0.0.1"
+default_port = 8002
+default_reqtimeout = 5
+default_public_id_chars = 12
+default_pid_file = None
+
+valid_input_from_key = re.compile('^[cbdefghijklnrtuv]{32,48}$')
+
+hsm = None
+args = None
+
+class YHSM_KSMRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+    """
+    Handle a HTTP request.
+
+    Try to be careful and validate the input, and then look for an AEAD file matching the
+    public id of the OTP. If an AEAD for one of our key handles is found, we ask the YubiHSM
+    to decrypt the OTP using the AEAD and return the result (counter and timestamp information).
+    """
+
+    def __init__(self, *other_args, **kwargs):
+        self.timeout = args.reqtimeout
+        BaseHTTPServer.BaseHTTPRequestHandler.__init__(self, *other_args, **kwargs)
+
+    def do_GET(self):
+        """ Handle a HTTP GET request. """
+        # Example session:
+        # in  : GET /wsapi/decrypt?otp=ftftftccccdvvbfcfduvvcubikngtchlubtutucrld HTTP/1.0
+        # out : OK counter=0004 low=f585 high=3e use=03
+        if self.path.startswith(args.serve_url):
+            from_key = self.path[len(args.serve_url):]
+
+            val_res = decrypt_yubikey_otp(self, from_key)
+
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(val_res)
+            self.wfile.write("\n")
+        else:
+            self.log_error ("Bad URL '%s' - I'm serving '%s' (responding 403)" % (self.path, args.serve_url))
+            self.send_response(403, 'Forbidden')
+            self.end_headers()
+
+    def log_error(self, fmt, *fmt_args):
+        """ Log to syslog. """
+        msg = self.my_address_string() + " - - " + fmt % fmt_args
+        my_log_message(args, syslog.LOG_ERR, msg)
+
+    def log_message(self, fmt, *fmt_args):
+        """ Log to syslog. """
+        msg = self.my_address_string() + " - - " + fmt % fmt_args
+        my_log_message(args, syslog.LOG_INFO, msg)
+
+    def my_address_string(self):
+        """ For logging client host without resolving. """
+        return self.client_address[0]
+
+def decrypt_yubikey_otp(self, from_key):
+    """
+    Try to decrypt a YubiKey OTP.
+
+    Returns a string starting with either 'OK' or 'ERR' :
+
+       'OK counter=ab12 low=dd34 high=2a use=0a'
+
+       'ERR Unknown public_id'
+
+    on YubiHSM errors (or bad OTP), only 'ERR' is returned.
+    """
+    if not re.match(valid_input_from_key, from_key):
+        self.log_error("IN: %s, Invalid OTP" % (from_key))
+        return "ERR Invalid OTP"
+
+    public_id, _otp = pyhsm.yubikey.split_id_otp(from_key)
+
+    aead_kh_int = None
+    fn_list = []
+    for kh, kh_int in args.key_handles:
+        aead = pyhsm.aead_cmd.YHSM_GeneratedAEAD(public_id, kh_int, '')
+        filename = aead_filename(args.aead_dir, kh, public_id)
+        fn_list.append(filename)
+        try:
+            aead.load(filename)
+            aead_kh_int = kh_int
+            break
+        except IOError:
+            continue
+
+    if aead_kh_int == None:
+        self.log_error("IN: %s, Found no (readable) AEAD for public_id %s" % (from_key, public_id))
+        self.log_message("Tried to load AEAD from : %s" % (fn_list))
+        return "ERR Unknown public_id"
+
+    try:
+        res = pyhsm.yubikey.validate_yubikey_with_aead(hsm, from_key, aead, aead_kh_int)
+        # XXX double-check public_id in res, in case BaseHTTPServer suddenly becomes multi-threaded
+        # XXX fix use vs session counter confusion
+        val_res = "OK counter=%04x low=%04x high=%02x use=%02x" % \
+            (res.use_ctr, res.ts_low, res.ts_high, res.session_ctr)
+    except pyhsm.exception.YHSM_Error, e:
+        self.log_error ("IN: %s, Validate FAILED: %s" % (from_key, str(e)))
+        val_res = "ERR"
+
+    self.log_message("SUCCESS OTP %s PT hsm %s", from_key, val_res)
+    return val_res
+
+def aead_filename(aead_dir, key_handle, public_id):
+    """
+    Return the filename of the AEAD for this public_id.
+    """
+    parts = [aead_dir, key_handle] + pyhsm.util.group(public_id, 2) + [public_id]
+    return os.path.join(*parts)
+
+def parse_args():
+    """
+    Parse the command line arguments
+    """
+    parser = argparse.ArgumentParser(description = "Decrypt YubiKey OTPs using YubiHSM",
+                                     add_help = True,
+                                     formatter_class = argparse.ArgumentDefaultsHelpFormatter
+                                     )
+    parser.add_argument('-D', '--device',
+                        dest='device',
+                        default=default_device,
+                        required=False,
+                        help='YubiHSM device'
+                        )
+    parser.add_argument('-B', '--aead-dir',
+                        dest='aead_dir',
+                        default=default_dir,
+                        required=False,
+                        help='AEAD directory - base directory of your AEADs'
+                        )
+    parser.add_argument('-U', '--serve-url',
+                        dest='serve_url',
+                        default=default_serve_url,
+                        required=False,
+                        help='Base URL for decrypt web service',
+                        metavar='URL',
+                        )
+    parser.add_argument('-v', '--verbose',
+                        dest='verbose',
+                        action='store_true', default=False,
+                        help='Enable verbose operation'
+                        )
+    parser.add_argument('--debug',
+                        dest='debug',
+                        action='store_true', default=False,
+                        help='Enable debug operation'
+                        )
+    parser.add_argument('--public-id-chars',
+                        dest='public_id_chars',
+                        type=int, default=default_public_id_chars,
+                        required=False,
+                        help='Number of chars in generated public ids',
+                        metavar='LEN',
+                        )
+    parser.add_argument('--port',
+                        dest='listen_port',
+                        type=int, default=default_port,
+                        required=False,
+                        help='Port to listen on',
+                        metavar='PORT',
+                        )
+    parser.add_argument('--addr',
+                        dest='listen_addr',
+                        default=default_listen_addr,
+                        required=False,
+                        help='Address to bind to',
+                        metavar='ADDR',
+                        )
+    parser.add_argument('--reqtimeout',
+                        dest='reqtimeout',
+                        type=int, default=default_reqtimeout,
+                        required=False,
+                        help='Request timeout in seconds',
+                        metavar='SECONDS',
+                        )
+    parser.add_argument('--key-handle', '--key-handles',
+                        dest='key_handles',
+                        nargs='+',
+                        required=True,
+                        help='Key handle to use to decrypt aeads on the YHSM.'
+                        )
+    parser.add_argument('--pid-file',
+                        dest='pid_file',
+                        default=default_pid_file,
+                        required=False,
+                        help='PID file',
+                        metavar='FILENAME',
+                        )
+
+    return parser.parse_args()
+
+def args_fixup(my_args):
+    """
+    Additional checks/cleanups of parsed arguments.
+    """
+    if not os.path.isdir(my_args.aead_dir):
+        my_log_message(my_args, syslog.LOG_ERR, "AEAD directory '%s' does not exist." % (my_args.aead_dir))
+        sys.exit(1)
+
+    # cache key_handle_to_int of all key handles, turning args.key_handles into
+    # a list of tuples with both original value and integer
+    res = []
+    for kh in my_args.key_handles:
+        kh_int = pyhsm.util.key_handle_to_int(kh)
+        res.append((kh, kh_int,))
+    my_args.key_handles = res
+
+def write_pid_file(fn):
+    """ Create a file with our PID. """
+    if not fn:
+        return None
+    if fn == '' or fn == "''":
+        # work around argument passings in init-scripts
+        return None
+    f = open(fn, "w")
+    f.write("%s\n" % (os.getpid()))
+    f.close()
+
+def run(args):
+    """
+    Start a BaseHTTPServer.HTTPServer and serve requests forever.
+    """
+    server_address = (args.listen_addr, args.listen_port)
+    httpd = BaseHTTPServer.HTTPServer(server_address, YHSM_KSMRequestHandler)
+    my_log_message(args, syslog.LOG_INFO, "Serving requests to 'http://%s:%s%s' with key handle(s) %s (YubiHSM: '%s', AEADs in '%s')" \
+                       % (args.listen_addr, args.listen_port, args.serve_url, args.key_handles, args.device, args.aead_dir))
+    httpd.serve_forever()
+
+def my_log_message(my_args, prio, msg):
+    """
+    Log to syslog, and possibly also to stderr.
+    """
+    syslog.syslog(prio, msg)
+    if my_args.debug or my_args.verbose or prio == syslog.LOG_ERR:
+        sys.stderr.write("%s\n" % (msg))
+
+def main():
+    """
+    Main program.
+    """
+    my_name = os.path.basename(sys.argv[0])
+    if not my_name:
+        my_name = "yhsm-yubikey-ksm"
+    syslog.openlog(my_name, syslog.LOG_PID, syslog.LOG_LOCAL0)
+
+    global args
+    args = parse_args()
+    args_fixup(args)
+
+    global hsm
+    try:
+        hsm = pyhsm.YHSM(device = args.device, debug = args.debug)
+    except serial.SerialException, e:
+        my_log_message(args, syslog.LOG_ERR, 'Failed opening YubiHSM device "%s" : %s' %(args.device, e))
+        sys.exit(1)
+
+    write_pid_file(args.pid_file)
+
+    try:
+        run(args)
+    except KeyboardInterrupt:
+        print ""
+        print "Shutting down"
+        print ""
+
+if __name__ == '__main__':
+    main()
