@@ -1,0 +1,74 @@
+python-pyhsm (1.0.2b-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * New upstream release. Adds OTP support to yhsm-keystore-unlock,
+    and restores broken test suite for YubiHSM 0.9.x.
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Sun, 21 Aug 2011 17:40:59 +0200
+
+python-pyhsm (1.0.2a-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * New upstream release. Adds missing YSM_HSM_UNLOCK command.
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Sun, 21 Aug 2011 12:09:28 +0200
+
+python-pyhsm (1.0.2-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * New upstream release for YubiHSM 1.0.
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Thu, 18 Aug 2011 23:32:15 +0200
+
+python-pyhsm (0.9.8e-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * Mostly non-code changes to prepare for official launch of YubiHSM.
+  * New package yhsm-common contains the keystore unlock utility and
+    the entropy add utility, both properly installed to /usr/sbin now.
+  * yhsm-yubikey-ksm and yhsm-validation-server are now configured
+    through proper /etc/default files, and have init.d startup scripts.
+  * Small bugfix correcting the maximum AEAD size.
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Tue, 02 Aug 2011 22:29:49 +0200
+
+python-pyhsm (0.9.8d-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * Add request timeout option to yhsm-yubikey-ksm.
+    Important to not block forever since BaseHTTPServer is single threaded.
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Thu, 23 Jun 2011 12:22:28 +0200
+
+python-pyhsm (0.9.8c-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * Support multiple key handles at the same time in yhsm-yubikey-ksm.
+  * Some minor bugfixes.
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Wed, 25 May 2011 19:48:02 +0200
+
+python-pyhsm (0.9.8b-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * Implement command to unlock HSM key store (see examples/yhsm-storage-unlock.py).
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Wed, 04 May 2011 16:58:36 +0200
+
+python-pyhsm (0.9.8a-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * Document basic usage.
+  * Add examples/yhsm-linux-add-entropy.py.
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Tue, 19 Apr 2011 15:49:50 +0200
+
+python-pyhsm (0.9.8-1~ppa2~ppadisttarget1) ppadisttarget; urgency=low
+
+  * Fix packaging.
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Tue, 19 Apr 2011 15:04:22 +0200
+
+python-pyhsm (0.9.8-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * The first public beta release.
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Fri, 15 Apr 2011 14:26:57 +0200
+
+python-pyhsm (0.9.4pre1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * source package automatically created by stdeb 0.6.0
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Fri, 01 Apr 2011 17:34:48 +0200

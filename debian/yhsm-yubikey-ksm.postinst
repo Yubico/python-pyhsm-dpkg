@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# see: dh_installdeb(1)
+#
+# summary of how this script can be called:
+#        * <postinst> `configure' <most-recently-configured-version>
+#        * <old-postinst> `abort-upgrade' <new version>
+#        * <conflictor's-postinst> `abort-remove' `in-favour' <package>
+#          <new-version>
+#        * <postinst> `abort-remove'
+#        * <deconfigured's-postinst> `abort-deconfigure' `in-favour'
+#          <failed-install-package> <version> `removing'
+#          <conflicting-package> <version>
+# for details, see http://www.debian.org/doc/debian-policy/ or
+# the debian-policy package
+
+set -e
+
+if [ "x$1" = "xconfigure" ]; then
+    MYUSERNAME="yhsm-ksmsrv"
+
+    if ! getent passwd $MYUSERNAME 1>/dev/null; then
+        adduser --quiet --system --group --disabled-password --system --shell /bin/sh $MYUSERNAME
+    fi
+
+    # $MYUSERNAME needs to be in the 'dialout' group to access /dev/ttyACM*
+    adduser --quiet $MYUSERNAME dialout
+fi
+
+invoke-rc.d yhsm-yubikey-ksm restart
+
+#DEBHELPER#

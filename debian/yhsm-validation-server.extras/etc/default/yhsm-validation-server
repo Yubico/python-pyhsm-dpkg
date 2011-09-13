@@ -1,0 +1,46 @@
+# Should the YubiHSM validation server be started?
+#
+# Valid values: "true" or "false"
+YHSM_VAL_ENABLE="true"
+
+# The device name of the YubiHSM. For a production setting, a name that is
+# invariant of system state when the YubiHSM is inserted is recommended
+# (e.g. "/dev/serial/by-id/usb-Yubico_Yubico_YubiHSM_xxxx-if00").
+YHSM_VAL_DEVICE="/dev/ttyACM0"
+
+# If you have protected the key store of your YubiHSM with an 'HSM password'
+# (recommended), the key store must be unlocked before any validations can
+# be performed. Either log in to your server after every reboot and unlock
+# the key store manually (recommended), or enter the 'HSM password' in this
+# variable to have the startup script unlock the key store for you (less
+# secure). To unlock manually, use /usr/sbin/yhsm-storage-unlock.py.
+YHSM_VAL_UNLOCK_PASSPHRASE=""
+
+# What validation modes to enable. The default we set here is to only allow
+# validation of YubiKey OTP's, but you can also enable OATH HOTP validation
+# and a special mode to validate passwords (or hashes of passwords).
+#
+# Run `pydoc /usr/sbin/yhsm-validation-server' to read more about these modes.
+#
+# Valid values : "--otp" "--hotp" "--pwhash"
+DAEMON_ARGS="$DAEMON_ARGS --otp"
+
+# The address to listen on. As a restrictive default, "127.0.0.1" is used.
+#DAEMON_ARGS="$DAEMON_ARGS --addr 127.0.0.1"
+
+# The port to listen on.
+#DAEMON_ARGS="$DAEMON_ARGS --port 8003"
+
+# The key handle to use when creating HMAC-SHA1 hashes (for OATH validation).
+# This key handle needs to have the permission flag YSM_HMAC_SHA1_GENERATE set.
+#DAEMON_ARGS="$DAEMON_ARGS --hmac-kh 1000"
+
+# Database file for --hotp and --pwhash modes.
+#DAEMON_ARGS="$DAEMON_ARGS --db-file /var/yubico/yhsm-validation-server.db"
+
+# The look-ahead window for OATH HOTP validation. This is the maximum allowed
+# number of OATH codes a user can generate, but never send to the validation
+# service, before finally sending one to the validation service.
+#DAEMON_ARGS="$DAEMON_ARGS --hotp-window 5"
+
+[ "x$YHSM_VAL_DEVICE" != "x" ] && DAEMON_ARGS="$DAEMON_ARGS -D $YHSM_VAL_DEVICE"

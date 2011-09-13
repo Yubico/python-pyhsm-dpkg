@@ -1,0 +1,72 @@
+Source: python-pyhsm
+Maintainer: Fredrik Thulin <fredrik@yubico.com>
+Section: python
+Priority: optional
+Build-Depends: python-setuptools (>= 0.6b3),
+	       debhelper (>= 7),
+	       python,
+	       python-support (>= 0.8.4)
+Standards-Version: 3.9.1
+
+Package: python-pyhsm
+Architecture: all
+Depends: ${python:Depends},
+	 ${misc:Depends},
+	 python-crypto,
+	 python-serial
+Recommends: yhsm-common
+XB-Python-Version: ${python:Versions}
+Provides: ${python:Provides}
+Description: Python code for talking to a YubiHSM
+ YubiHSM is an easy to use and affordable crypto appliance
+ that you connect to the USB port of a server. You can then
+ store AES crypto keys on the YubiHSM and use them from the
+ server without any possibility for an attacker to extract
+ the crypto keys from the YubiHSM.
+ .
+ Supported operations :
+ .
+   * YubiKey OTP validation
+   * AES ECB encrypt/decrypt/decrypt-compare
+   * HMAC-SHA1 hashing (enabling OATH code validation)
+   * Random number entropy generation
+
+Package: yhsm-common
+Architecture: all
+Depends: ${python:Depends},
+	 ${misc:Depends},
+	 python-pyhsm (= ${binary:Version})
+XB-Python-Version: ${python:Versions}
+Provides: ${python:Provides}
+Description: Common files for YubiHSM applications.
+ This package includes the following utilities :
+ .
+   * yhsm-keystore-unlock - Keystore unlock
+   * yhsm-linux-add-entropy - Entropy seeder
+
+Package: yhsm-validation-server
+Architecture: all
+Depends: ${python:Depends},
+	 ${misc:Depends},
+	 adduser,
+	 python-pyhsm (= ${binary:Version}),
+	 yhsm-common
+XB-Python-Version: ${python:Versions}
+Provides: ${python:Provides}
+Description: Validation server using YubiHSM.
+ Validate YubiKey OTP's, OATH codes or password hashes using
+ YubiHSM. Interface is a REST API with a simple web server
+ listening on localhost only (per default).
+
+Package: yhsm-yubikey-ksm
+Architecture: all
+Depends: ${python:Depends},
+	 ${misc:Depends},
+	 adduser,
+	 python-pyhsm (= ${binary:Version}),
+	 yhsm-common
+XB-Python-Version: ${python:Versions}
+Provides: ${python:Provides}
+Description: Yubikey Key Storage Module using YubiHSM.
+ Decryption backend for a Yubico validation service. Uses the
+ YubiHSM to decrypt YubiKey OTPs and answer 'OK' or 'ERR'.

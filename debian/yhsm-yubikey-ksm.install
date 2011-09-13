@@ -1,0 +1,2 @@
+yubikey-ksm/yhsm-* usr/sbin/
+debian/yhsm-yubikey-ksm.extras/etc/default/yhsm-yubikey-ksm etc/default
