@@ -1,3 +1,9 @@
+python-pyhsm (1.0.2b-2) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Simon Josefsson <simon@josefsson.org>  Wed, 14 Sep 2011 10:56:41 +0200
+
 python-pyhsm (1.0.2b-1) unstable; urgency=low
 
   * Make package ready for Debian.
