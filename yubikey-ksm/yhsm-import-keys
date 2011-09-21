@@ -14,8 +14,8 @@ will be done inside the YubiHSM. The internal database is currently
 limited to 1024 entrys.
 """
 #
-# Copyright (c) 2011, Yubico AB
-# All rights reserved.
+# Copyright (c) 2011 Yubico AB
+# See the file COPYING for licence statement.
 #
 
 import os
@@ -70,7 +70,7 @@ def parse_args():
                         dest='key_handles',
                         nargs='+',
                         required=True,
-                        help='Key handles to encrypt the imported secrets with',
+                        help='Comma separated list of key handles to encrypt the imported secrets with',
                         )
     parser.add_argument('--internal-db',
                         dest='internal_db',
