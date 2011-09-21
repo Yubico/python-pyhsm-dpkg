@@ -19,7 +19,8 @@ Depends: ${python:Depends},
 	 ${misc:Depends},
 	 python-crypto,
 	 python-serial
-Suggests: python-argparse
+Suggests: python-argparse,
+	  yhsm-docs
 Recommends: yhsm-tools
 XB-Python-Version: ${python:Versions}
 Provides: ${python:Provides}
@@ -36,6 +37,16 @@ Description: Python code for talking to a Yubico YubiHSM hardware
  .
  This package contains the core Python code for interacting with the
  YubiHSM.
+
+Package: yhsm-docs
+Section: doc
+Priority: extra
+Suggests: python-pyhsm (= ${binary:Version})
+Architecture: all
+Depends: ${misc:Depends}
+Description: python-pyhsm documentation
+ Complete API documentation (in HTML format), as well as other assorted
+ documentation regarding pyhsm and related applications.
 
 Package: yhsm-tools
 Architecture: all
