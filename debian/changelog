@@ -1,8 +1,16 @@
-python-pyhsm (1.0.2b-3) UNRELEASED; urgency=low
+python-pyhsm (1.0.2c-2) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
 
- -- Simon Josefsson <simon@josefsson.org>  Wed, 14 Sep 2011 11:05:23 +0200
+ -- Fredrik Thulin <fredrik@yubico.com>  Wed, 21 Sep 2011 14:16:03 +0200
+
+python-pyhsm (1.0.2c-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * Add yhsm-docs package.
+  * New upstream release. Clarifys licensing in 47 files by refering
+    to COPYING file.
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Wed, 21 Sep 2011 13:50:04 +0200
 
 python-pyhsm (1.0.2b-2) unstable; urgency=low
 
