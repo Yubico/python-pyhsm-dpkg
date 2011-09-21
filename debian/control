@@ -19,6 +19,7 @@ Depends: ${python:Depends},
 	 ${misc:Depends},
 	 python-crypto,
 	 python-serial
+Suggests: python-argparse
 Recommends: yhsm-tools
 XB-Python-Version: ${python:Versions}
 Provides: ${python:Provides}
@@ -41,6 +42,7 @@ Architecture: all
 Depends: ${python:Depends},
 	 ${misc:Depends},
 	 python-pyhsm (= ${binary:Version})
+	 python-argparse,
 XB-Python-Version: ${python:Versions}
 Provides: ${python:Provides}
 Description: Common files for YubiHSM applications
@@ -65,6 +67,7 @@ Depends: ${python:Depends},
 	 ${misc:Depends},
 	 adduser,
 	 python-pyhsm (= ${binary:Version}),
+	 python-argparse,
 	 yhsm-tools
 XB-Python-Version: ${python:Versions}
 Provides: ${python:Provides}
@@ -83,6 +86,7 @@ Depends: ${python:Depends},
 	 ${misc:Depends},
 	 adduser,
 	 python-pyhsm (= ${binary:Version}),
+	 python-argparse,
 	 yhsm-tools
 XB-Python-Version: ${python:Versions}
 Provides: ${python:Provides}
