@@ -19,9 +19,7 @@ set -e
 if [ "x$1" = "xconfigure" ]; then
     MYUSERNAME="yhsm-valsrv"
 
-    if ! getent passwd $MYUSERNAME 1>/dev/null; then
-        adduser --quiet --system --group --disabled-password --system --shell /bin/sh $MYUSERNAME
-    fi
+    adduser --quiet --system --group --disabled-password --system --shell /bin/sh $MYUSERNAME
 
     # $MYUSERNAME needs to be in the 'dialout' group to access /dev/ttyACM*
     adduser --quiet $MYUSERNAME dialout
