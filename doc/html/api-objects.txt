@@ -124,6 +124,7 @@ pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.aead_cmd.YHSM_AEAD_Cmd.key_handle	pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html#key_handle
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.aead_cmd.YHSM_AEAD_Cmd.__repr__	pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html#__repr__
 pyhsm.aead_cmd.YHSM_AEAD_Cmd.response	pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html#response
 pyhsm.cmd.YHSM_Cmd.__init__	pyhsm.cmd.YHSM_Cmd-class.html#__init__
@@ -133,6 +134,7 @@ pyhsm.aead_cmd.YHSM_Cmd_AEAD_Decrypt_Cmp.status	pyhsm.aead_cmd.YHSM_Cmd_AEAD_Dec
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.aead_cmd.YHSM_Cmd_AEAD_Decrypt_Cmp.__init__	pyhsm.aead_cmd.YHSM_Cmd_AEAD_Decrypt_Cmp-class.html#__init__
 pyhsm.aead_cmd.YHSM_Cmd_AEAD_Decrypt_Cmp.parse_result	pyhsm.aead_cmd.YHSM_Cmd_AEAD_Decrypt_Cmp-class.html#parse_result
@@ -144,6 +146,7 @@ pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.aead_cmd.YHSM_AEAD_Cmd.key_handle	pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html#key_handle
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.aead_cmd.YHSM_AEAD_Cmd.__repr__	pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html#__repr__
 pyhsm.aead_cmd.YHSM_AEAD_Cmd.response	pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html#response
 pyhsm.aead_cmd.YHSM_Cmd_AEAD_Generate.__init__	pyhsm.aead_cmd.YHSM_Cmd_AEAD_Generate-class.html#__init__
@@ -160,6 +163,7 @@ pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Compare	pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Co
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Compare.__init__	pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Compare-class.html#__init__
 pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Compare.parse_result	pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Compare-class.html#parse_result
@@ -167,12 +171,14 @@ pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Decrypt	pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_De
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Decrypt.__init__	pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Decrypt-class.html#__init__
 pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Encrypt	pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Encrypt-class.html
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Encrypt.__init__	pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Encrypt-class.html#__init__
 pyhsm.base.YHSM	pyhsm.base.YHSM-class.html
@@ -209,6 +215,7 @@ pyhsm.basic_cmd.YHSM_Cmd_Echo	pyhsm.basic_cmd.YHSM_Cmd_Echo-class.html
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.basic_cmd.YHSM_Cmd_Echo.__init__	pyhsm.basic_cmd.YHSM_Cmd_Echo-class.html#__init__
 pyhsm.basic_cmd.YHSM_Cmd_Echo.parse_result	pyhsm.basic_cmd.YHSM_Cmd_Echo-class.html#parse_result
@@ -217,6 +224,7 @@ pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock.status	pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock-c
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock.__init__	pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock-class.html#__init__
 pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock.parse_result	pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock-class.html#parse_result
@@ -225,6 +233,7 @@ pyhsm.basic_cmd.YHSM_Cmd_Key_Storage_Unlock.status	pyhsm.basic_cmd.YHSM_Cmd_Key_
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.basic_cmd.YHSM_Cmd_Key_Storage_Unlock.__init__	pyhsm.basic_cmd.YHSM_Cmd_Key_Storage_Unlock-class.html#__init__
 pyhsm.basic_cmd.YHSM_Cmd_Key_Storage_Unlock.parse_result	pyhsm.basic_cmd.YHSM_Cmd_Key_Storage_Unlock-class.html#parse_result
@@ -233,6 +242,7 @@ pyhsm.basic_cmd.YHSM_Cmd_Key_Store_Decrypt.status	pyhsm.basic_cmd.YHSM_Cmd_Key_S
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.basic_cmd.YHSM_Cmd_Key_Store_Decrypt.__init__	pyhsm.basic_cmd.YHSM_Cmd_Key_Store_Decrypt-class.html#__init__
 pyhsm.basic_cmd.YHSM_Cmd_Key_Store_Decrypt.parse_result	pyhsm.basic_cmd.YHSM_Cmd_Key_Store_Decrypt-class.html#parse_result
@@ -242,6 +252,7 @@ pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get.response	pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get-class.html#response
 pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get.__init__	pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get-class.html#__init__
 pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get.parse_result	pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get-class.html#parse_result
@@ -249,6 +260,7 @@ pyhsm.basic_cmd.YHSM_Cmd_Random	pyhsm.basic_cmd.YHSM_Cmd_Random-class.html
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.basic_cmd.YHSM_Cmd_Random.__init__	pyhsm.basic_cmd.YHSM_Cmd_Random-class.html#__init__
 pyhsm.basic_cmd.YHSM_Cmd_Random.parse_result	pyhsm.basic_cmd.YHSM_Cmd_Random-class.html#parse_result
@@ -257,6 +269,7 @@ pyhsm.basic_cmd.YHSM_Cmd_Random_Reseed.status	pyhsm.basic_cmd.YHSM_Cmd_Random_Re
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.basic_cmd.YHSM_Cmd_Random_Reseed.__init__	pyhsm.basic_cmd.YHSM_Cmd_Random_Reseed-class.html#__init__
 pyhsm.basic_cmd.YHSM_Cmd_Random_Reseed.parse_result	pyhsm.basic_cmd.YHSM_Cmd_Random_Reseed-class.html#parse_result
@@ -268,6 +281,7 @@ pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.basic_cmd.YHSM_Cmd_System_Info.protocol_ver	pyhsm.basic_cmd.YHSM_Cmd_System_Info-class.html#protocol_ver
 pyhsm.basic_cmd.YHSM_Cmd_System_Info.version_build	pyhsm.basic_cmd.YHSM_Cmd_System_Info-class.html#version_build
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.basic_cmd.YHSM_Cmd_System_Info.__repr__	pyhsm.basic_cmd.YHSM_Cmd_System_Info-class.html#__repr__
 pyhsm.basic_cmd.YHSM_Cmd_System_Info.version_minor	pyhsm.basic_cmd.YHSM_Cmd_System_Info-class.html#version_minor
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
@@ -278,6 +292,7 @@ pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_Load.status	pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_Load.__init__	pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_Load-class.html#__init__
 pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_Load.parse_result	pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_Load-class.html#parse_result
@@ -292,6 +307,7 @@ pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load	pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load-clas
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load.offset	pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load-class.html#offset
 pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load.offest	pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load-class.html#offest
 pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load.data_len	pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load-class.html#data_len
@@ -302,6 +318,7 @@ pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Random_Load	pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Ra
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Random_Load.__init__	pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Random_Load-class.html#__init__
 pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Random_Load.parse_result	pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Random_Load-class.html#parse_result
@@ -309,6 +326,7 @@ pyhsm.cmd.YHSM_Cmd	pyhsm.cmd.YHSM_Cmd-class.html
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.cmd.YHSM_Cmd.__init__	pyhsm.cmd.YHSM_Cmd-class.html#__init__
 pyhsm.cmd.YHSM_Cmd.parse_result	pyhsm.cmd.YHSM_Cmd-class.html#parse_result
@@ -318,6 +336,7 @@ pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP.__repr__	pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP-class.html#__repr__
 pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP.response	pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP-class.html#response
 pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP.__init__	pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP-class.html#__init__
@@ -327,6 +346,7 @@ pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_Store.status	pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_S
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_Store.__init__	pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_Store-class.html#__init__
 pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_Store.parse_result	pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_Store-class.html#parse_result
@@ -334,6 +354,7 @@ pyhsm.debug_cmd.YHSM_Cmd_Monitor_Exit	pyhsm.debug_cmd.YHSM_Cmd_Monitor_Exit-clas
 pyhsm.cmd.YHSM_Cmd.execute	pyhsm.cmd.YHSM_Cmd-class.html#execute
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.debug_cmd.YHSM_Cmd_Monitor_Exit.__init__	pyhsm.debug_cmd.YHSM_Cmd_Monitor_Exit-class.html#__init__
 pyhsm.cmd.YHSM_Cmd.parse_result	pyhsm.cmd.YHSM_Cmd-class.html#parse_result
@@ -369,8 +390,9 @@ pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
 pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write.get_hash	pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write-class.html#get_hash
 pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write.result	pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write-class.html#result
-pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write.next	pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write-class.html#next
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
+pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write.next	pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write-class.html#next
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write.__init__	pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write-class.html#__init__
 pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write.parse_result	pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write-class.html#parse_result
 pyhsm.hmac_cmd.YHSM_GeneratedHMACSHA1	pyhsm.hmac_cmd.YHSM_GeneratedHMACSHA1-class.html
@@ -394,6 +416,7 @@ pyhsm.cmd.YHSM_Cmd.executed	pyhsm.cmd.YHSM_Cmd-class.html#executed
 pyhsm.aead_cmd.YHSM_AEAD_Cmd.key_handle	pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html#key_handle
 pyhsm.cmd.YHSM_Cmd.response_status	pyhsm.cmd.YHSM_Cmd-class.html#response_status
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
+pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_handle_invalid_read_response
 pyhsm.aead_cmd.YHSM_AEAD_Cmd.__repr__	pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html#__repr__
 pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP.response	pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP-class.html#response
 pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP.__init__	pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP-class.html#__init__
