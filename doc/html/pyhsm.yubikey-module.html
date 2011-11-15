@@ -71,7 +71,8 @@
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type"><a href="pyhsm.validate_cmd.YHSM_ValidationResult-class.html" 
+      class="link">YHSM_ValidationResult</a></span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -90,7 +91,8 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type"><a href="pyhsm.validate_cmd.YHSM_ValidationResult-class.html" 
+      class="link">YHSM_ValidationResult</a></span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -111,11 +113,11 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="modhex_decode"></a><span class="summary-sig-name">modhex_decode</span>(<span class="summary-sig-arg">data</span>)</span><br />
+          <td><span class="summary-sig"><a href="pyhsm.yubikey-module.html#modhex_decode" class="summary-sig-name">modhex_decode</a>(<span class="summary-sig-arg">data</span>)</span><br />
       Convert a modhex string to ordinary hex.</td>
           <td align="right" valign="top">
             
@@ -128,12 +130,29 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="modhex_encode"></a><span class="summary-sig-name">modhex_encode</span>(<span class="summary-sig-arg">data</span>)</span><br />
+          <td><span class="summary-sig"><a href="pyhsm.yubikey-module.html#modhex_encode" class="summary-sig-name">modhex_encode</a>(<span class="summary-sig-arg">data</span>)</span><br />
       Convert an ordinary hex string to modhex.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">tuple of string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyhsm.yubikey-module.html#split_id_otp" class="summary-sig-name">split_id_otp</a>(<span class="summary-sig-arg">from_key</span>)</span><br />
+      Separate public id from OTP given a YubiKey OTP as input.</td>
           <td align="right" valign="top">
             
             
@@ -172,9 +191,25 @@
   the YubiHSM.</p>
   <p>`from_key' is the modhex encoded string emitted when you press the 
   button on your YubiKey.</p>
+  <p>Will only return on succesfull validation. All failures will result in
+  an <a href="pyhsm.exception.YHSM_CommandFailed-class.html" 
+  class="link">pyhsm.exception.YHSM_CommandFailed</a>.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>hsm</code></strong> (<a href="pyhsm.base.YHSM-class.html" class="link">pyhsm.YHSM</a>) - The YHSM instance</li>
+        <li><strong class="pname"><code>from_key</code></strong> (string) - The OTP from a YubiKey (in modhex)</li>
+    </ul></dd>
+    <dt>Returns: <a href="pyhsm.validate_cmd.YHSM_ValidationResult-class.html" 
+      class="link">YHSM_ValidationResult</a></dt>
+        <dd>validation response, if successful</dd>
   </dl>
-</td></tr></table>
+<div class="fields">      <p><strong>See Also:</strong>
+        <a 
+        href="pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP-class.html#parse_result"
+        class="link">pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP.parse_result</a>
+      </p>
+</div></td></tr></table>
 </div>
 <a name="validate_yubikey_with_aead"></a>
 <div>
@@ -195,9 +230,104 @@
   
   <p>Try to validate an OTP from a YubiKey using the AEAD that can decrypt 
   this YubiKey's internal secret, using the key_handle for the AEAD.</p>
-  <p>The parameter `aead' is either a string, or an instance of 
-  YHSM_GeneratedAEAD.</p>
+  <p>`from_key' is the modhex encoded string emitted when you press the 
+  button on your YubiKey.</p>
+  <p>Will only return on succesfull validation. All failures will result in
+  an <a href="pyhsm.exception.YHSM_CommandFailed-class.html" 
+  class="link">pyhsm.exception.YHSM_CommandFailed</a>.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>hsm</code></strong> (<a href="pyhsm.base.YHSM-class.html" class="link">pyhsm.YHSM</a>) - The YHSM instance</li>
+        <li><strong class="pname"><code>from_key</code></strong> (string) - The OTP from a YubiKey (in modhex)</li>
+        <li><strong class="pname"><code>aead</code></strong> (<a href="pyhsm.aead_cmd.YHSM_GeneratedAEAD-class.html" 
+          class="link">YHSM_GeneratedAEAD</a> or string) - AEAD containing the cryptographic key and permission flags</li>
+        <li><strong class="pname"><code>key_handle</code></strong> (integer or string) - The key handle that can decrypt the AEAD</li>
+    </ul></dd>
+    <dt>Returns: <a href="pyhsm.validate_cmd.YHSM_ValidationResult-class.html" 
+      class="link">YHSM_ValidationResult</a></dt>
+        <dd>validation response</dd>
+  </dl>
+<div class="fields">      <p><strong>See Also:</strong>
+        <a 
+        href="pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP-class.html#parse_result"
+        
+        class="link">pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP.parse_result</a>
+      </p>
+</div></td></tr></table>
+</div>
+<a name="modhex_decode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">modhex_decode</span>(<span class="sig-arg">data</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Convert a modhex string to ordinary hex.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>data</code></strong> (string) - Modhex input</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>Hex</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="modhex_encode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">modhex_encode</span>(<span class="sig-arg">data</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Convert an ordinary hex string to modhex.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>data</code></strong> (string) - Hex input</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>Modhex</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="split_id_otp"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">split_id_otp</span>(<span class="sig-arg">from_key</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Separate public id from OTP given a YubiKey OTP as input.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>from_key</code></strong> (string) - The OTP from a YubiKey (in modhex)</li>
+    </ul></dd>
+    <dt>Returns: tuple of string</dt>
+        <dd>public_id and OTP</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -233,7 +363,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed Sep 21 14:37:23 2011
+    Generated by Epydoc 3.0.1 on Tue Nov  8 23:24:28 2011
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
