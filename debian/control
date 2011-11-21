@@ -87,7 +87,7 @@ Description: Validation server using YubiHSM
  using YubiHSM. Interface is a REST API with a simple web server
  listening on localhost only (per default).
  .
- This package validate YubiKey OTP's, OATH codes or password hashes
+ This package validates YubiKey OTPs, OATH codes or password hashes
  using YubiHSM. Interface is a REST API with a simple web server
  listening on localhost only (per default).
 
