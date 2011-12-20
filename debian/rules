@@ -12,5 +12,8 @@ unexport LDFLAGS
 #exports specified using stdeb Setup-Env-Vars:
 export DH_OPTIONS=--buildsystem=python_distutils
 
+override_dh_installchangelogs:
+	dh_installchangelogs ChangeLog
+
 %:
 	dh $@

@@ -4,7 +4,7 @@ Uploaders: Fredrik Thulin <fredrik@yubico.com>, Simon Josefsson <simon@josefsson
 Section: python
 Priority: optional
 Build-Depends: python-setuptools (>= 0.6b3),
-	       debhelper (>= 7),
+	       debhelper (>= 7.0.50~),
 	       python,
 	       python-support (>= 0.8.4)
 Vcs-Git: git://github.com/Yubico/python-pyhsm-dpkg.git
@@ -47,6 +47,10 @@ Depends: ${misc:Depends}
 Description: python-pyhsm documentation
  Complete API documentation (in HTML format), as well as other assorted
  documentation regarding pyhsm and related applications.
+ .
+ The documentation is generated from the pydoc annotations (using epydoc)
+ but the HTML format might be preferable since it allows you to click on
+ references for example.
 
 Package: yhsm-tools
 Architecture: all
