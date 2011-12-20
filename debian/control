@@ -84,12 +84,12 @@ XB-Python-Version: ${python:Versions}
 Provides: ${python:Provides}
 Description: Validation server using YubiHSM
  This package validates YubiKey OTP's, OATH codes or password hashes
- using YubiHSM. Interface is a REST API with a simple web server
- listening on localhost only (per default).
+ using YubiHSM.
  .
- This package validates YubiKey OTPs, OATH codes or password hashes
- using YubiHSM. Interface is a REST API with a simple web server
- listening on localhost only (per default).
+ The interface is a REST API with a simple web server listening on
+ localhost only (per default). It can function as a drop-in replacement
+ for the traditional PHP based Yubico validation server, except that
+ it does not provide the advanced replication features of that server.
 
 Package: yhsm-yubikey-ksm
 Architecture: all
