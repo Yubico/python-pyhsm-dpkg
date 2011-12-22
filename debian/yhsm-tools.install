@@ -1,1 +1,2 @@
-utils/yhsm-* usr/sbin/
+utils/yhsm-keystore-unlock usr/sbin/
+utils/yhsm-linux-add-entropy usr/sbin/

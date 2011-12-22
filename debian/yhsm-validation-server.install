@@ -1,1 +1,3 @@
-yhsm-val/yhsm-* usr/sbin/
+yhsm-val/yhsm-validation-server usr/sbin/
+yhsm-val/yhsm-validate-otp usr/sbin/
+yhsm-val/yhsm-init-oath-token usr/sbin/

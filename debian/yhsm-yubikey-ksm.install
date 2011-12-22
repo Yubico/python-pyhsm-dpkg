@@ -1,1 +1,2 @@
-yubikey-ksm/yhsm-* usr/sbin/
+yubikey-ksm/yhsm-import-keys usr/sbin/
+yubikey-ksm/yhsm-yubikey-ksm usr/sbin/
