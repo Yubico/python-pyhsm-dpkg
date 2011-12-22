@@ -1,0 +1,1210 @@
+2011-12-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Prepare version 1.0.3a.
+
+2011-12-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-generate-keys, yubikey-ksm/yhsm-generate-keys: Move
+	currently useless yhsm-generate-keys to examples/.  It is currently useless since it generates secrets for YubiKeys
+	without allowing any YubiKeys to be programmed with these secrets.  See longer explanation in top pydoc.
+
+2011-12-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-keystore-unlock.1, utils/yhsm-linux-add-entropy.1,
+	yhsm-val/yhsm-init-oath-token.1, yhsm-val/yhsm-validate-otp.1,
+	yhsm-val/yhsm-validation-server.1, yubikey-ksm/yhsm-import-keys.1,
+	yubikey-ksm/yhsm-yubikey-ksm.1: Add man-pages.
+
+2011-12-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-import-keys: Minor usage text improvements.
+
+2011-12-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-import-keys: Don't split --key-handles on comma.  (to align with yhsm-yubikey-ksm)
+
+2011-12-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Minor usage text improvements.
+
+2011-12-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Remove unused parameter
+	--public-id-chars.
+
+2011-12-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Minor usage text improvement.
+
+2011-12-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-init-oath-token: usage text improvements
+
+2011-12-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-init-oath-token: Convey status in exit code.
+
+2011-12-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-linux-add-entropy: Add proper args-parsing.
+
+2011-12-20  Fredrik Thulin <fredrik@yubico.com>
+
+	* maintainer-scripts/make-release.sh: Add --no-test and --no-sign.
+
+2011-11-15  Fredrik Thulin <fredrik@yubico.com>
+
+	* maintainer-scripts/make-release.sh: Produce a ChangeLog from git
+	history.
+
+2011-11-15  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_aes_ecb.py, Tests/test_common.py, Tests/test_init.py,
+	Tests/test_misc.py: Make test suite work with 0.9.8 again.
+
+2011-11-08  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Prepare version 1.0.3.
+
+2011-11-08  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Assorted minor changes.
+
+2011-11-08  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/yubikey.py: Document these utility functions properly.
+
+2011-11-08  Fredrik Thulin <fredrik@yubico.com>
+
+	* README: Add note about timeout problems in Python 2.6
+	(SocketServer.py).
+
+2011-11-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Sign with key '00' when we can't
+	get client key (compat thing).
+
+2011-11-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Response tinkering.
+
+2011-11-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Change Content-Type to
+	text/plain.
+
+2011-11-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Correctly format error responses
+	for 2.0 OTP validation.
+
+2011-11-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Working HMAC-SHA-1 request
+	validation.
+
+2011-11-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_configure.py: Update to handle firmware 1.0.3.
+
+2011-11-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/cmd.py: typo
+
+2011-08-29  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_common.py: Must ignore errors from OTP unlocking as
+	well.
+
+2011-11-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/cmd.py: Raise a nice YHSM_Error on unexpected responses.
+
+2011-10-26  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Work in progress, mostly work but
+	client id handling is missing.
+
+2011-10-17  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-import-keys: Indicate errors in exit code.
+
+2011-10-07  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-keystore-unlock: Show 'Aborted' message even when not
+	verbose.
+
+2011-09-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Prepare for version 1.0.2c.
+
+2011-09-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* COPYING, Lib/pyhsm/__init__.py, Lib/pyhsm/aead_cmd.py,
+	Lib/pyhsm/aes_ecb_cmd.py, Lib/pyhsm/base.py,
+	Lib/pyhsm/basic_cmd.py, Lib/pyhsm/buffer_cmd.py, Lib/pyhsm/cmd.py,
+	Lib/pyhsm/db_cmd.py, Lib/pyhsm/debug_cmd.py, Lib/pyhsm/defines.py,
+	Lib/pyhsm/exception.py, Lib/pyhsm/hmac_cmd.py,
+	Lib/pyhsm/oath_hotp.py, Lib/pyhsm/stick.py, Lib/pyhsm/util.py,
+	Lib/pyhsm/validate_cmd.py, Lib/pyhsm/version.py,
+	Lib/pyhsm/yubikey.py, README, Tests/test_aead.py,
+	Tests/test_aes_ecb.py, Tests/test_basics.py, Tests/test_buffer.py,
+	Tests/test_common.py, Tests/test_configure.py, Tests/test_db.py,
+	Tests/test_hmac.py, Tests/test_init.py, Tests/test_misc.py,
+	Tests/test_oath.py, Tests/test_otp_validate.py,
+	Tests/test_stick.py, Tests/test_util.py,
+	Tests/test_yubikey_validate.py, examples/yhsm-monitor-exit.py,
+	examples/yhsm-password-auth.py, examples/yhsm-sysinfo.py,
+	utils/yhsm-keystore-unlock, utils/yhsm-linux-add-entropy,
+	yhsm-val/yhsm-init-oath-token, yhsm-val/yhsm-validate-otp,
+	yhsm-val/yhsm-validation-server, yubikey-ksm/yhsm-generate-keys,
+	yubikey-ksm/yhsm-import-keys, yubikey-ksm/yhsm-yubikey-ksm: Clarify
+	licensing by refering to the COPYING file.
+
+2011-09-14  Simon Josefsson <simon@josefsson.org>
+
+	* README: Doc fix Some were suggested by Tollef Fog Heen <tfheen@err.no>.
+
+2011-09-14  Simon Josefsson <simon@josefsson.org>
+
+	* README: Reorder and fix names after renaming.
+
+2011-08-24  Simon Josefsson <simon@josefsson.org>
+
+	* yubikey-ksm/yhsm-import-keys: Doc fix.
+
+2011-08-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-keystore-unlock: Usage experience tweaks.
+
+2011-08-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-keystore-unlock: Add --no-otp for use by init-scripts.
+
+2011-08-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Prepare version 1.0.2b.
+
+2011-08-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-keystore-unlock: Add OTP support and improve usability.
+
+2011-08-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/version.py, Tests/test_common.py,
+	Tests/test_configure.py, Tests/test_misc.py: Mend tests for 0.9.x
+	that does not have OTP unlock.
+
+2011-08-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/version.py: Correct have_YSM_BUFFER_LOAD.
+
+2011-08-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* maintainer-scripts/make-release.sh: Fix tar-file name.
+
+2011-08-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Prepare for version 1.0.2a.
+
+2011-08-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/run.sh: Set PYTHONPATH to make sure we test the current
+	version.
+
+2011-08-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/basic_cmd.py, Tests/test_common.py,
+	Tests/test_configure.py, Tests/test_init.py: Implement missing
+	YSM_HSM_UNLOCK.
+
+2011-08-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_common.py, Tests/test_yubikey_validate.py, doc/wiki: 
+	Move YubiKeyEmu to test_common.
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py: Introduce unlock(), deprecating
+	key_storage_unlock().
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* maintainer-scripts/make-release.sh: Keep python-pyhsm prefix in
+	tar.
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* .gitattributes, maintainer-scripts/make-release.sh: Tidy up
+	generated release file.
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* maintainer-scripts/make-release.sh: Exclude doc/wiki/.git.
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* maintainer-scripts/generate_html.sh: No graphs. Made distribution
+	unnecessarily big.
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* maintainer-scripts/make-release.sh: Fix where the releases dir
+	ends up.
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Prepare for version 1.0.2.
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* maintainer-scripts/make-release.sh: Check that version variables
+	are updated.
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* .gitignore: Add generated doc/html
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* doc/README: init
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* .gitattributes, maintainer-scripts/make-release.sh: Prepare to
+	make official releases.
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* .gitmodules: Add Github wiki submodule.
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/version.py, Tests/test_otp_validate.py: Fix a test case
+	to work with 0.9.8 as well as 1.0.  Hope this works - I don't have any 0.9.8 YubiHSM:s available to
+	verify.
+
+2011-08-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, Lib/pyhsm/base.py, Lib/pyhsm/basic_cmd.py,
+	Lib/pyhsm/defines.py, Lib/pyhsm/version.py, Tests/test_aead.py,
+	Tests/test_common.py, Tests/test_configure.py, Tests/test_init.py,
+	Tests/test_misc.py, Tests/test_oath.py, Tests/test_otp_validate.py,
+	doc/YubiHSM_if.h, utils/yhsm-keystore-unlock: Update to support
+	YubiHSM 1.0.  The most significant change from version 0.9.8 is two new keystore
+	unlock commands (deprecating the old YSM_KEY_STORAGE_UNLOCK).  YSM_KEY_STORE_DECRYPT - decrypt (AES-256) the keystore into 		        YubiHSM RAM with a passphrase YSM_HSM_UNLOCK        -
+	unlock HSM operations using a YubiKey OTP Either one, both or none of these two may be enabled when the
+	YubiHSM is configured.
+
+2011-08-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-linux-add-entropy.py,
+	examples/yhsm-storage-unlock.py, utils/yhsm-keystore-unlock,
+	utils/yhsm-linux-add-entropy: Promote two examples to new utils/
+	dir.
+
+2011-08-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Add --pid-file support.
+
+2011-08-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Improve --help output.
+
+2011-08-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-generate-keys, yubikey-ksm/yhsm-import-keys,
+	yubikey-ksm/yhsm-yubikey-ksm: Change default AEAD directory to
+	/var/cache/yubikey-ksm/aeads.  Having the default on RAM disk was just convenient during
+	development.  Also did some general code/doc improvements.
+
+2011-08-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: pylint improvements
+
+2011-08-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* doc/generate_html.sh, maintainer-scripts/generate_html.sh: rename
+
+2011-08-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-storage-unlock.py: Add proper args parsing.
+
+2011-07-29  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Show default value for all args.
+
+2011-07-27  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/validate_cmd.py: More type
+	annotations.
+
+2011-07-26  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Prepare for version 0.9.8e.
+
+2011-07-26  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Add --pid-file support.
+
+2011-07-26  Fredrik Thulin <fredrik@yubico.com>
+
+	* doc/generate_html.sh: create doc/html/ if missing
+
+2011-07-26  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aes_ecb_cmd.py: Input-validate AES ECB block size on
+	encrypt/decrypt.
+
+2011-07-26  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py: More type information.
+
+2011-07-26  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/debug_cmd.py: comment
+
+2011-07-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, Lib/pyhsm/base.py, Lib/pyhsm/basic_cmd.py,
+	Lib/pyhsm/buffer_cmd.py, Lib/pyhsm/cmd.py, Lib/pyhsm/debug_cmd.py,
+	Lib/pyhsm/exception.py: epydoc annotated API documentation.
+
+2011-07-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* doc/generate_html.sh: init
+
+2011-07-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/oath_hotp.py: pylint fix
+
+2011-07-17  Fredrik Thulin <fredrik@yubico.com>
+
+	* README: Add introduction.
+
+2011-07-17  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_yubikey_validate.py: remove debug output
+
+2011-07-04  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/util.py, Tests/test_yubikey_validate.py: Correct max
+	AEAD size.
+
+2011-06-23  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: pylint improvements.
+
+2011-06-23  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: default args clarifications.
+
+2011-06-23  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Add request timeout.  Don't block forever on connections that suffer from network
+	problems.
+
+2011-06-09  Simon Josefsson <simon@josefsson.org>
+
+	* README: Mention python-pyhsm-dpkg.
+
+2011-06-07  Fredrik Thulin <fredrik@yubico.com>
+
+	* README: Add python version info.
+
+2011-06-07  Fredrik Thulin <fredrik@yubico.com>
+
+	* README: Add installation instructions.
+
+2011-05-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_basics.py: Add test case for bug fixed in b8f71dceb.
+
+2011-05-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* : Merge git://github.com/ThomasHabets/python-pyhsm
+
+2011-05-29  Thomas Habets <thomas@habets.pp.se>
+
+	* Lib/pyhsm/basic_cmd.py: Fix type error in nonce repr format string
+
+2011-05-26  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py: speling
+
+2011-05-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Prepare for version 0.9.8c.
+
+2011-05-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-generate-keys: Bugfix calculation of bytes to
+	randomize.
+
+2011-05-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/util.py, Tests/test_util.py: Fix bug in
+	input_validate_str.  Bugfix the raising of exception when input string validation fails
+	exact length check. Only resulted in a TypeError instead of the
+	expected YHSM_WrongInputSize.
+
+2011-05-23  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Support more than one key handle.
+
+2011-05-12  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py: remove redundantly listed module 'yubikey'
+
+2011-05-04  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Forgot to update version for
+	0.9.8b.
+
+2011-05-04  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/basic_cmd.py, Lib/pyhsm/defines.py,
+	examples/yhsm-storage-unlock.py: Implement YSM_KEY_STORAGE_UNLOCK.
+
+2011-05-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py, Lib/pyhsm/aes_ecb_cmd.py,
+	Lib/pyhsm/basic_cmd.py, Lib/pyhsm/buffer_cmd.py,
+	Lib/pyhsm/exception.py, Lib/pyhsm/stick.py,
+	Lib/pyhsm/validate_cmd.py: Fix __all__ lists of classes.
+
+2011-04-19  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py: Update version to 0.9.8a.
+
+2011-04-19  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-linux-add-entropy.py: init
+
+2011-04-18  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py: fix __all__ list and add basic usage doc.
+
+2011-04-06  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Version 0.9.8. First public beta
+	release.
+
+2011-04-06  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/defines.py, Lib/pyhsm/oath_hotp.py,
+	Tests/test_basics.py, Tests/test_oath.py: Namespace-fix
+	TEMP_KEY_HANDLE -> YSM_TEMP_KEY_HANDLE.
+
+2011-04-06  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_common.py: Use new define YSM_PROTOCOL_VERSION.
+
+2011-04-06  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validate-otp: Last minute pre-release fixes.
+
+2011-04-06  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Give error message when disabled
+	function is accessed.
+
+2011-04-06  Fredrik Thulin <fredrik@yubico.com>
+
+	* doc/YubiHSM_if.h: Namespace fixes.
+
+2011-04-06  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Documentation and small fixes.
+
+2011-04-06  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-init-oath-token: AEADs to be loaded into TEMP_KEY
+	need flags now.
+
+2011-04-06  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Change OATH to HOTP/OATH-HOTP.
+
+2011-04-06  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-password-auth.py, yhsm-val/yhsm-validation-server: 
+	Use AEAD encrypt/validate instead of AES ECB encrypt/decrypt_cmd to
+	get the integrity protection of the AEAD's MAC as well.
+
+2011-04-05  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py, Lib/pyhsm/aes_ecb_cmd.py,
+	Lib/pyhsm/basic_cmd.py, Lib/pyhsm/db_cmd.py, Lib/pyhsm/defines.py,
+	Lib/pyhsm/hmac_cmd.py, Lib/pyhsm/util.py,
+	Lib/pyhsm/validate_cmd.py, Tests/test_aes_ecb.py,
+	Tests/test_hmac.py: Last-minute change of a lot of defined names.
+
+2011-04-05  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/basic_cmd.py, Tests/test_basics.py, Tests/test_oath.py: 
+	Temp key now has flags.  When generating an AEAD to be used as temp key, add four bytes with
+	the permission flags the temp key handle should have if the AEAD is
+	later loaded into the temp key.
+
+2011-04-05  Fredrik Thulin <fredrik@yubico.com>
+
+	* doc/YubiHSM_if.h: Add the C header file as documentation.
+
+2011-04-05  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server: Implement pwhash validation.
+
+2011-04-05  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aes_ecb_cmd.py: Cleanups.
+
+2011-04-05  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_basics.py: Fix test case after nonce change.
+
+2011-04-04  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Aead -> AEAD
+
+2011-04-04  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-init-oath-token, yhsm-val/yhsm-validate-otp,
+	yhsm-val/yhsm-validation-server: init, validation application(s)
+
+2011-04-04  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, Lib/pyhsm/oath_hotp.py,
+	Tests/test_init.py, Tests/test_oath.py: init, OATH helper functions.
+
+2011-04-04  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/basic_cmd.py: Remember nonce as 6 byte string too, for
+	convenience.
+
+2011-04-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validate-otp, yhsm-val/yhsm-validation-server,
+	yubikey-val/yhsm-validate-otp: init
+
+2011-04-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: YHSM -> YubiHSM
+
+2011-04-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Correct usage summary.
+
+2011-04-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: better function name
+
+2011-04-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Refactor and adhere more to the
+	YubiKSM communication spec.  Errors should not be returned as HTTP non-2xx, but as a HTTP 200
+	with a body containing the string ERR optional-reason
+
+2011-04-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py: add missing buffer_cmd and db_cmd
+
+2011-04-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, yubikey-ksm/yhsm-generate-keys,
+	yubikey-ksm/yhsm-import-keys, yubikey-ksm/yhsm-yubikey-ksm: 
+	secrets_cmd was merged with aead_cmd.
+
+2011-04-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Add documentation.
+
+2011-04-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/run.sh: Avoid deprecation warnings from nosetests.
+
+2011-04-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/defines.py, Tests/test_basics.py: Bugs hide in every
+	untested LOC.
+
+2011-04-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/hmac_cmd.py, Tests/test_hmac.py: Fix
+	(and test) HMAC-SHA1 to_buffer and flags.
+
+2011-04-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/hmac_cmd.py, Lib/pyhsm/stick.py,
+	Lib/pyhsm/util.py, Tests/test_basics.py, Tests/test_hmac.py,
+	Tests/test_init.py, Tests/test_stick.py, Tests/test_util.py: 
+	polishing, more tests
+
+2011-04-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, Lib/pyhsm/base.py, setup.py: Version
+	0.9.4pre1.
+
+2011-04-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py, Lib/pyhsm/cmd.py, Lib/pyhsm/db_cmd.py,
+	Lib/pyhsm/debug_cmd.py, Lib/pyhsm/hmac_cmd.py, Lib/pyhsm/util.py,
+	Lib/pyhsm/validate_cmd.py, Lib/pyhsm/yubikey.py,
+	Tests/test_basics.py, Tests/test_buffer.py,
+	Tests/test_configure.py, Tests/test_db.py, Tests/test_hmac.py,
+	Tests/test_yubikey_validate.py: Improve test coverage, centralize
+	input validation #2.
+
+2011-04-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-password-auth.py: Mention PBKDF2.
+
+2011-04-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py, Lib/pyhsm/aes_ecb_cmd.py,
+	Lib/pyhsm/base.py, Lib/pyhsm/basic_cmd.py, Lib/pyhsm/buffer_cmd.py,
+	Lib/pyhsm/util.py, Tests/test_aes_ecb.py, Tests/test_basics.py,
+	Tests/test_configure.py: Improve test coverage, centralize input
+	validation.
+
+2011-04-01  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/run.sh: Implement --cover.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_aead.py, Tests/test_aes_ecb.py, Tests/test_common.py,
+	Tests/test_configure.py, Tests/test_hmac.py: First flags ACL tests.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/hmac_cmd.py, Tests/test_hmac.py: Make
+	base.hmac_sha1() execute() like all the others.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py, Lib/pyhsm/base.py, Lib/pyhsm/cmd.py,
+	Lib/pyhsm/db_cmd.py, Lib/pyhsm/hmac_cmd.py: pylint suggested fixes.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py, Lib/pyhsm/base.py,
+	Lib/pyhsm/secrets_cmd.py, Tests/test_aead.py, Tests/test_db.py,
+	Tests/test_otp_validate.py, Tests/test_yubikey_validate.py: Move
+	YubiKey_Secret to aead_cmd.py.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, Lib/pyhsm/aead_cmd.py, Lib/pyhsm/base.py,
+	Lib/pyhsm/basic_cmd.py, Lib/pyhsm/cmd.py, Lib/pyhsm/db_cmd.py,
+	Lib/pyhsm/debug_cmd.py, Lib/pyhsm/exception.py,
+	Lib/pyhsm/hmac_cmd.py, Lib/pyhsm/secrets_cmd.py,
+	Lib/pyhsm/validate_cmd.py, Lib/pyhsm/yubikey.py: Fix relative
+	imports.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/cmd.py: Slightly better debug and comments.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_aead.py: Two more trivial tests.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/validate_cmd.py: Inherit from YHSM_AEAD_Cmd to reduce
+	code duplication.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/validate_cmd.py, Tests/test_db.py,
+	Tests/test_yubikey_validate.py: Sort out use/session ctr confusion
+	in YubiKeyEmu.  We have a known issue where the names of the 16 bit counter and the
+	8 bit since-power-up counter in the YubiKey have diverged.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py, Lib/pyhsm/base.py, Lib/pyhsm/exception.py,
+	Tests/test_aead.py, Tests/test_yubikey_validate.py: Remove confusion
+	about validating only MACs of AEADs.  The confusing comment in YubiHSM_if.h means that if you generate an
+	AEAD with empty input, you can validate it using empty input - not
+	that you could validate MACs of AEADs separately from the rest of
+	the AEAD.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/basic_cmd.py, Lib/pyhsm/buffer_cmd.py,
+	Lib/pyhsm/hmac_cmd.py, Lib/pyhsm/stick.py, Lib/pyhsm/util.py,
+	Lib/pyhsm/validate_cmd.py, Tests/test_common.py, Tests/test_hmac.py: 
+	Increase pylint score.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aes_ecb_cmd.py: Refactor.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, yubikey-ksm/yhsm-generate-keys: Change
+	generate_secret into more generic load_random.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/buffer_cmd.py, Tests/test_buffer.py, Tests/test_init.py: 
+	Mend YHSM_Cmd_Buffer_Random_Load.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/basic_cmd.py, Lib/pyhsm/defines.py,
+	Tests/test_basics.py: Implement YSM_TEMP_KEY_LOAD.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py: Make load_secret() handle string input too.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/stick.py: Implement set_debug().
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/basic_cmd.py, Lib/pyhsm/defines.py,
+	Tests/test_basics.py: Implement YSM_RANDOM_RESEED.
+
+2011-03-31  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/basic_cmd.py, Lib/pyhsm/defines.py,
+	Tests/test_basics.py, examples/yhsm-sysinfo.py: Add command
+	YSM_NONCE_GET.
+
+2011-03-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-password-auth.py: Show AEAD on --set even without
+	--verbose.
+
+2011-03-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/basic_cmd.py, Tests/test_basics.py: Fix off-by-one
+	stealing one byte of random.
+
+2011-03-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-import-keys: documentation correction.
+
+2011-03-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-monitor-exit.py: Honor --debug.
+
+2011-03-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/yubikey.py, yubikey-val/yhsm-validate-otp: Add CLI to
+	validate YubiKey OTP's.
+
+2011-03-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/yubikey.py, Tests/test_yubikey_validate.py: Remove
+	duplicate code in test suite.
+
+2011-03-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-import-keys: Implement --internal-db to store
+	AEADs in YubiHSM internal database.
+
+2011-03-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py: Check nonce input.
+
+2011-03-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/exception.py: correct YHSM_InputTooLong string
+
+2011-03-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py, Lib/pyhsm/base.py, Lib/pyhsm/db_cmd.py,
+	Lib/pyhsm/defines.py, Lib/pyhsm/util.py, Lib/pyhsm/validate_cmd.py,
+	Tests/test_aead.py, Tests/test_aes_ecb.py, Tests/test_basics.py,
+	Tests/test_db.py, Tests/test_init.py, Tests/test_otp_validate.py,
+	Tests/test_yubikey_validate.py: Implement more commands.
+
+2011-03-29  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py, Lib/pyhsm/base.py,
+	Lib/pyhsm/buffer_cmd.py, Lib/pyhsm/defines.py,
+	Lib/pyhsm/secrets_cmd.py, Tests/test_aead.py, Tests/test_hmac.py,
+	Tests/test_init.py, Tests/test_otp_validate.py,
+	Tests/test_yubikey_validate.py, yubikey-ksm/yhsm-generate-keys,
+	yubikey-ksm/yhsm-import-keys, yubikey-ksm/yhsm-yubikey-ksm: More
+	0.9.2 stuff.
+
+2011-03-29  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aes_ecb_cmd.py, Lib/pyhsm/basic_cmd.py,
+	Lib/pyhsm/buffer_cmd.py, Lib/pyhsm/cmd.py, Lib/pyhsm/debug_cmd.py,
+	Lib/pyhsm/defines.py, Lib/pyhsm/exception.py,
+	Lib/pyhsm/hmac_cmd.py, Lib/pyhsm/validate_cmd.py,
+	Tests/test_aes_ecb.py, Tests/test_hmac.py, Tests/test_init.py: Don't
+	mangle Jakobs TLA.
+
+2011-03-29  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, Lib/pyhsm/aead_cmd.py, Lib/pyhsm/base.py,
+	Lib/pyhsm/buffer_cmd.py, Lib/pyhsm/db_cmd.py, Lib/pyhsm/defines.py,
+	Lib/pyhsm/secrets_cmd.py, Lib/pyhsm/validate_cmd.py,
+	Lib/pyhsm/yubikey.py, Tests/test_otp_validate.py,
+	Tests/test_yubikey_validate.py, yubikey-ksm/yhsm-yubikey-ksm: 
+	Assorted firmware 0.9.2 work.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/buffer_cmd.py, Lib/pyhsm/defines.py,
+	Lib/pyhsm/secrets_cmd.py, Tests/test_otp_validate.py,
+	yubikey-ksm/yhsm-generate-keys, yubikey-ksm/yhsm-import-keys: Update
+	to match firmware 0.9.2.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_aes_ecb.py: Fix bugs in tests for bad compare.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/hmac_cmd.py: Update to firmware 0.9.2.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/basic_cmd.py: Fix YHSM_Cmd_Echo, and add length check.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py: Work around small delay on YSM_NULL in firmware
+	0.9.2.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/cmd.py: YHSM_NULL command should NOT have byte count
+	prepended.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/basic_cmd.py, Lib/pyhsm/defines.py: rename
+	YHSM_RANDOM_GET to YHSM_RANDOM_GENERATE
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aes_ecb_cmd.py, Lib/pyhsm/base.py,
+	Lib/pyhsm/basic_cmd.py, Lib/pyhsm/cmd.py, Lib/pyhsm/defines.py,
+	Lib/pyhsm/hmac_cmd.py, Tests/test_aes_ecb.py,
+	Tests/test_configure.py, Tests/test_hmac.py: Update to hardware
+	version 0.9.2.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/stick.py: Add caller debug_info to read/write.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Version 0.9.2pre1
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_configure.py: New firmware requires 8 chars key handles
+	in 'keyload'.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* README: init
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-generate-keys, yhsm-import-keys, yhsm-yubikey-ksm,
+	yubikey-ksm/yhsm-generate-keys, yubikey-ksm/yhsm-import-keys,
+	yubikey-ksm/yhsm-yubikey-ksm: Move to subdirectory.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, Lib/pyhsm/base.py: more copys of the
+	copyright
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Version 0.9.0.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-password-auth.py: init
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_aes_ecb.py, Tests/test_basics.py,
+	Tests/test_common.py, Tests/test_configure.py, Tests/test_hmac.py,
+	Tests/test_init.py, Tests/test_otp_validate.py,
+	Tests/test_yubikey_validate.py: Initialization cleanup.
+
+2011-03-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, Lib/pyhsm/base.py, Lib/pyhsm/defines.py,
+	Lib/pyhsm/exception.py, Lib/pyhsm/hmac_cmd.py,
+	Tests/test_configure.py, Tests/test_hmac.py, Tests/test_init.py: 
+	Implement HMAC SHA1 command.
+
+2011-03-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, Lib/pyhsm/aes_ecb_cmd.py,
+	Lib/pyhsm/base.py, Lib/pyhsm/defines.py, Tests/test_aes_ecb.py,
+	Tests/test_configure.py, Tests/test_init.py: Implement AES ECB
+	encrypt/decrypt/compare.
+
+2011-03-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, Lib/pyhsm/base.py, Lib/pyhsm/basic_cmd.py,
+	Lib/pyhsm/cmd.py, Lib/pyhsm/debug_cmd.py, Lib/pyhsm/defines.py,
+	Lib/pyhsm/exception.py, Lib/pyhsm/secrets_cmd.py,
+	Lib/pyhsm/stick.py, Lib/pyhsm/util.py, Lib/pyhsm/validate_cmd.py,
+	Lib/pyhsm/yubikey.py, Lib/serveronstick/__init__.py,
+	Lib/serveronstick/base.py, Lib/serveronstick/basic_cmd.py,
+	Lib/serveronstick/cmd.py, Lib/serveronstick/debug_cmd.py,
+	Lib/serveronstick/defines.py, Lib/serveronstick/exception.py,
+	Lib/serveronstick/secrets_cmd.py, Lib/serveronstick/stick.py,
+	Lib/serveronstick/util.py, Lib/serveronstick/validate_cmd.py,
+	Lib/serveronstick/yubikey.py, Tests/test_basics.py,
+	Tests/test_common.py, Tests/test_configure.py, Tests/test_init.py,
+	Tests/test_otp_validate.py, Tests/test_yubikey_validate.py,
+	examples/yhsm-monitor-exit.py, examples/yhsm-sysinfo.py, setup.py,
+	sos-generate-keys, sos-import-keys, sos-yubikey-ksm,
+	yhsm-generate-keys, yhsm-import-keys, yhsm-yubikey-ksm: Massive
+	rename.  In-house working name during development was Server-on-Stick, but
+	the product name will be YubiHSM.
+
+2011-03-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* COPYING: init
+
+2011-03-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* .gitignore: add tmp
+
+2011-03-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-monitor-exit.py, examples/yhsm-sysinfo.py: Add
+	examples.
+
+2011-03-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_configure.py, Tests/test_init.py,
+	Tests/test_otp_validate.py, Tests/test_yubikey_validate.py: Add
+	YubiKey OTP validation tests.
+
+2011-03-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_configure.py: Set up an OTP validation key.
+
+2011-03-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_common.py, Tests/test_configure.py,
+	Tests/test_init.py, Tests/test_otp_validate.py: More tests.
+
+2011-03-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/secrets_cmd.py: Fix off-by-one bug in public_id
+	extraction from generated blob response.
+
+2011-03-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/exception.py: Store status for SoS_CommandFailed
+	exception.
+
+2011-03-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/base.py, Lib/serveronstick/stick.py,
+	Tests/test_common.py, Tests/test_init.py: Configuration of
+	test-keys.
+
+2011-03-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/__init__.py, Lib/serveronstick/base.py,
+	Lib/serveronstick/debug_cmd.py, Lib/serveronstick/defines.py: 
+	Implement monitor_exit command, for testing.
+
+2011-03-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/run.sh, Tests/test_basics.py, Tests/test_common.py,
+	Tests/test_init.py, setup.py: Add first test cases.
+
+2011-03-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/base.py, Lib/serveronstick/basic_cmd.py: Bugfix
+	random number generation after refactoring.
+
+2011-03-20  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/__init__.py: HW version 0.9.0
+
+2011-03-20  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/__init__.py: Works with hardware 0.3.0.
+
+2011-03-10  Simon Josefsson <simon@josefsson.org>
+
+	* sos-yubikey-ksm: Drop spurious \n.
+
+2011-03-10  Simon Josefsson <simon@josefsson.org>
+
+	* sos-yubikey-ksm: Improve log message to keep in sync with PHP
+	yubikey-ksm.
+
+2011-03-10  Fredrik Thulin <fredrik@yubico.com>
+
+	* sos-yubikey-ksm: Handle exceptions from SoS, respond 'ERR'.
+
+2011-03-10  Simon Josefsson <simon@josefsson.org>
+
+	* sos-yubikey-ksm: Make KSM output be consistent with current KSMs
+	(use vs session counter).
+
+2011-03-09  Fredrik Thulin <fredrik@yubico.com>
+
+	* sos-yubikey-ksm: Disable DNS resolving and just log client IP.
+
+2011-03-09  Simon Josefsson <simon@josefsson.org>
+
+	* sos-yubikey-ksm: Make syslog output match yubikey-ksm PHP server.
+
+2011-03-09  Simon Josefsson <simon@josefsson.org>
+
+	* sos-yubikey-ksm: Low timestamp is also 16-bit.
+
+2011-03-09  Simon Josefsson <simon@josefsson.org>
+
+	* sos-yubikey-ksm: Comply with KSM protocol.
+
+2011-03-09  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/util.py, sos-generate-keys, sos-import-keys,
+	sos-yubikey-ksm: Change blob filename hashing to get at most 256
+	entrys per directory.
+
+2011-03-09  Fredrik Thulin <fredrik@yubico.com>
+
+	* sos-generate-keys, sos-import-keys, sos-yubikey-ksm: Change
+	default device to /dev/ttyACM0.
+
+2011-03-09  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/defines.py: comment
+
+2011-03-09  Fredrik Thulin <fredrik@yubico.com>
+
+	* sos-yubikey-ksm: Don't use hard-coded length for serve_url now
+	that it is an option.
+
+2011-03-09  Fredrik Thulin <fredrik@yubico.com>
+
+	* sos-yubikey-ksm: Check that from_key is 32-48 bytes of modhex.
+
+2011-03-09  Fredrik Thulin <fredrik@yubico.com>
+
+	* sos-yubikey-ksm: Log to syslog, and reduce number of global
+	variables.
+
+2011-02-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* sos-generate-keys, sos-import-keys, sos-yubikey-ksm: init,
+	seemingly working tools
+
+2011-02-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/util.py: Add key_handle_to_int.
+
+2011-02-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/secrets_cmd.py: Add store/load to file.
+
+2011-02-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/validate_cmd.py: Fix command name in exception.
+
+2011-02-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/yubikey.py: Add split_id_otp function.
+
+2011-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/defines.py, Lib/serveronstick/exception.py: more
+	readable errors
+
+2011-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/__init__.py: Import SoS from base.
+
+2011-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/exception.py: Print bad command status in hex.
+
+2011-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/stick.py: Handle open errors better.
+
+2011-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/yubikey.py: add modhex_encode
+
+2011-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* sos-generate-keys: writes to files
+
+2011-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* sos-generate-keys: init, actually writing blobs to disk remain
+
+2011-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/base.py, Lib/serveronstick/basic_cmd.py,
+	Lib/serveronstick/secrets_cmd.py, Lib/serveronstick/util.py,
+	Lib/serveronstick/yubikey.py: More pylint - variable renames.
+
+2011-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/validate_cmd.py: Implement class for validation
+	response.
+
+2011-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/base.py, Lib/serveronstick/basic_cmd.py,
+	Lib/serveronstick/cmd.py, Lib/serveronstick/exception.py,
+	Lib/serveronstick/secrets_cmd.py, Lib/serveronstick/stick.py,
+	Lib/serveronstick/validate_cmd.py, Lib/serveronstick/yubikey.py: 
+	pylint run
+
+2011-02-23  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/__init__.py, Lib/serveronstick/exception.py,
+	Lib/serveronstick/secrets_cmd.py: Improve generate_blob.
+
+2011-02-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/secrets_cmd.py,
+	Lib/serveronstick/validate_cmd.py: bugfixes
+
+2011-02-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/base.py, Lib/serveronstick/basic_cmd.py,
+	Lib/serveronstick/cmd.py, Lib/serveronstick/defines.py,
+	Lib/serveronstick/exception.py, Lib/serveronstick/secrets_cmd.py,
+	Lib/serveronstick/stick.py, Lib/serveronstick/validate_cmd.py,
+	Lib/serveronstick/yubikey.py: Major refactoring. Can actually
+	validate OTPs now.
+
+2011-02-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* .gitignore, Lib/serveronstick/base.py,
+	Lib/serveronstick/basic_cmd.py, Lib/serveronstick/cmd.py,
+	Lib/serveronstick/defines.py, Lib/serveronstick/secrets_cmd.py: 
+	Implement load/generate secrets etc.
+
+2011-02-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/serveronstick/basic_cmd.py, Lib/serveronstick/cmd.py: 
+	Refactoring
+
+2011-02-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* init, first nights work
+
