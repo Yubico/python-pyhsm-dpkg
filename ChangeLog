@@ -1,3 +1,12 @@
+2012-01-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Prepare version 1.0.3b.
+
+2012-01-02  Fredrik Thulin <fredrik@yubico.com>
+
+	* .gitattributes: Include maintainer scripts in release tar-balls.  Adapt to the Debian (?) definition of source: "preferred form for
+	modification, including build scripts, etc".
+
 2011-12-22  Fredrik Thulin <fredrik@yubico.com>
 
 	* Lib/pyhsm/__init__.py, setup.py: Prepare version 1.0.3a.
