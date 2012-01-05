@@ -68,7 +68,7 @@ do_start()
 
 	if [ "x$YHSM_KSM_UNLOCK_PASSPHRASE" != "x" ]; then
 	    log_daemon_msg "Unlocking YubiHSM key store" "$NAME"
-	    echo "$YHSM_KSM_UNLOCK_PASSPHRASE" | /usr/sbin/yhsm-keystore-unlock -q --no-otp --device "$YHSM_KSM_DEVICE"
+	    echo "$YHSM_KSM_UNLOCK_PASSPHRASE" | /usr/sbin/yhsm-keystore-unlock --stdin --no-otp --device "$YHSM_KSM_DEVICE"
 	    if [ $? -ne 0 ]; then
 		log_failure_msg "Failed unlocking YubiHSM key store"
 		return 2
