@@ -1,3 +1,16 @@
+2012-01-05  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_configure.py: Mend OTP replay in unlock test.
+
+2012-01-05  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Prepare version 1.0.3c.
+
+2012-01-05  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-keystore-unlock, utils/yhsm-keystore-unlock.1: Add
+	--stdin to read (piped) input from stdin.
+
 2012-01-02  Fredrik Thulin <fredrik@yubico.com>
 
 	* Lib/pyhsm/__init__.py, setup.py: Prepare version 1.0.3b.
