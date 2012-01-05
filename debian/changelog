@@ -1,5 +1,5 @@
-python-pyhsm (1.0.3b-1) unstable; urgency=low
+python-pyhsm (1.0.3c-1) unstable; urgency=low
 
   * Initial release.
 
- -- Fredrik Thulin <fredrik@yubico.com>  Mon, 02 Jan 2012 15:13:44 +0100
+ -- Fredrik Thulin <fredrik@yubico.com>  Thu, 05 Jan 2012 20:08:43 +0100
