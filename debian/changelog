@@ -1,8 +1,12 @@
 python-pyhsm (1.0.3c-2) unstable; urgency=low
 
+  [ Fredrik Thulin ]
   * Fix package policy violations. Closes: #656205
 
- -- Fredrik Thulin <fredrik@yubico.com>  Wed, 18 Jan 2012 20:19:00 +0100
+  [ Simon Josefsson ]
+  * Add yhsm-docs.doc-base.
+
+ -- Simon Josefsson <simon@josefsson.org>  Wed, 18 Jan 2012 20:23:42 +0100
 
 python-pyhsm (1.0.3c-1) unstable; urgency=low
 
