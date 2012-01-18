@@ -1,3 +1,9 @@
+python-pyhsm (1.0.3c-2) unstable; urgency=low
+
+  * Fix package policy violations. Closes: #656205
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Wed, 18 Jan 2012 20:19:00 +0100
+
 python-pyhsm (1.0.3c-1) unstable; urgency=low
 
   * Initial release.
