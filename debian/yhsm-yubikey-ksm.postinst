@@ -17,12 +17,10 @@
 set -e
 
 if [ "x$1" = "xconfigure" ]; then
-    MYUSERNAME="yhsm-ksmsrv"
+    adduser --quiet --system --group --home /var/cache/yubikey-ksm --no-create-home --disabled-password --system yhsm-ksmsrv
 
-    adduser --quiet --system --group --disabled-password --system --shell /bin/sh $MYUSERNAME
-
-    # $MYUSERNAME needs to be in the 'dialout' group to access /dev/ttyACM*
-    adduser --quiet $MYUSERNAME dialout
+    # yhsm-ksmsrv needs to be in the 'dialout' group to access /dev/ttyACM*
+    adduser --quiet yhsm-ksmsrv dialout
 fi
 
 invoke-rc.d yhsm-yubikey-ksm restart

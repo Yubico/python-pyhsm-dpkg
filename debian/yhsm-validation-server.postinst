@@ -17,12 +17,10 @@
 set -e
 
 if [ "x$1" = "xconfigure" ]; then
-    MYUSERNAME="yhsm-valsrv"
+    adduser --quiet --system --group --home /var/cache/yubikey-val --no-create-home --disabled-password --system yhsm-valsrv
 
-    adduser --quiet --system --group --disabled-password --system --shell /bin/sh $MYUSERNAME
-
-    # $MYUSERNAME needs to be in the 'dialout' group to access /dev/ttyACM*
-    adduser --quiet $MYUSERNAME dialout
+    # yhsm-valsrv needs to be in the 'dialout' group to access /dev/ttyACM*
+    adduser --quiet yhsm-valsrv dialout
 fi
 
 invoke-rc.d yhsm-validation-server restart

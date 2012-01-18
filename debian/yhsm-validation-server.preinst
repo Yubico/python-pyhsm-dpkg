@@ -1,0 +1,44 @@
+#! /bin/sh
+#
+# see: dh_installdeb(1)
+#
+# summary of how this script can be called:
+#        * <new-preinst> `install'
+#        * <new-preinst> `install' <old-version>
+#        * <new-preinst> `upgrade' <old-version>
+#        * <old-preinst> `abort-upgrade' <new-version>
+#
+# for details, see http://www.debian.org/doc/debian-policy/ or
+# the debian-policy package
+
+set -e
+
+case "$1" in
+    upgrade)
+        if [ "x$2" != "x" ]; then
+	    if dpkg --compare-versions "$2" le "1.0.3c-1"; then
+		if getent passwd yhsm-valsrv | grep -q ":/home/yhsm-valsrv:"; then
+		    # Version 1.0.3c-1 of this package accidentally created a home directory
+		    # for the service user
+		    usermod -d /var/cache/yubikey-val yhsm-valsrv
+		    rmdir /home/yhsm-valsrv
+		fi
+		if getent passwd yhsm-valsrv | grep -q ":/bin/sh$"; then
+		    # Version 1.0.3c-1 of this package set a shell on the service user,
+		    # although one is not necessary
+		    usermod -s /bin/false yhsm-valsrv
+		fi
+	    fi
+	fi
+	;;
+
+    install|abort-upgrade)
+	;;
+
+    *)
+        echo "preinst called with unknown argument \`$1'" >&2
+        exit 1
+	;;
+esac
+
+#DEBHELPER#
