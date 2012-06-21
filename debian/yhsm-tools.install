@@ -1,2 +1,4 @@
 utils/yhsm-keystore-unlock usr/sbin/
 utils/yhsm-linux-add-entropy usr/sbin/
+utils/yhsm-generate-keys usr/bin/
+utils/yhsm-decrypt-aead usr/bin/
