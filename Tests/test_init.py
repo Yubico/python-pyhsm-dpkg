@@ -18,6 +18,7 @@ import test_stick
 import test_util
 import test_yubikey_validate
 import test_misc
+import test_soft_hsm
 
 test_modules = [test_aead,
                 test_aes_ecb,
@@ -31,6 +32,7 @@ test_modules = [test_aead,
                 test_util,
                 test_yubikey_validate,
                 test_misc,
+                test_soft_hsm,
                 ]
 
 # special, should not be addded to test_modules
@@ -61,8 +63,6 @@ def suite():
         else:
             if e.status != pyhsm.defines.YSM_KEY_STORAGE_LOCKED and \
                     e.status != pyhsm.defines.YSM_FUNCTION_DISABLED:
-                raise
-            if e.status != pyhsm.defines.YSM_KEY_STORAGE_LOCKED:
                 raise
 
     zap = []

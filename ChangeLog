@@ -1,3 +1,108 @@
+2012-06-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py: mend epydoc generation
+
+2012-06-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* COPYING, Lib/pyhsm/__init__.py, setup.py: Prepare for release
+	1.0.4.
+
+2012-06-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-decrypt-aead: Minor bugfixes.
+
+2012-06-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-decrypt-aead.1, utils/yhsm-generate-keys.1: init
+
+2012-06-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-keystore-unlock.1, utils/yhsm-linux-add-entropy.1: 
+	copy-paste remains
+
+2012-06-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-generate-keys: Produce meaningful exit-status.
+
+2012-06-21  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-generate-keys: Not an example anymore (moved to
+	utils/), bye.
+
+2012-06-20  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-generate-keys: Not an example anymore.
+
+2012-06-20  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-generate-keys: Update comment with info about new
+	yhsm-decrypt-aead.
+
+2012-06-20  Fredrik Thulin <fredrik@yubico.com>
+
+	* examples/yhsm-generate-keys: Make work again.
+
+2012-06-20  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-decrypt-aead: init
+
+2012-06-20  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/soft_hsm.py, Tests/test_init.py, Tests/test_soft_hsm.py: 
+	Handle messages not multiple of block-size long.
+
+2012-06-20  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, Lib/pyhsm/base.py, Lib/pyhsm/soft_hsm.py,
+	Tests/test_soft_hsm.py: Implement AES CCM a'la YubiHSM in software.
+
+2012-06-19  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_common.py: Tweak comment.
+
+2012-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py: Store nonce used when generating an AEAD
+	when saving an AEAD to file.  If a nonce different from the public_id is used when generating an
+	AEAD, we must keep track of the nonce separately. This commit
+	changes the file format used, but should be backwards compatible by
+	using the public_id as nonce on load() if the old file format is
+	detected.
+
+2012-01-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_yubikey_validate.py: Remove surplus comments.
+
+2012-01-25  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_configure.py, Tests/test_otp_validate.py: Key 0x1002
+	also needs YSM_USER_NONCE now.
+
+2012-01-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/db_cmd.py, Lib/pyhsm/defines.py,
+	Lib/pyhsm/version.py, Tests/test_db.py, doc/YubiHSM_if.h: Implement
+	YSM_DB_YUBIKEY_AEAD_STORE2.
+
+2012-01-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_aead.py, Tests/test_configure.py: Test
+	FLAG_USER_NONCE_ENABLE.
+
+2012-01-20  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py, Lib/pyhsm/util.py, Tests/test_aead.py: Make
+	AEAD generation with HSM generated nonce work.
+
+2012-02-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/aead_cmd.py, Lib/pyhsm/base.py, Lib/pyhsm/cmd.py: 
+	Documentation updates.
+
+2012-01-11  Fredrik Thulin <fredrik@yubico.com>
+
+	* Tests/test_init.py: Another fix for 0.9.8 testing.
+
 2012-01-05  Fredrik Thulin <fredrik@yubico.com>
 
 	* Tests/test_configure.py: Mend OTP replay in unlock test.

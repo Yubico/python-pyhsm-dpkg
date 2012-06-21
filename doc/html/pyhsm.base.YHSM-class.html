@@ -603,7 +603,8 @@
           <td><span class="summary-sig"><a href="pyhsm.base.YHSM-class.html#db_store_yubikey" class="summary-sig-name">db_store_yubikey</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">public_id</span>,
         <span class="summary-sig-arg">key_handle</span>,
-        <span class="summary-sig-arg">aead</span>)</span><br />
+        <span class="summary-sig-arg">aead</span>,
+        <span class="summary-sig-arg">nonce</span>=<span class="summary-sig-default">None</span>)</span><br />
       Ask YubiHSM to store data about a YubiKey in the internal database 
       (not buffer).</td>
           <td align="right" valign="top">
@@ -723,8 +724,8 @@
         <dd>data read from YubiHSM -- should equal `data'</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a href="pyhsm.basic_cmd.YHSM_Cmd_Echo-class.html#parse_result" 
-        class="link">pyhsm.basic_cmd.YHSM_Cmd_Echo.parse_result</a>
+        <a href="pyhsm.basic_cmd.YHSM_Cmd_Echo-class.html" 
+        class="link">pyhsm.basic_cmd.YHSM_Cmd_Echo</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -749,9 +750,8 @@
         <dd>System information</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.basic_cmd.YHSM_Cmd_System_Info-class.html#parse_result"
-        class="link">pyhsm.basic_cmd.YHSM_Cmd_System_Info.parse_result</a>
+        <a href="pyhsm.basic_cmd.YHSM_Cmd_System_Info-class.html" 
+        class="link">pyhsm.basic_cmd.YHSM_Cmd_System_Info</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -782,8 +782,8 @@
         <dd>Bytes with random data</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a href="pyhsm.basic_cmd.YHSM_Cmd_Random-class.html#parse_result" 
-        class="link">pyhsm.basic_cmd.YHSM_Cmd_Random.parse_result</a>
+        <a href="pyhsm.basic_cmd.YHSM_Cmd_Random-class.html" 
+        class="link">pyhsm.basic_cmd.YHSM_Cmd_Random</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -812,10 +812,8 @@
         <dd>True on success</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.basic_cmd.YHSM_Cmd_Random_Reseed-class.html#parse_result"
-        
-        class="link">pyhsm.basic_cmd.YHSM_Cmd_Random_Reseed.parse_result</a>
+        <a href="pyhsm.basic_cmd.YHSM_Cmd_Random_Reseed-class.html" 
+        class="link">pyhsm.basic_cmd.YHSM_Cmd_Random_Reseed</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -846,9 +844,8 @@
         <dd>nonce value _before_ increment</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get-class.html#parse_result" 
-        class="link">pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get.parse_result</a>
+        <a href="pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get-class.html" 
+        class="link">pyhsm.basic_cmd.YHSM_Cmd_Nonce_Get</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -883,10 +880,8 @@
         <dd>True on success</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_Load-class.html#parse_result"
-        
-        class="link">pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_Load.parse_result</a>
+        <a href="pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_Load-class.html" 
+        class="link">pyhsm.basic_cmd.YHSM_Cmd_Temp_Key_Load</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -925,13 +920,10 @@
   </dl>
 <div class="fields">      <dl><dt>See Also:</dt>
         <dd>
-          <a 
-          href="pyhsm.basic_cmd.YHSM_Cmd_Key_Storage_Unlock-class.html#parse_result"
-          
-          class="link">pyhsm.basic_cmd.YHSM_Cmd_Key_Storage_Unlock.parse_result</a>,
-          <a 
-          href="pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock-class.html#parse_result"
-          class="link">pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock.parse_result</a>
+          <a href="pyhsm.basic_cmd.YHSM_Cmd_Key_Storage_Unlock-class.html" 
+          class="link">pyhsm.basic_cmd.YHSM_Cmd_Key_Storage_Unlock</a>,
+          <a href="pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock-class.html" 
+          class="link">pyhsm.basic_cmd.YHSM_Cmd_HSM_Unlock</a>
         </dd>
       </dl>
 </div></td></tr></table>
@@ -993,9 +985,8 @@
         <dd>Number of bytes in YubiHSM internal buffer after load</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load-class.html#parse_result"
-        class="link">pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load.parse_result</a>
+        <a href="pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load-class.html" 
+        class="link">pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1032,9 +1023,8 @@
         <dd>Number of bytes in YubiHSM internal buffer after load</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load-class.html#parse_result"
-        class="link">pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load.parse_result</a>
+        <a href="pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load-class.html" 
+        class="link">pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Load</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1070,10 +1060,8 @@
         <dd>Number of bytes in YubiHSM internal buffer after load</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Random_Load-class.html#parse_result"
-        
-        class="link">pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Random_Load.parse_result</a>
+        <a href="pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Random_Load-class.html" 
+        class="link">pyhsm.buffer_cmd.YHSM_Cmd_Buffer_Random_Load</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1108,8 +1096,8 @@
         <dd>The generated AEAD on success.</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a href="pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html#parse_result" 
-        class="link">pyhsm.aead_cmd.YHSM_Cmd_AEAD_Generate.parse_result</a>
+        <a href="pyhsm.aead_cmd.YHSM_Cmd_AEAD_Generate-class.html" 
+        class="link">pyhsm.aead_cmd.YHSM_Cmd_AEAD_Generate</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1145,8 +1133,8 @@
         <dd>The generated AEAD on success.</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a href="pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html#parse_result" 
-        class="link">pyhsm.aead_cmd.YHSM_Cmd_AEAD_Random_Generate.parse_result</a>
+        <a href="pyhsm.aead_cmd.YHSM_Cmd_AEAD_Random_Generate-class.html" 
+        class="link">pyhsm.aead_cmd.YHSM_Cmd_AEAD_Random_Generate</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1185,8 +1173,8 @@
         <dd>The generated AEAD on success.</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a href="pyhsm.aead_cmd.YHSM_AEAD_Cmd-class.html#parse_result" 
-        class="link">pyhsm.aead_cmd.YHSM_Cmd_AEAD_Buffer_Generate.parse_result</a>
+        <a href="pyhsm.aead_cmd.YHSM_Cmd_AEAD_Buffer_Generate-class.html" 
+        class="link">pyhsm.aead_cmd.YHSM_Cmd_AEAD_Buffer_Generate</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1226,10 +1214,8 @@
         <dd>Whether or not the cleartext matches the contents of the AEAD.</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.aead_cmd.YHSM_Cmd_AEAD_Decrypt_Cmp-class.html#parse_result"
-        
-        class="link">pyhsm.aead_cmd.YHSM_Cmd_AEAD_Decrypt_Cmp.parse_result</a>
+        <a href="pyhsm.aead_cmd.YHSM_Cmd_AEAD_Decrypt_Cmp-class.html" 
+        class="link">pyhsm.aead_cmd.YHSM_Cmd_AEAD_Decrypt_Cmp</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1267,10 +1253,8 @@
         <dd>validation response</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP-class.html#parse_result"
-        
-        class="link">pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP.parse_result</a>
+        <a href="pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP-class.html" 
+        class="link">pyhsm.validate_cmd.YHSM_Cmd_AEAD_Validate_OTP</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1450,10 +1434,8 @@
         using it!
       </p>
       <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Compare-class.html#parse_result"
-        
-        class="link">pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Compare.parse_result</a>
+        <a href="pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Compare-class.html" 
+        class="link">pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Compare</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1501,10 +1483,8 @@
         <dd>HMAC-SHA1 instance</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write-class.html#parse_result"
-        
-        class="link">pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write.parse_result</a>
+        <a href="pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write-class.html" 
+        class="link">pyhsm.hmac_cmd.YHSM_Cmd_HMAC_SHA1_Write</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1518,7 +1498,8 @@
   <h3 class="epydoc"><span class="sig"><span class="sig-name">db_store_yubikey</span>(<span class="sig-arg">self</span>,
         <span class="sig-arg">public_id</span>,
         <span class="sig-arg">key_handle</span>,
-        <span class="sig-arg">aead</span>)</span>
+        <span class="sig-arg">aead</span>,
+        <span class="sig-arg">nonce</span>=<span class="sig-default">None</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     >&nbsp;
@@ -1538,15 +1519,14 @@
         <li><strong class="pname"><code>aead</code></strong> (<a href="pyhsm.aead_cmd.YHSM_GeneratedAEAD-class.html" 
           class="link">YHSM_GeneratedAEAD</a> or string) - AEAD of an <a href="pyhsm.aead_cmd.YHSM_YubiKeySecret-class.html"
           class="link">pyhsm.aead_cmd.YHSM_YubiKeySecret</a></li>
+        <li><strong class="pname"><code>nonce</code></strong> (None or string) - Nonce, if different from public_id.</li>
     </ul></dd>
     <dt>Returns: bool</dt>
         <dd>True on success</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_Store-class.html#parse_result"
-        
-        class="link">pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_Store.parse_result</a>
+        <a href="pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_Store-class.html" 
+        class="link">pyhsm.db_cmd.YHSM_Cmd_DB_YubiKey_Store</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1579,9 +1559,8 @@
         <dd>validation response</dd>
   </dl>
 <div class="fields">      <p><strong>See Also:</strong>
-        <a 
-        href="pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP-class.html#parse_result"
-        class="link">pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP.parse_result</a>
+        <a href="pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP-class.html" 
+        class="link">pyhsm.db_cmd.YHSM_Cmd_DB_Validate_OTP</a>
       </p>
 </div></td></tr></table>
 </div>
@@ -1617,7 +1596,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Jan  5 10:29:46 2012
+    Generated by Epydoc 3.0.1 on Thu Jun 21 21:30:34 2012
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
