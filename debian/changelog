@@ -1,5 +1,6 @@
 python-pyhsm (1.0.4-1) unstable; urgency=low
 
+  [ Fredrik Thulin ]
   * New upstream release matching firmware 1.0.4.
     - Firmware adds flag YSM_USER_NONCE to address security problem
       for some usages where AEADs could be decrypted by an attacker
@@ -11,7 +12,10 @@ python-pyhsm (1.0.4-1) unstable; urgency=low
   * Tools to generate YubiKey secrets into AEADs as well as decrypt
     them to enable provisioning YubiKeys with the secrets.
 
- -- Fredrik Thulin <fredrik@yubico.com>  Thu, 21 Jun 2012 21:52:53 +0200
+  [ Simon Josefsson ]
+  * Bump to Debian Policy version 3.9.3.
+
+ -- Simon Josefsson <simon@josefsson.org>  Sun, 24 Jun 2012 21:27:20 +0200
 
 python-pyhsm (1.0.3c-2) unstable; urgency=low
 
