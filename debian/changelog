@@ -1,3 +1,11 @@
+python-pyhsm (1.0.4a-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
+
+  * New upstream release.
+    - Enable IPv6 --addr for network servers.
+    - Verifies communication with YubiHSM on initialization.
+
+ -- Fredrik Thulin <fredrik@yubico.com>  Tue, 26 Jun 2012 13:56:38 +0200
+
 python-pyhsm (1.0.4-1~ppa1~ppadisttarget1) ppadisttarget; urgency=low
 
   * New upstream release matching firmware 1.0.4.
