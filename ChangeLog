@@ -1,3 +1,18 @@
+2012-06-26  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/__init__.py, setup.py: Prepare version 1.0.4a.
+
+2012-06-26  Fredrik Thulin <fredrik@yubico.com>
+
+	* Lib/pyhsm/base.py: Verify that data we send to and receive from
+	the YubiHSM isn't mangled.
+
+2012-06-26  Fredrik Thulin <fredrik@yubico.com>
+
+	* yhsm-val/yhsm-validation-server, yubikey-ksm/yhsm-yubikey-ksm: 
+	Handle IPv6 addresses in --addr.  We need to set address_family to AF_INET6 manually, since
+	SocketServer.TCPserver() always try to use AF_INET.
+
 2012-06-21  Fredrik Thulin <fredrik@yubico.com>
 
 	* Lib/pyhsm/aead_cmd.py: mend epydoc generation

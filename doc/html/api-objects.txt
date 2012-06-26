@@ -216,6 +216,7 @@ pyhsm.cmd.YHSM_Cmd._handle_invalid_read_response	pyhsm.cmd.YHSM_Cmd-class.html#_
 pyhsm.cmd.YHSM_Cmd._read_response	pyhsm.cmd.YHSM_Cmd-class.html#_read_response
 pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Encrypt.__init__	pyhsm.aes_ecb_cmd.YHSM_Cmd_AES_ECB_Encrypt-class.html#__init__
 pyhsm.base.YHSM	pyhsm.base.YHSM-class.html
+pyhsm.base.YHSM.test_comm	pyhsm.base.YHSM-class.html#test_comm
 pyhsm.base.YHSM.random	pyhsm.base.YHSM-class.html#random
 pyhsm.base.YHSM.echo	pyhsm.base.YHSM-class.html#echo
 pyhsm.base.YHSM.key_storage_unlock	pyhsm.base.YHSM-class.html#key_storage_unlock
@@ -226,11 +227,11 @@ pyhsm.base.YHSM.set_debug	pyhsm.base.YHSM-class.html#set_debug
 pyhsm.base.YHSM.aes_ecb_decrypt	pyhsm.base.YHSM-class.html#aes_ecb_decrypt
 pyhsm.base.YHSM.load_temp_key	pyhsm.base.YHSM-class.html#load_temp_key
 pyhsm.base.YHSM.generate_aead_random	pyhsm.base.YHSM-class.html#generate_aead_random
-pyhsm.base.YHSM.load_random	pyhsm.base.YHSM-class.html#load_random
+pyhsm.base.YHSM.validate_aead	pyhsm.base.YHSM-class.html#validate_aead
 pyhsm.base.YHSM.reset	pyhsm.base.YHSM-class.html#reset
 pyhsm.base.YHSM.validate_aead_otp	pyhsm.base.YHSM-class.html#validate_aead_otp
 pyhsm.base.YHSM.load_secret	pyhsm.base.YHSM-class.html#load_secret
-pyhsm.base.YHSM.validate_aead	pyhsm.base.YHSM-class.html#validate_aead
+pyhsm.base.YHSM.load_random	pyhsm.base.YHSM-class.html#load_random
 pyhsm.base.YHSM.generate_aead	pyhsm.base.YHSM-class.html#generate_aead
 pyhsm.base.YHSM.aes_ecb_compare	pyhsm.base.YHSM-class.html#aes_ecb_compare
 pyhsm.base.YHSM.hmac_sha1	pyhsm.base.YHSM-class.html#hmac_sha1
