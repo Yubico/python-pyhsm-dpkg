@@ -22,7 +22,7 @@ YHSM_KSM_KEYHANDLES=""
 # If you have protected the key store of your YubiHSM with a 'master key'
 # (recommended), the key store must be unlocked before any validations can
 # be performed. Either log in to your server after every reboot and unlock
-# the key store manually (recommended), or enter the 'mastre key' in this
+# the key store manually (recommended), or enter the 'master key' in this
 # variable to have the startup script unlock the key store for you (less
 # secure). To unlock manually, use /usr/sbin/yhsm-keystore-unlock.
 #
