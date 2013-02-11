@@ -23,7 +23,7 @@ The input is supposed to be a comma-separated list of entrys like this
 This is also the format of a database export from a traditional YK-KSM.
 """
 #
-# Copyright (c) 2011 Yubico AB
+# Copyright (c) 2011, 2012 Yubico AB
 # See the file COPYING for licence statement.
 #
 
@@ -90,11 +90,20 @@ def parse_args():
                         action='store_true', default=False,
                         help='Store key in YubiHSM internal database',
                         )
+    parser.add_argument('--aes-key',
+                        dest='aes_key',
+                        required=False, default=None,
+                        help='AES key to use when generating AEADs (no YubiHSM)',
+                        metavar='HEXSTR',
+                        )
 
     args = parser.parse_args()
     if args.internal_db:
         if len(args.key_handles) != 1:
-            sys.stderr.write("--internal-db requires exactly one key handle.")
+            sys.stderr.write("--internal-db requires exactly one key handle.\n")
+            sys.exit(1)
+        if args.aes_key:
+            sys.stderr.write("--internal-db incompatible with --aes-key.\n")
             sys.exit(1)
     return args
 
@@ -103,6 +112,8 @@ def args_fixup(args):
         sys.stderr.write("Output directory '%s' does not exist.\n" % (args.output_dir))
         sys.exit(1)
 
+    if args.aes_key:
+        args.aes_key = args.aes_key.decode('hex')
     keyhandles_fixup(args)
 
 
@@ -130,6 +141,9 @@ def import_keys(hsm, args):
     #123456,ftftftcccc,534543524554,fcacd309a20ce1809c2db257f0e8d6ea,000000000000,,,
 
     for line in sys.stdin:
+        if line[0] == '#':
+            continue
+
         l = line.split(',')
         modhex_id = l[1]
         uid = l[2].decode('hex')
@@ -139,14 +153,26 @@ def import_keys(hsm, args):
             public_id = pyhsm.yubikey.modhex_decode(modhex_id)
             padded_id = modhex_id.rjust(args.public_id_chars, 'c')
 
+        if int(public_id, 16) == 0:
+            print "WARNING: Skipping import of key with public ID: %s" % (padded_id)
+            print "This public ID is unsupported by the YubiHSM.\n"
+            continue
+
         if args.verbose:
             print "  %s" % (padded_id)
 
         secret = pyhsm.aead_cmd.YHSM_YubiKeySecret(key, uid)
-        hsm.load_secret(secret)
+        if hsm:
+            hsm.load_secret(secret)
 
         for kh in args.key_handles.keys():
-            aead = hsm.generate_aead(public_id.decode('hex'), kh)
+            if hsm:
+                aead = hsm.generate_aead(public_id.decode('hex'), kh)
+            else:
+                nonce = public_id.decode('hex')
+                ct = pyhsm.soft_hsm.aesCCM(args.aes_key, kh, nonce, secret.pack(), decrypt = False)
+                aead = pyhsm.aead_cmd.YHSM_GeneratedAEAD(nonce, kh, ct)
+
             if args.internal_db:
                 if not store_in_internal_db(args, hsm, modhex_id, public_id, kh, aead):
                     res = False
@@ -219,7 +245,10 @@ def main():
     print "YHSM device		: %s" % (args.device)
     print ""
 
-    hsm = pyhsm.YHSM(device = args.device, debug=args.debug)
+    if not args.aes_key:
+        hsm = pyhsm.YHSM(device = args.device, debug=args.debug)
+    else:
+        hsm = None
 
     return not import_keys(hsm, args)
 
