@@ -1,3 +1,88 @@
+2013-02-11  Dain Nilsson <dain@yubico.com>
+
+	* NEWS: Updated NEWS
+
+2013-02-11  Dain Nilsson <dain@yubico.com>
+
+	* utils/yhsm-generate-keys, yubikey-ksm/yhsm-import-keys: Don't
+	create/import a zero (cc...c) key, as the nonce will be wrong.
+
+2013-02-11  Dain Nilsson <dain@yubico.com>
+
+	* Tests/test_aead.py, Tests/test_db.py: Skip some tests when running
+	< 1.0.4
+
+2013-02-08  Dain Nilsson <dain@yubico.com>
+
+	* utils/yhsm-generate-keys: Fixed incorrect nonce when generating
+	keys.
+
+2013-02-08  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/__init__.py: Bumped version to 1.0.4b
+
+2013-02-07  Dain Nilsson <dain@yubico.com>
+
+	* yubikey-ksm/yhsm-import-keys: Ignore lines starting with #.
+
+2012-09-12  Simon Josefsson <simon@josefsson.org>
+
+	* setup.py: Bump version.
+
+2012-09-12  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Update.
+
+2012-08-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-decrypt-aead: Better error handling for batch runs.  Add --fail-fast to exit as soon as a failure is encountered
+	(default: false).
+
+2012-08-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-decrypt-aead: Ignore non-modhex files (other metadata)
+
+2012-08-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* yubikey-ksm/yhsm-import-keys: Support soft HSM AEAD generation.
+
+2012-08-30  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-decrypt-aead: aead.nonce should be 6 bytes, not 12
+	chars.
+
+2012-08-28  Fredrik Thulin <fredrik@yubico.com>
+
+	* : commit e1e4abba10f57717c8684a37aab2f080b73974ef Author: Fredrik
+	Thulin <fredrik@yubico.com> Date:   Mon Aug 27 13:07:07 2012 +0200
+
+2012-08-27  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-decrypt-aead: --aes-key-out should not be required.
+
+2012-08-27  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-generate-keys: typo in documentation
+
+2012-08-27  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-decrypt-aead: Add '--format aead' to genereate new
+	AEADs.  Also adds a number of other arguments :   --output-dir   --key-handle-out   --aes-key-out This is usable to convert AEADs from one KSM to another.
+
+2012-08-24  Fredrik Thulin <fredrik@yubico.com>
+
+	* utils/yhsm-generate-keys: bugfix: public_id is not in hex here.
+
+2012-08-22  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Add.
+
+2012-08-22  Fredrik Thulin <fredrik@yubico.com>
+
+	* : commit 8d24b21e99a58e6ab2331d89806e7a38f422f3e2 Author: Simon
+	Josefsson <simon@josefsson.org> Date:   Wed Aug 22 12:36:42 2012
+	+0200
+
 2012-06-26  Fredrik Thulin <fredrik@yubico.com>
 
 	* Lib/pyhsm/__init__.py, setup.py: Prepare version 1.0.4a.
@@ -71,9 +156,10 @@
 	* Lib/pyhsm/__init__.py, Lib/pyhsm/base.py, Lib/pyhsm/soft_hsm.py,
 	Tests/test_soft_hsm.py: Implement AES CCM a'la YubiHSM in software.
 
-2012-06-19  Fredrik Thulin <fredrik@yubico.com>
+2012-06-20  Fredrik Thulin <fredrik@yubico.com>
 
-	* Tests/test_common.py: Tweak comment.
+	* : commit fba63d51ff0badc8b593770b62bca60d49b61a80 Author: Fredrik
+	Thulin <fredrik@yubico.com> Date:   Tue Jun 19 16:05:29 2012 +0200
 
 2012-02-24  Fredrik Thulin <fredrik@yubico.com>
 
@@ -223,8 +309,8 @@
 
 2011-11-02  Fredrik Thulin <fredrik@yubico.com>
 
-	* yhsm-val/yhsm-validation-server: Sign with key '00' when we can't
-	get client key (compat thing).
+	* : commit a80b8a32016eb9a12253638197c7a0dc088a2656 Author: Fredrik
+	Thulin <fredrik@yubico.com> Date:   Wed Nov 2 15:08:32 2011 +0100
 
 2011-11-02  Fredrik Thulin <fredrik@yubico.com>
 
@@ -278,7 +364,8 @@
 
 2011-09-21  Fredrik Thulin <fredrik@yubico.com>
 
-	* Lib/pyhsm/__init__.py, setup.py: Prepare for version 1.0.2c.
+	* : commit 762cfd85e7bccc41e6e3eafcc5bac36195523034 Author: Fredrik
+	Thulin <fredrik@yubico.com> Date:   Wed Sep 21 13:46:46 2011 +0200
 
 2011-09-21  Fredrik Thulin <fredrik@yubico.com>
 
@@ -311,9 +398,11 @@
 
 	* README: Reorder and fix names after renaming.
 
-2011-08-24  Simon Josefsson <simon@josefsson.org>
+2011-08-29  Fredrik Thulin <fredrik@yubico.com>
 
-	* yubikey-ksm/yhsm-import-keys: Doc fix.
+	* : commit 9cc369a1db92ad58c781f7877a687a866a71d2fe Author: Simon
+	Josefsson <simon@josefsson.org> Date:   Wed Aug 24 15:43:19 2011
+	+0200
 
 2011-08-24  Fredrik Thulin <fredrik@yubico.com>
 
@@ -535,7 +624,8 @@
 
 2011-06-23  Fredrik Thulin <fredrik@yubico.com>
 
-	* yubikey-ksm/yhsm-yubikey-ksm: pylint improvements.
+	* : commit 8f2614ab596623d9c62ad06eaf7e1bdcb6948abb Author: Fredrik
+	Thulin <fredrik@yubico.com> Date:   Thu Jun 23 11:53:16 2011 +0200
 
 2011-06-23  Fredrik Thulin <fredrik@yubico.com>
 
@@ -1155,9 +1245,8 @@
 
 2011-03-22  Fredrik Thulin <fredrik@yubico.com>
 
-	* Lib/serveronstick/base.py, Lib/serveronstick/stick.py,
-	Tests/test_common.py, Tests/test_init.py: Configuration of
-	test-keys.
+	* : commit 9382db56de85abd03092c2bff5554d09b5107c6f Author: Fredrik
+	Thulin <fredrik@yubico.com> Date:   Tue Mar 22 17:19:29 2011 +0100
 
 2011-03-22  Fredrik Thulin <fredrik@yubico.com>
 
@@ -1203,7 +1292,8 @@
 
 2011-03-09  Fredrik Thulin <fredrik@yubico.com>
 
-	* sos-yubikey-ksm: Disable DNS resolving and just log client IP.
+	* : commit 4bf1e7093962802d0034ec00ffee43376dae01f9 Author: Fredrik
+	Thulin <fredrik@yubico.com> Date:   Wed Mar 9 19:59:08 2011 +0100
 
 2011-03-09  Simon Josefsson <simon@josefsson.org>
 

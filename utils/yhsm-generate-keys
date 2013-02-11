@@ -24,7 +24,7 @@ Example :
             /var/cache/yubikey-ksm/aeads
   4) Program YubiKeys using CSV file contents
   5) Start a KSM to decrypt OTPs from the YubiKeys
-      $ yhsm-yubikey-ksm --key-handle 0x2000
+      $ yhsm-yubikey-ksm --key-handle 99
 """
 #
 # Copyright (c) 2011, 2012 Yubico AB
@@ -105,6 +105,10 @@ def args_fixup(args):
         hexstr = pyhsm.yubikey.modhex_decode(args.start_id)
         n = int(hexstr, 16)
 
+    if(n <= 0):
+        sys.stderr.write("Start ID must be greater than 0, was %d\n" % (n))
+        sys.exit(1)
+
     args.start_id = n
 
 
@@ -134,9 +138,8 @@ def gen_keys(hsm, args):
         print "Generating %i keys" % (args.count)
 
     for int_id in range(args.start_id, args.start_id + args.count):
-        public_id = "%x" % int_id
-        modhex_id = pyhsm.yubikey.modhex_encode(public_id)
-        padded_id = modhex_id.rjust(args.public_id_chars, 'c')
+        public_id = ("%x" % int_id).rjust(args.public_id_chars, '0')
+        padded_id = pyhsm.yubikey.modhex_encode(public_id)
 
         if args.verbose:
             print "  %s" % (padded_id)
