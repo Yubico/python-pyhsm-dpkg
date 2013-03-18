@@ -1,3 +1,49 @@
+2013-03-18  Klas Lindfors <klas@yubico.com>
+
+	* COPYING: bump Copyright
+
+2013-03-18  Klas Lindfors <klas@yubico.com>
+
+	* NEWS: NEWS for 1.0.4c
+
+2013-03-18  Klas Lindfors <klas@yubico.com>
+
+	* maintainer-scripts/README: typo
+
+2013-03-18  Klas Lindfors <klas@yubico.com>
+
+	* README: new ppa and key
+
+2013-03-18  Klas Lindfors <klas@yubico.com>
+
+	* utils/yhsm-generate-keys, utils/yhsm-generate-keys.1,
+	yubikey-ksm/yhsm-import-keys, yubikey-ksm/yhsm-import-keys.1: add
+	--random-nonce to yhsm-generate-keys and yhsm-import-keys
+
+2013-03-15  Klas Lindfors <klas@yubico.com>
+
+	* Lib/pyhsm/yubikey.py: fix the case where public_id and nonce
+	differ the nonce is stored in the aead, so if it's there, use it
+
+2013-02-11  Dain Nilsson <dain@yubico.com>
+
+	* maintainer-scripts/make-release.sh: Added check for correct NEWS
+	header.
+
+2013-02-11  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/__init__.py, NEWS, setup.py: Bumped version numbers post
+	release.
+
+2013-02-11  Dain Nilsson <dain@yubico.com>
+
+	* maintainer-scripts/README: Added README to maintainer-scripts.
+
+2013-02-11  Dain Nilsson <dain@yubico.com>
+
+	* maintainer-scripts/update-release-page.sh: Added script to update
+	releases on gh-pages.
+
 2013-02-11  Dain Nilsson <dain@yubico.com>
 
 	* NEWS: Updated NEWS
