@@ -1,3 +1,11 @@
+python-pyhsm (1.0.4d-1) unstable; urgency=low
+
+  [ Klas Lindfors ]
+  * New upstream release.
+    - Make yhsm-yubikey-ksm work with the old fileformat
+
+ -- Klas Lindfors <klas@yubico.com>  Mon, 18 Mar 2013 15:18:55 +0100
+
 python-pyhsm (1.0.4c-1) unstable; urgency=low
 
   [ Klas Lindfors ]
