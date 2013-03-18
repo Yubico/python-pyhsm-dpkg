@@ -1,5 +1,18 @@
 2013-03-18  Klas Lindfors <klas@yubico.com>
 
+	* NEWS: News for version 1.0.4d
+
+2013-03-18  Klas Lindfors <klas@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: only set public_id as nonce if we
+	didn't find a nonce in the file also making sure it's encoded correctly
+
+2013-03-18  Klas Lindfors <klas@yubico.com>
+
+	* Lib/pyhsm/__init__.py, NEWS, setup.py: bump versions post-release
+
+2013-03-18  Klas Lindfors <klas@yubico.com>
+
 	* COPYING: bump Copyright
 
 2013-03-18  Klas Lindfors <klas@yubico.com>
