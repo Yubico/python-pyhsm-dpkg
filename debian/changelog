@@ -1,3 +1,12 @@
+python-pyhsm (1.0.4c-1) unstable; urgency=low
+
+  [ Klas Lindfors ]
+  * New upstream release.
+    - Let the OTP validation work with nonce in aead file
+    - add --random-nonce to yhsm-generate-keys and yhsm-import-keys
+
+ -- Klas Lindfors <klas@yubico.com>  Mon, 18 Mar 2013 13:46:23 +0100
+
 python-pyhsm (1.0.4b-1) unstable; urgency=low
 
   [ Dain Nilsson ]
