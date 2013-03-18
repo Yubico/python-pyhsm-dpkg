@@ -1,5 +1,9 @@
 Python-pyhsm NEWS -- History of user-visible changes.          -*- outline -*-
 
+* Version 1.0.4d (released 2013-03-18)
+
+** Fix so that yhsm-yubikey-ksm can work with the older format.
+
 * Version 1.0.4c (released 2013-03-18)
 
 ** When doing OTP verification, if a nonce is written to the AEAD file
