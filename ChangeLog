@@ -1,3 +1,30 @@
+2013-04-06  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Version 1.0.4e.
+
+2013-03-31  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Doc fix.
+
+2013-03-31  Simon Josefsson <simon@josefsson.org>
+
+	* utils/yhsm-decrypt-aead: Rework logging code so it produces
+	correct results.
+
+2013-03-31  Simon Josefsson <simon@josefsson.org>
+
+	* utils/yhsm-decrypt-aead: Cleanup warning/error diagnostics.  Print
+	them to stderr.
+
+2013-03-30  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS, utils/yhsm-decrypt-aead: yhsm-decrypt-aead: For yubikey-csv
+	output, fix prefix field.
+
+2013-03-18  Klas Lindfors <klas@yubico.com>
+
+	* Lib/pyhsm/__init__.py, NEWS, setup.py: bump versions
+
 2013-03-18  Klas Lindfors <klas@yubico.com>
 
 	* NEWS: News for version 1.0.4d

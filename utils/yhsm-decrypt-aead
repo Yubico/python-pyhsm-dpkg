@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright (C) 2012 Yubico AB. All rights reserved.
+# Copyright (C) 2012-2013 Yubico AB. All rights reserved.
 #
 """
 This is a tool to decrypt AEADs generated using a YubiHSM, provided that
@@ -122,16 +122,16 @@ def parse_args():
     # some checks
     if args.format == 'aead':
         if not args.output_dir:
-            sys.stderr.write("ERROR: --output-dir is required when using --format aead.\n")
+            sys.stderr.write("error: --output-dir is required when using --format aead.\n")
             return False
         if not os.path.isdir(args.output_dir):
-            sys.stderr.write("ERROR: Output directory '%s' not found\n" % (args.output_dir))
+            sys.stderr.write("error: Output directory '%s' not found\n" % (args.output_dir))
             return False
         if not args.aes_key_out:
-            sys.stderr.write("ERROR: --aes-key-out is required when using --format aead.\n")
+            sys.stderr.write("error: --aes-key-out is required when using --format aead.\n")
             return False
         if not args.key_handle_out:
-            sys.stderr.write("ERROR: --key-handle-out is required when using --format aead.\n")
+            sys.stderr.write("error: --key-handle-out is required when using --format aead.\n")
             return False
         # argument fixups
         args.aes_key_out = args.aes_key_out.decode('hex')
@@ -139,7 +139,26 @@ def parse_args():
         args.key_handle_out = pyhsm.util.key_handle_to_int(args.key_handle_out)
     return args
 
-def process_file(path, fn, args):
+class MyState():
+    """
+    Class to keep track of failed files.
+    """
+    def __init__(self, args):
+        self.args = args
+        self.failed_files = []
+        self.file_count = 0
+
+    def log_failed(self, fn):
+        self.failed_files.append(fn)
+        self.file_count += 1
+
+    def log_success(self, fn):
+        self.file_count += 1
+
+    def should_quit(self):
+        return (self.failed_files and self.args.fail_fast)
+
+def process_file(path, fn, args, state):
     """
     The main function for reading a file and decrypting it.
     """
@@ -147,22 +166,22 @@ def process_file(path, fn, args):
 
     if not re.match("^[cbdefghijklnrtuv]+$", fn):
         if args.debug:
-            print "Ignoring non-modhex file '%s'" % (full_fn)
+            sys.stderr.write("warning: Ignoring non-modhex file '%s'\n" % (full_fn))
         return True
 
     if (args.start_id is not None) or (args.stop_id is not None):
         this = int(pyhsm.yubikey.modhex_decode(fn), 16)
         if (args.start_id is not None) and this < args.start_id:
             if args.debug:
-                print "Skipping public id %s (%i) < %i" % (fn, this, args.start_id)
+                sys.stderr.write("warning: Skipping public id %s (%i) < %i\n" % (fn, this, args.start_id))
             return True
         if (args.stop_id is not None) and this > args.stop_id:
             if args.debug:
-                print "Skipping public id %s (%i) > %i" % (fn, this, args.stop_id)
+                sys.stderr.write("warning: Skipping public id %s (%i) > %i\n" % (fn, this, args.stop_id))
             return True
 
     if args.debug:
-        print "Loading AEAD : %s" % full_fn
+        sys.stderr.write("Loading AEAD : %s\n" % full_fn)
 
     aead = pyhsm.aead_cmd.YHSM_GeneratedAEAD(None, None, '')
     aead.load(full_fn)
@@ -170,14 +189,15 @@ def process_file(path, fn, args):
     if not aead.nonce:
         # AEAD file version 0, need to fill in nonce etc.
         if args.key_handle is None:
-            sys.stderr.write("ERROR: AEAD in file %s does not include key_handle, and none provided.\n" % (full_fn))
+            sys.stderr.write("error: AEAD in file %s does not include key_handle, and none provided.\n" % (full_fn))
+            state.log_failed(full_fn)
             return False
         aead.key_handle = args.key_handle
         aead.nonce = pyhsm.yubikey.modhex_decode(fn).decode('hex')
 
     if args.debug:
-        print(aead)
-        print "AEAD len %i : %s" % (len(aead.data), aead.data.encode('hex'))
+        sys.stderr.write("%s\n" % aead)
+        sys.stderr.write("AEAD len %i : %s\n" % (len(aead.data), aead.data.encode('hex')))
     pt = pyhsm.soft_hsm.aesCCM(args.aes_key, aead.key_handle, aead.nonce, aead.data, decrypt = True)
 
     if args.print_filename:
@@ -201,12 +221,14 @@ def process_file(path, fn, args):
         global yknum
         yknum += 1
         print("%i,%s,%s,%s,%s,%s,,,,," % (yknum,
-                                          pyhsm.yubikey.modhex_encode(aead.nonce.encode('hex')),
+                                          fn,
                                           uid.encode('hex'),
                                           key.encode('hex'),
                                           access_code,
                                           timestamp,
                                           ))
+
+    state.log_success(full_fn)
 
     return True
 
@@ -223,25 +245,6 @@ def aead_filename(aead_dir, key_handle, public_id):
 
     return os.path.join(path, public_id)
 
-class MyState():
-    """
-    Class to keep track of failed files.
-    """
-    def __init__(self, args):
-        self.args = args
-        self.failed_files = []
-        self.file_count = 0
-
-    def log_failed(self, fn):
-        self.failed_files.append(fn)
-        self.file_count += 1
-
-    def log_success(self, fn):
-        self.file_count += 1
-
-    def should_quit(self):
-        return (self.failed_files and self.args.fail_fast)
-
 def safe_process_files(path, files, args, state):
     """
     Process a number of files in a directory. Catches any exception from the
@@ -250,14 +253,10 @@ def safe_process_files(path, files, args, state):
     for fn in files:
         full_fn = os.path.join(path, fn)
         try:
-            if not process_file(path, fn, args):
-                state.log_failed(full_fn)
+            if not process_file(path, fn, args, state):
                 return False
-            state.log_success(full_fn)
         except Exception, e:
-            print "ERROR processing file %s :" % (os.path.join(path, fn))
-            print traceback.format_exc()
-            print ""
+            sys.stderr.write("error: %s\n%s\n" % (os.path.join(path, fn), traceback.format_exc()))
             state.log_failed(full_fn)
         if state.should_quit():
             return False
@@ -269,7 +268,7 @@ def walk_dir(path, args, state):
     we should send out on the bus.
     """
     if args.debug:
-        print "Walking %s" % path
+        sys.stderr.write("Walking %s\n" % path)
 
     for root, _dirs, files in os.walk(path):
         if not safe_process_files(root, files, args, state):
@@ -296,9 +295,10 @@ def main():
         if state.should_quit():
             break
     if state.failed_files:
-        print "%i/%i AEADs failed" % (len(state.failed_files), state.file_count)
+        sys.stderr.write("error: %i/%i AEADs failed\n" % (len(state.failed_files), state.file_count))
         return False
-    print "Successfully processed %i AEADs" % (state.file_count)
+    if args.debug:
+        sys.stderr.write("Successfully processed %i AEADs\n" % (state.file_count))
     return True
 
 if __name__ == '__main__':
