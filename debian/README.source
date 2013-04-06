@@ -19,12 +19,12 @@ git clone git@github.com:Yubico/python-pyhsm-dpkg.git
 
 Build the package:
 
-git-buildpackage --git-builder="pdebuild --auto-debsign --pbuilder cowbuilder -- --basepath /var/cache/pbuilder/sid.cow"
-git-buildpackage --git-builder="pdebuild --auto-debsign --pbuilder cowbuilder -- --basepath /var/cache/pbuilder/precise.cow"
+git-buildpackage --git-pristine-tar --git-builder="pdebuild --auto-debsign --pbuilder cowbuilder -- --basepath /var/cache/pbuilder/sid.cow"
+git-buildpackage --git-pristine-tar --git-builder="pdebuild --auto-debsign --pbuilder cowbuilder -- --basepath /var/cache/pbuilder/precise.cow"
 
 If all goes well, you should have newly built packages in
 /var/cache/pbuilder/result/.
 
 Update the package to a new upstream release (don't forget debian/changelog):
 
-git-import-orig /path/to/new-release.tar.gz
+git-import-orig --pristine-tar /path/to/new-release.tar.gz
