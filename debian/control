@@ -1,17 +1,16 @@
 Source: python-pyhsm
 Maintainer: Yubico Open Source Maintainers <ossmaint@yubico.com>
-Uploaders: Fredrik Thulin <fredrik@yubico.com>, Simon Josefsson <simon@josefsson.org>
+Uploaders: Simon Josefsson <simon@yubico.com>, Klas Lindfors <klas@yubico.com>, Dain Nilsson <dain@yubico.com>
 Section: python
 Priority: optional
 Build-Depends: python-setuptools (>= 0.6b3),
-	       debhelper (>= 7.0.50~),
+	       debhelper (>= 9),
 	       python,
 	       python-support (>= 0.8.4)
 Vcs-Git: git://github.com/Yubico/python-pyhsm-dpkg.git
 Vcs-Browser: https://github.com/Yubico/python-pyhsm-dpkg
-Homepage: https://github.com/Yubico/python-pyhsm
-Standards-Version: 3.9.3
-DM-Upload-Allowed: yes
+Homepage: http://yubico.github.com/python-pyhsm
+Standards-Version: 3.9.4
 
 Package: python-pyhsm
 Architecture: all

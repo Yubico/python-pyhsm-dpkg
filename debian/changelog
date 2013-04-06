@@ -1,3 +1,15 @@
+python-pyhsm (1.0.4e-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump compat level to 9.
+  * Update standards version to 3.9.4.
+  * Remove obsolete 'DM-Upload-Allowed'.
+  * Drop Fredrik as uploader, add Klas and Dain.
+  * Use machine readable copyright file.
+  * Update Homepage URL.
+
+ -- Simon Josefsson <simon@yubico.com>  Sat, 06 Apr 2013 07:03:06 +0200
+
 python-pyhsm (1.0.4d-1) unstable; urgency=low
 
   [ Klas Lindfors ]
