@@ -2,6 +2,7 @@ python-pyhsm (1.0.4e-1) unstable; urgency=low
 
   * New upstream release.
   * Bump compat level to 9.
+  * Fix dh invocation for python.
   * Update standards version to 3.9.4.
   * Remove obsolete 'DM-Upload-Allowed'.
   * Drop Fredrik as uploader, add Klas and Dain.
