@@ -1,2 +1,2 @@
 version=3
-http://githubredir.debian.net/github/Yubico/python-pyhsm /github/Yubico/python-pyhsm/(.+).tar.gz
+http://yubico.github.io/python-pyhsm/releases.html releases/pyhsm-(\d+(\.\d+)*[a-z]?)\.tar\.gz
