@@ -1,0 +1,110 @@
+#!/usr/bin/python
+#
+# Copyright (C) 2013 Yubico AB. All rights reserved.
+#
+"""
+This is a daemon to allow multiple users of a YubiHSM without requiring
+permission to use the device. The daemon listens on a TCP port on localhost
+and allows multiple connections to share a YubiHSM. Access the YubiHSM via
+the daemon by specifying a device string following the daemon://<host>:<port>
+syntax:
+
+hsm = YHSM('daemon://localhost:5348')
+"""
+
+import sys
+import socket
+import pickle
+import threading
+import argparse
+import pyhsm.stick
+
+
+CMD_WRITE = 0
+CMD_READ = 1
+CMD_FLUSH = 2
+CMD_DRAIN = 3
+CMD_LOCK = 4
+CMD_UNLOCK = 5
+
+
+class YHSM_Stick_Server():
+    def __init__(self, device, addr, **kwargs):
+        self.stick = pyhsm.stick.YHSM_Stick(device, **kwargs)
+
+        self.commands = {
+            CMD_WRITE: self.stick.write,
+            CMD_READ: self.stick.read,
+            CMD_FLUSH: self.stick.flush,
+            CMD_DRAIN: self.stick.drain,
+        }
+
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+        self.socket.bind(addr)
+        self.lock = threading.Lock()
+
+    def serve(self):
+        self.socket.listen(20)
+
+        try:
+            while True:
+                cs, address = self.socket.accept()
+                thread = threading.Thread(target=self.client_handler,
+                                          args=(cs,))
+                thread.start()
+        except:
+            sys.exit(1)
+
+    def client_handler(self, socket):
+        socket_file = socket.makefile('wb')
+        has_lock = False
+
+        try:
+            while True:
+                data = pickle.load(socket_file)
+                cmd = data[0]
+                args = data[1:]
+                if cmd == CMD_LOCK:
+                    if not has_lock:
+                        self.lock.acquire()
+                        has_lock = True
+                elif has_lock:
+                    if cmd == CMD_UNLOCK:
+                        self.lock.release()
+                        has_lock = False
+                    else:
+                        pickle.dump(self.commands[cmd](*args), socket_file)
+                        socket_file.flush()
+                else:
+                    print "Command run without holding lock!"
+                    break
+        except Exception:
+            #Client disconnected, ignore.
+            pass
+        finally:
+            if has_lock:
+                self.lock.release()
+            socket_file.close()
+            socket.close()
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        description='YubiHSM daemon',
+        add_help=True,
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument('device', nargs='?', default='/dev/ttyACM0',
+                        help='Device name')
+    parser.add_argument('port', nargs='?', default='5348',
+                        help='TCP port to bind on')
+
+    args = parser.parse_args()
+    args.port = int(args.port)
+
+    print 'Starting YubiHSM daemon for device: %s on port: %s' % \
+        (args.device, args.port)
+
+    server = YHSM_Stick_Server(args.device, ('localhost', args.port))
+    server.serve()
