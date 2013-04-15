@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: pyhsm
+Version: 1.0.4f
+Summary: Python code for talking to a YubiHSM
+Home-page: http://www.yubico.com/
+Author: Fredrik Thulin
+Author-email: fredrik@yubico.com
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN

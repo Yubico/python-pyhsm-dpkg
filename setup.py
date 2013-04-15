@@ -1,13 +1,18 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
 from setuptools import setup, find_packages
+from distutils import versionpredicate
 
 import sys
 sys.path.append('Tests');
 
+requires = [
+    'pyserial >= 2.3',
+    'pycrypto >= 2.1',
+]
+
 setup(name		= 'pyhsm',
-      version		= '1.0.4e',
+      version		= '1.0.4f',
       description	= 'Python code for talking to a YubiHSM',
       author		= 'Fredrik Thulin',
       author_email	= 'fredrik@yubico.com',
@@ -15,5 +20,7 @@ setup(name		= 'pyhsm',
       license		= 'BSD',
       packages		= ['pyhsm'],
       package_dir	= {'': 'Lib'},
-      test_suite	= "test_init.suite"
+      test_suite	= "test_init.suite",
+      install_requires	= requires,
+      build_requires	= requires,
      )

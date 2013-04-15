@@ -1,3 +1,68 @@
+2013-04-12  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/__init__.py, NEWS, setup.py: Updated NEWS, setup.py, and
+	__init__.py for new version.
+
+2013-04-12  Dain Nilsson <dain@yubico.com>
+
+	* utils/yhsm-daemon, utils/yhsm-daemon.1: Changed default port
+	number.
+
+2013-04-12  Dain Nilsson <dain@yubico.com>
+
+	* utils/yhsm-daemon, utils/yhsm-daemon.1: Add man page for
+	yhsm-daemon.
+
+2013-04-12  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/stick_server.py, utils/yhsm-daemon: Added yhsm-daemon.
+
+2013-04-12  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/stick_server.py: Improved locking.
+
+2013-04-12  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/stick_server.py, Tests/README,
+	Tests/test_common.py, Tests/test_init.py: Allow running tests using
+	a different device.
+
+2013-04-12  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/stick.py, Lib/pyhsm/stick_client.py,
+	Lib/pyhsm/stick_server.py: Create device from url.
+
+2013-04-04  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/cmd.py, Lib/pyhsm/stick.py,
+	Lib/pyhsm/stick_client.py, Lib/pyhsm/stick_server.py: Added client
+	and server.
+
+2013-04-11  Dain Nilsson <dain@yubico.com>
+
+	* Tests/test_yubikey_validate.py: Fixed test passig wrong argument.
+
+2013-04-11  Dain Nilsson <dain@yubico.com>
+
+	* Tests/README: Added README for running tests.
+
+2013-04-11  Dain Nilsson <dain@yubico.com>
+
+	* setup.py: Lower required versions of pyserial and pycrypto.
+
+2013-04-10  Dain Nilsson <dain@yubico.com>
+
+	* .gitignore, MANIFEST.in, maintainer-scripts/make-release.sh: 
+	Rewrite of make-release.sh
+
+2013-04-08  Fredrik Thulin <fredrik@thulin.net>
+
+	* setup.py: Also depends on pycrypto.
+
+2013-04-08  Fredrik Thulin <fredrik@thulin.net>
+
+	* setup.py: Add missing dependency information.
+
 2013-04-06  Simon Josefsson <simon@josefsson.org>
 
 	* NEWS: Version 1.0.4e.
