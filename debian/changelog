@@ -1,3 +1,13 @@
+python-pyhsm (1.0.4f-1) unstable; urgency=low
+
+  [ Dain Nilsson ]
+  * New upstream release.
+    - Support URLs in device field, for more info see:
+      http://pyserial.sourceforge.net/pyserial_api.html#serial.serial_for_url
+    - Added yhsm-daemon.
+
+ -- Dain Nilsson <dain@yubico.com>  Mon, 15 Apr 2013 15:03:53 +0200
+
 python-pyhsm (1.0.4e-1) unstable; urgency=low
 
   * New upstream release.
