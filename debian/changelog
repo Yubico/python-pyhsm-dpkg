@@ -6,7 +6,7 @@ python-pyhsm (1.0.4f-1) unstable; urgency=low
       http://pyserial.sourceforge.net/pyserial_api.html#serial.serial_for_url
     - Added yhsm-daemon.
 
- -- Dain Nilsson <dain@yubico.com>  Mon, 15 Apr 2013 15:03:53 +0200
+ -- Simon Josefsson <simon@yubico.com>  Tue, 16 Apr 2013 14:58:00 +0200
 
 python-pyhsm (1.0.4e-1) unstable; urgency=low
 
