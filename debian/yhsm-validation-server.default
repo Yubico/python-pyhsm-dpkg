@@ -13,7 +13,7 @@ YHSM_VAL_DEVICE="/dev/ttyACM0"
 # be performed. Either log in to your server after every reboot and unlock
 # the key store manually (recommended), or enter the 'HSM password' in this
 # variable to have the startup script unlock the key store for you (less
-# secure). To unlock manually, use /usr/sbin/yhsm-storage-unlock.py.
+# secure). To unlock manually, use /usr/sbin/yhsm-keystore-unlock
 YHSM_VAL_UNLOCK_PASSPHRASE=""
 
 # What validation modes to enable. The default we set here is to only allow
