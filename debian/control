@@ -19,6 +19,7 @@ Depends: ${python:Depends},
 	 python-crypto,
 	 python-serial
 Suggests: python-argparse,
+	  yhsm-daemon,
 	  yhsm-docs
 Recommends: yhsm-tools
 XB-Python-Version: ${python:Versions}
@@ -114,8 +115,9 @@ Description: Yubikey Key Storage Module using YubiHSM
 
 Package: yhsm-daemon
 Architecture: all
-Depends: ${python:Depends}
+Depends: ${python:Depends},
 	 ${misc:Depends},
+	 adduser,
 	 python-pyhsm (= ${binary:Version}),
 	 python-argparse
 XB-Python-Version: ${python:Versions}
