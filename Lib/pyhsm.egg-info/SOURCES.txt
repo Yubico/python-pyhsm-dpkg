@@ -151,7 +151,6 @@ examples/yhsm-sysinfo.py
 maintainer-scripts/README
 maintainer-scripts/generate_html.sh
 maintainer-scripts/make-release.sh
-maintainer-scripts/update-release-page.sh
 utils/yhsm-daemon
 utils/yhsm-daemon.1
 utils/yhsm-decrypt-aead

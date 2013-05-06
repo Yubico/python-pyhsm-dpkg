@@ -1,3 +1,55 @@
+2013-05-06  Dain Nilsson <dain@yubico.com>
+
+	* utils/yhsm-daemon: Removed debug print.
+
+2013-05-06  Dain Nilsson <dain@yubico.com>
+
+	* NEWS: Updated NEWS for release.
+
+2013-05-06  Dain Nilsson <dain@yubico.com>
+
+	* maintainer-scripts/README: Edit README
+
+2013-05-06  Dain Nilsson <dain@yubico.com>
+
+	* maintainer-scripts/update-release-page.sh: Removed
+	update-release-page as it is no longer needed.
+
+2013-05-06  Dain Nilsson <dain@yubico.com>
+
+	* utils/yhsm-daemon: Raise YHSM_Error instead of Exception.
+
+2013-05-06  Klas Lindfors <klas@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm.1: man page
+
+2013-05-03  Klas Lindfors <klas@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: add stats collection and extraction
+	through it's own url
+
+2013-05-06  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/stick_client.py, utils/yhsm-daemon: More daemon fixes.
+
+2013-05-06  Dain Nilsson <dain@yubico.com>
+
+	* NEWS: Updated NEWS.
+
+2013-05-06  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/base.py, Lib/pyhsm/stick_client.py, utils/yhsm-daemon,
+	utils/yhsm-daemon.1: Improved yhsm-daemon.
+
+2013-04-22  Dain Nilsson <dain@yubico.com>
+
+	* maintainer-scripts/make-release.sh: Fix release publishing.
+
+2013-04-12  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/__init__.py, NEWS, setup.py: Bumped version post
+	release.
+
 2013-04-12  Dain Nilsson <dain@yubico.com>
 
 	* Lib/pyhsm/__init__.py, NEWS, setup.py: Updated NEWS, setup.py, and
