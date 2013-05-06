@@ -21,7 +21,7 @@ NAME=yhsm-daemon
 DAEMON=/usr/sbin/$NAME
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
-DAEMON_ARGS="--pid-file $PIDFILE"
+DAEMON_ARGS=""
 RUNASUSER="yhsm-daemon"
 PROCESS_EXECUTABLE="/usr/bin/python"
 
@@ -54,29 +54,19 @@ fi
 #
 do_start()
 {
-	# make the user we run our daemon as able to write the pidfile
-	touch $PIDFILE
-	chown $RUNASUSER $PIDFILE
-	chmod 664 $PIDFILE
-
 	if [ "x$YHSM_DAEMON_UNLOCK_PASSPHRASE" != "x" ]; then
 	    log_daemon_msg "Unlocking YubiHSM key store" "$NAME"
-	    echo "$YHSM_DAEMON_UNLOCK_PASSPHRASE" | /usr/sbin/yhsm-keystore-unlock --stdin --no-otp --device "$YHSM_VAL_DEVICE"
+	    echo "$YHSM_DAEMON_UNLOCK_PASSPHRASE" | /usr/sbin/yhsm-keystore-unlock --stdin --no-otp --device "$YHSM_DAEMON_DEVICE"
 	    if [ $? -ne 0 ]; then
 		log_failure_msg "Failed unlocking YubiHSM key store"
 		return 2
 	    fi
 	fi
 
-	# Return
-	#   0 if daemon has been started
-	#   1 if daemon was already running
-	#   2 if daemon could not be started
-	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $PROCESS_EXECUTABLE --test -c $RUNASUSER > /dev/null \
-		|| return 1
-	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON -c $RUNASUSER --background -- \
-		$DAEMON_ARGS \
-		|| return 2
+	#Test manually and exit if running
+        status_of_proc "$DAEMON" "$NAME" >/dev/null 2>&1 && exit 0
+	start-stop-daemon --start --quiet --background --make-pidfile --pidfile $PIDFILE --exec $DAEMON -- \
+		$DAEMON_ARGS
 }
 
 #
