@@ -1,1 +1,4 @@
-utils/yhsm-*.1
+utils/yhsm-decrypt-aead.1
+utils/yhsm-generate-keys.1
+utils/yhsm-keystore-unlock.1
+utils/yhsm-linux-add-entropy.1
