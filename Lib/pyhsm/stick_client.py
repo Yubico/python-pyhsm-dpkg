@@ -29,7 +29,8 @@ CMD_LOCK = 4
 CMD_UNLOCK = 5
 
 
-DEVICE_PATTERN = re.compile(r'daemon://(?P<host>[^:]+)(:(?P<port>\d+))?')
+DEVICE_PATTERN = re.compile(r'yhsm://(?P<host>[^:]+)(:(?P<port>\d+))?/?')
+DEFAULT_PORT = 5348
 
 
 class YHSM_Stick_Client():
@@ -47,7 +48,9 @@ class YHSM_Stick_Client():
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
         match = DEVICE_PATTERN.match(device)
-        self.socket.connect((match.group('host'), int(match.group('port'))))
+        host = match.group('host')
+        port = match.group('port') or DEFAULT_PORT
+        self.socket.connect((host, int(port)))
         self.socket_file = self.socket.makefile('wb')
 
         self.num_read_bytes = 0
@@ -99,6 +102,8 @@ class YHSM_Stick_Client():
         pickle.dump((CMD_READ, num_bytes), self.socket_file)
         self.socket_file.flush()
         res = pickle.load(self.socket_file)
+        if isinstance(res, Exception):
+            raise res
 
         if self.debug:
             sys.stderr.write("%s: READ %i:\n%s\n" % (
