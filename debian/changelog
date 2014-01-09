@@ -1,3 +1,12 @@
+python-pyhsm (1.0.4h-1) unstable; urgency=low
+
+  [ Dain Nilsson ]
+  * New upstream release.
+    - yhsm-daemon: Use JSON messages instead of Python pickling.
+      (as suggested by Rogdham)
+
+ -- Dain Nilsson <dain@yubico.com>  Thu, 09 Jan 2014 10:08:51 +0100
+
 python-pyhsm (1.0.4g-1) unstable; urgency=low
 
   [ Dain Nilsson ]
