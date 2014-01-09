@@ -1,3 +1,90 @@
+2014-01-09  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/__init__.py, NEWS, setup.py: Bumped version and updated
+	NEWS for release.
+
+2014-01-09  Dain Nilsson <dain@yubico.com>
+
+	* utils/yhsm-daemon, utils/yhsm-daemon.1: Added note about
+	client/daemon version compatibility.
+
+2014-01-08  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/stick_client.py, utils/yhsm-daemon: Replaced pickle with
+	JSON in yhsm-daemon.
+
+2014-01-08  Dain Nilsson <dain@yubico.com>
+
+	* .gitignore: Added .ropeproject to gitignore.
+
+2013-11-01  Klas Lindfors <klas@yubico.com>
+
+	* Tests/README: fixed README hsm configuration from tom@yubico.com moved from dpkg repo.
+
+2013-08-14  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/yhsm-db-export, utils/yhsm-db-import: added load/save from
+	lib
+
+2013-08-13  Simon Josefsson <simon@josefsson.org>
+
+	* doc/db_schema: Add nonce field.  Add explicit sizes.
+
+2013-07-22  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/yhsm-db-export, utils/yhsm-db-import: minor improvements
+
+2013-07-19  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/README.db.import-export: updated README.db.import-export
+
+2013-07-19  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/README.db.import-export: updated README.db.import-export
+
+2013-07-19  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/db_schema: removed db_schema
+
+2013-07-18  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/yhsm-db-export: security improvment for yhsm-db-export
+
+2013-07-17  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/yhsm-db-import: security fix for url
+
+2013-07-16  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/yhsm-db-export: minor improvments
+
+2013-07-16  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/README.db.import-export, utils/yhsm-db-export,
+	utils/yhsm-db-import: minor improvments
+
+2013-07-16  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/yhsm-db-export, utils/yhsm-db-import: added + on
+	db-import-export
+
+2013-07-16  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/README.db.import-export, utils/README.yhsm-dbimport-aead,
+	utils/db_schema, utils/yhsm-db-export, utils/yhsm-db-import,
+	utils/yhsm-db-manage: added yhsm-db-import and yhsm-db-export and
+	db_schema
+
+2013-07-12  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* doc/db_schema: added db_schema in doc/
+
+2013-07-12  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* utils/README.yhsm-dbimport-aead, utils/yhsm-db-manage: Added
+	yhsm-db-manage and README.yhsm-db-manage for importing the AEADs
+	into a Database
+
 2013-05-06  Dain Nilsson <dain@yubico.com>
 
 	* utils/yhsm-daemon: Removed debug print.
