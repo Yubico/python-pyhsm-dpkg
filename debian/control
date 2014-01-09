@@ -10,7 +10,7 @@ Build-Depends: python-setuptools (>= 0.6b3),
 Vcs-Git: git://github.com/Yubico/python-pyhsm-dpkg.git
 Vcs-Browser: https://github.com/Yubico/python-pyhsm-dpkg
 Homepage: http://yubico.github.com/python-pyhsm
-Standards-Version: 3.9.4
+Standards-Version: 3.9.5
 
 Package: python-pyhsm
 Architecture: all
