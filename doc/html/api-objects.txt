@@ -99,13 +99,17 @@ pyhsm.soft_hsm.__package__	pyhsm.soft_hsm-module.html#__package__
 pyhsm.stick	pyhsm.stick-module.html
 pyhsm.stick.__package__	pyhsm.stick-module.html#__package__
 pyhsm.stick_client	pyhsm.stick_client-module.html
+pyhsm.stick_client.unpack_data	pyhsm.stick_client-module.html#unpack_data
+pyhsm.stick_client.pack_data	pyhsm.stick_client-module.html#pack_data
 pyhsm.stick_client.CMD_FLUSH	pyhsm.stick_client-module.html#CMD_FLUSH
 pyhsm.stick_client.CMD_DRAIN	pyhsm.stick_client-module.html#CMD_DRAIN
 pyhsm.stick_client.DEVICE_PATTERN	pyhsm.stick_client-module.html#DEVICE_PATTERN
+pyhsm.stick_client.read_sock	pyhsm.stick_client-module.html#read_sock
 pyhsm.stick_client.CMD_WRITE	pyhsm.stick_client-module.html#CMD_WRITE
 pyhsm.stick_client.CMD_LOCK	pyhsm.stick_client-module.html#CMD_LOCK
 pyhsm.stick_client.__package__	pyhsm.stick_client-module.html#__package__
 pyhsm.stick_client.DEFAULT_PORT	pyhsm.stick_client-module.html#DEFAULT_PORT
+pyhsm.stick_client.write_sock	pyhsm.stick_client-module.html#write_sock
 pyhsm.stick_client.CMD_UNLOCK	pyhsm.stick_client-module.html#CMD_UNLOCK
 pyhsm.stick_client.CMD_READ	pyhsm.stick_client-module.html#CMD_READ
 pyhsm.util	pyhsm.util-module.html

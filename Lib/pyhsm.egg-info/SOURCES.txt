@@ -49,6 +49,7 @@ Tests/test_util.py
 Tests/test_yubikey_validate.py
 doc/README
 doc/YubiHSM_if.h
+doc/db_schema
 doc/html/api-objects.txt
 doc/html/class-tree.html
 doc/html/crarr.png
@@ -151,8 +152,11 @@ examples/yhsm-sysinfo.py
 maintainer-scripts/README
 maintainer-scripts/generate_html.sh
 maintainer-scripts/make-release.sh
+utils/README.db.import-export
 utils/yhsm-daemon
 utils/yhsm-daemon.1
+utils/yhsm-db-export
+utils/yhsm-db-import
 utils/yhsm-decrypt-aead
 utils/yhsm-decrypt-aead.1
 utils/yhsm-generate-keys
