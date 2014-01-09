@@ -10,7 +10,7 @@
 #                    using the YubiHSM.
 ### END INIT INFO
 
-# Author: Fredrik Thulin <fredrik@yubico.com>
+# Author: Dain Nilsson <dain@yubico.com>
 
 # Do NOT "set -e"
 
