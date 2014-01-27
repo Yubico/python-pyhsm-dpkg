@@ -2,7 +2,7 @@ We describe here one way to work with the package sources.
 
 Initialize cowbuilder, for Debian sid:
 
-sudo cowbuilder --create --distribution sid --mirror ftp://ftp.se.debian.org/debian/ --debootstrapopts "--keyring=/usr/share/keyrings/debian-archive-keyring.gpg" --basepath /var/cache/pbuilder/sid.cow
+sudo cowbuilder --create --distribution sid --mirror http://http.debian.net/debian --debootstrapopts "--keyring=/usr/share/keyrings/debian-archive-keyring.gpg" --basepath /var/cache/pbuilder/base-debian-sid.cow
 
 or for Ubuntu 12.04:
 
@@ -10,7 +10,7 @@ sudo cowbuilder --create --distribution precise --components "main universe" --b
 
 Optionally update cowbuilder:
 
-sudo cowbuilder --update --basepath /var/cache/pbuilder/sid.cow
+sudo cowbuilder --update --basepath /var/cache/pbuilder/base-debian-sid.cow
 sudo cowbuilder --update --basepath /var/cache/pbuilder/precise.cow
 
 Clone the repository:
@@ -19,8 +19,8 @@ git clone git@github.com:Yubico/python-pyhsm-dpkg.git
 
 Build the package:
 
-git-buildpackage --git-pristine-tar --git-builder="pdebuild --auto-debsign --pbuilder cowbuilder -- --basepath /var/cache/pbuilder/sid.cow"
-git-buildpackage --git-pristine-tar --git-builder="pdebuild --auto-debsign --pbuilder cowbuilder -- --basepath /var/cache/pbuilder/precise.cow"
+git-buildpackage --git-pristine-tar --git-builder="pdebuild --auto-debsign --pbuilder cowbuilder -- --twice --basepath /var/cache/pbuilder/base-debian-sid.cow"
+git-buildpackage --git-pristine-tar --git-builder="pdebuild --auto-debsign --pbuilder cowbuilder -- --twice --basepath /var/cache/pbuilder/precise.cow"
 
 If all goes well, you should have newly built packages in
 /var/cache/pbuilder/result/.

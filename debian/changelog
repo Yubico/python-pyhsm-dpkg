@@ -4,8 +4,11 @@ python-pyhsm (1.0.4h-1) unstable; urgency=low
   * New upstream release.
     - yhsm-daemon: Use JSON messages instead of Python pickling.
       (as suggested by Rogdham)
+  [ Simon Josefsson ]
+  * Update README.source.
+  * Add source/options to diff-ignore Lib/pyhsm.egg-info/SOURCES.txt.
 
- -- Dain Nilsson <dain@yubico.com>  Thu, 09 Jan 2014 10:08:51 +0100
+ -- Simon Josefsson <simon@yubico.com>  Mon, 27 Jan 2014 10:55:48 +0100
 
 python-pyhsm (1.0.4g-1) unstable; urgency=low
 
