@@ -5,16 +5,15 @@ Section: python
 Priority: optional
 Build-Depends: python-setuptools (>= 0.6b3),
 	       debhelper (>= 9),
-	       python,
-	       python-support (>= 0.8.4)
+	       python3
 Vcs-Git: git://github.com/Yubico/python-pyhsm-dpkg.git
 Vcs-Browser: https://github.com/Yubico/python-pyhsm-dpkg
-Homepage: http://yubico.github.com/python-pyhsm
+Homepage: https://developers.yubico.com/python-pyhsm/
 Standards-Version: 3.9.5
 
 Package: python-pyhsm
 Architecture: all
-Depends: ${python:Depends},
+Depends: ${python3:Depends},
 	 ${misc:Depends},
 	 python-crypto,
 	 python-serial
@@ -54,7 +53,7 @@ Description: python-pyhsm documentation
 
 Package: yhsm-tools
 Architecture: all
-Depends: ${python:Depends},
+Depends: ${python3:Depends},
 	 ${misc:Depends},
 	 python-argparse,
 	 python-pyhsm (= ${binary:Version})
@@ -78,7 +77,7 @@ Description: Common files for YubiHSM applications
 
 Package: yhsm-validation-server
 Architecture: all
-Depends: ${python:Depends},
+Depends: ${python3:Depends},
 	 ${misc:Depends},
 	 adduser,
 	 python-pyhsm (= ${binary:Version}),
@@ -97,7 +96,7 @@ Description: Validation server using YubiHSM
 
 Package: yhsm-yubikey-ksm
 Architecture: all
-Depends: ${python:Depends},
+Depends: ${python3:Depends},
 	 ${misc:Depends},
 	 adduser,
 	 python-pyhsm (= ${binary:Version}),
@@ -115,7 +114,7 @@ Description: Yubikey Key Storage Module using YubiHSM
 
 Package: yhsm-daemon
 Architecture: all
-Depends: ${python:Depends},
+Depends: ${python3:Depends},
 	 ${misc:Depends},
 	 adduser,
 	 python-pyhsm (= ${binary:Version}),
