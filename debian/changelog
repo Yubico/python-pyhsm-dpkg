@@ -5,8 +5,9 @@ python-pyhsm (1.0.4h-1) unstable; urgency=low
   * Add source/options for diff-ignore.
   * Update upstream Homepage URL.
   * Use dh_python3 instead of python-support.
+  * Change maintainer to pkg-auth-maintainers.
 
- -- Simon Josefsson <simon@yubico.com>  Fri, 15 Aug 2014 21:43:08 +0200
+ -- Simon Josefsson <simon@josefsson.org>  Mon, 15 Sep 2014 21:17:56 +0200
 
 python-pyhsm (1.0.4f-1) unstable; urgency=low
 
