@@ -1,5 +1,18 @@
 2014-09-16  Simon Josefsson <simon@josefsson.org>
 
+	* NEWS: Version 1.0.4j.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: More verbose.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* Lib/pyhsm/__init__.py, NEWS, setup.py,
+	yubikey-ksm/yhsm-yubikey-ksm: yhsm-yubikey-ksm: Fix syntax error.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
 	* Lib/pyhsm/__init__.py: Prepare for release.
 
 2014-09-16  Simon Josefsson <simon@josefsson.org>
