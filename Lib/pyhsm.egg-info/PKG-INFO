@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: pyhsm
-Version: 1.0.4i
+Version: 1.0.4j
 Summary: Python code for talking to a YubiHSM
 Home-page: http://www.yubico.com/
 Author: Fredrik Thulin
