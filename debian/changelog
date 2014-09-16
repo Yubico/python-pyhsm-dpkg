@@ -1,3 +1,9 @@
+python-pyhsm (1.0.4i-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Simon Josefsson <simon@josefsson.org>  Tue, 16 Sep 2014 14:17:56 +0200
+
 python-pyhsm (1.0.4h-1) unstable; urgency=low
 
   * New upstream release.
