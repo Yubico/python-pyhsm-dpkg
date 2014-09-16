@@ -15,7 +15,7 @@ the YubiHSM to further protect the AES keys.
 The interface exposed to the validation servers is a simple REST web
 interface, currently implemented using the BaseHTTPServer. It is inter-
 changeable with the original PHP based KSM found at
-http://code.google.com/p/yubikey-ksm/
+https://developers.yubico.com/yubikey-ksm/
 
 *Be aware* that it is currently single threaded, and uses a short timeout
 (5 seconds per default) to prevent blocking on bad requests (typically
@@ -23,7 +23,7 @@ network problems between a validation server and a KSM).
 
 *Key handle*
 You need to configure the YubiHSM connected to the KSM server with at least
-one key handle that has the YSM_AEAD_OTP_DECODE permission flag set. 
+one key handle that has the YSM_AEAD_OTP_DECODE permission flag set.
 
 It is preferable to use a separate server (and YubiHSM) to create AEAD:s,
 in which case the other YubiHSM will have the same key handle with the
@@ -32,11 +32,9 @@ YSM AEAD generate flags for the type of keys you use).
 
 *Installation on Debian/Ubuntu*
 
-You can install the yhsm-yubikey-ksm from the PPA found at https://launchpad.net/~fredrikt :
+You can install the yhsm-yubikey-ksm from the package repositories :
 
 ----
-$ sudo add-apt-repository ppa:fredrikt/yubico
-$ sudo apt-get update
 $ sudo apt-get install yhsm-yubikey-ksm
 $ sudo $EDITOR /etc/default/yhsm-yubikey-ksm
 ----
@@ -76,6 +74,10 @@ AEAD files in each directory :
 public id     key handle  AEAD file
 ccbbddeeffcc  0x20        /var/cache/yubikey-ksm/aeads/0x20/cc/bb/dd/ee/ff/ccbbddeeffcc
 ----
+
+An important note for storing large numbers of AEAD files in a filesystem is that it
+will use up large numbers of inodes. Consideration for this should be taken into
+account when setting up the filesystem.
 
 *Importing YubiKey secrets*
 

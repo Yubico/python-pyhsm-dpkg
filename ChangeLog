@@ -1,3 +1,205 @@
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* Lib/pyhsm/__init__.py: Prepare for release.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Version 1.0.4i.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* setup.py: Bump setup.py.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* maintainer-scripts/make-release.sh: Fix release script.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* MANIFEST.in: Drop wiki/.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* README: Updates.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* utils/yhsm-db-export.1, utils/yhsm-db-import.1: Typo.
+
+2014-09-16  Klas Lindfors <klas@yubico.com>
+
+	* utils/yhsm-db-export.1, utils/yhsm-db-import.1: man pages
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* utils/yhsm-db-export, utils/yhsm-db-import: Don't read
+	username/password from stdin.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Doc fixes.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Fix error handling a bit.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Don't read username/password from
+	stdin.
+
+2014-09-16  Klas Lindfors <klas@yubico.com>
+
+	* doc/YubiKeyKSM.txt: update URL
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* utils/yhsm-db-export, utils/yhsm-db-import,
+	yubikey-ksm/yhsm-yubikey-ksm: Fix tool descriptions.  Fix SQLAlchemy
+	import statements.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* : commit 16d72e989905585ac3f671f683c03faf945c1006 Author: Klas
+	Lindfors <klas@yubico.com> Date:   Tue Sep 16 12:12:49 2014 +0200
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* : commit c9c66dfcae086e2112766a22a9c9743ab4a792db Author: Simon
+	Josefsson <simon@josefsson.org> Date:   Tue Sep 16 11:44:15 2014
+	+0200
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* AUTHORS, Tests/README, doc/DatabaseUsage.txt,
+	doc/RunningSelfTests.txt, utils/README.db.import-export: Doc fixes.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* AUTHORS, README: Cleanup README.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* doc/Intro.txt, doc/README, doc/YubiKeyKSM.txt: Simplify doc/README
+	since we dropped the wiki.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* .gitmodules: Drop .gitmodules.
+
+2014-09-16  Simon Josefsson <simon@josefsson.org>
+
+	* .gitmodules, doc/wiki: Drop git submodule.
+
+2014-09-15  Simon Josefsson <simon@josefsson.org>
+
+	* COPYING, maintainer-scripts/make-release.sh, utils/yhsm-daemon.1,
+	utils/yhsm-decrypt-aead.1, utils/yhsm-generate-keys.1,
+	utils/yhsm-keystore-unlock.1, utils/yhsm-linux-add-entropy.1,
+	yhsm-val/yhsm-init-oath-token.1, yhsm-val/yhsm-validate-otp.1,
+	yhsm-val/yhsm-validation-server.1, yubikey-ksm/yhsm-import-keys.1,
+	yubikey-ksm/yhsm-yubikey-ksm.1: Fix URLs a bit.
+
+2014-09-15  Simon Josefsson <simon@josefsson.org>
+
+	* BLURB: Fix URL.
+
+2014-08-28  Klas Lindfors <klas@yubico.com>
+
+	* : commit e4ea12b8c2fd5910e662924f5f572ade0de16910 Merge: ffab80a
+	457115e Author: Dain Nilsson <dainzor@gmail.com> Date:   Tue Jun 24
+	11:18:32 2014 +0200
+
+2014-06-16  Alex Fisher <alex@alexfisher.me.uk>
+
+	* setup.py: Add python-daemon dependency
+
+2014-06-12  Alex Fisher <alex@alexfisher.me.uk>
+
+	* utils/yhsm-daemon: Add option to write pid file This option is similar to the one that already exists for
+	yhsm-yubikey-ksm
+
+2014-06-12  Alex Fisher <alex@alexfisher.me.uk>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Add option to run yhsm-yubikey-ksm
+	as a proper daemon Uses https://pypi.python.org/pypi/python-daemon/ library.
+
+2014-06-12  Alex Fisher <alex@alexfisher.me.uk>
+
+	* utils/yhsm-daemon: Add option to run yhsm-daemon as a proper
+	daemon
+
+2014-06-12  Alex Fisher <alex@alexfisher.me.uk>
+
+	* Lib/pyhsm/stick_client.py: Make stick_client raw_device() return
+	the socket
+
+2014-04-25  Simon Josefsson <simon@josefsson.org>
+
+	* README: Mention pycrypto >= 2.1.
+
+2014-04-25  Klas Lindfors <klas@yubico.com>
+
+	* utils/yhsm-generate-keys: use nonce correctly, not public_id we set the nonce variable already, just use it for generate_aead()
+
+2014-03-20  Klas Lindfors <klas@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: restructure to get a new connection
+	from engine for each query should use sqlalchemy's pool then
+
+2014-03-17  Klas Lindfors <klas@yubico.com>
+
+	* utils/yhsm-db-import: allow db-import to continue when getting
+	errors
+
+2014-03-17  Klas Lindfors <klas@yubico.com>
+
+	* utils/yhsm-db-import: publicId -> public_id
+
+2014-03-17  Klas Lindfors <klas@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: use transactions to avoid isolation
+	issues
+
+2014-02-19  Klas Lindfors <klas@yubico.com>
+
+	* BLURB: add BLURB
+
+2014-02-19  Klas Lindfors <klas@yubico.com>
+
+	* BLURB: add BLURB
+
+2014-01-30  Klas Lindfors <klas@yubico.com>
+
+	* : commit 687e80be6f62026bdb2733023b04bec49c4e789d Author: Klas
+	Lindfors <klas@yubico.com> Date:   Wed Jan 29 15:38:47 2014 +0100
+
+2014-01-29  Klas Lindfors <klas@yubico.com>
+
+	* utils/yhsm-db-export, utils/yhsm-db-import,
+	yubikey-ksm/yhsm-yubikey-ksm: whitespace cleanup
+
+2014-01-29  Klas Lindfors <klas@yubico.com>
+
+	* utils/yhsm-db-import: skip files that don't look like aeads
+
+2014-01-29  Klas Lindfors <klas@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: more database work
+
+2014-01-29  Klas Lindfors <klas@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: only set the key_handle if we get an
+	aead back
+
+2014-01-29  Klas Lindfors <klas@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: re-work dbload, use sqlalchemy
+
+2014-01-28  Klas Lindfors <klas@yubico.com>
+
+	* utils/yhsm-db-import: minor refactor of yhsm-db-import
+
 2014-01-09  Dain Nilsson <dain@yubico.com>
 
 	* Lib/pyhsm/__init__.py, NEWS, setup.py: Bumped version and updated
@@ -20,6 +222,16 @@
 2013-11-01  Klas Lindfors <klas@yubico.com>
 
 	* Tests/README: fixed README hsm configuration from tom@yubico.com moved from dpkg repo.
+
+2013-09-18  tom <tom@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: database support now supports files
+	system aeads also
+
+2013-09-12  Tommaso Galassi De Orchi <tom@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: added AEADs loading from database
+	with --db-url option
 
 2013-08-14  Tommaso Galassi De Orchi <tom@yubico.com>
 
