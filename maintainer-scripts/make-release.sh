@@ -43,9 +43,6 @@ fi
 rm -rf doc/html
 ./maintainer-scripts/generate_html.sh
 
-# update documentation from wiki
-git submodule update
-
 git2cl > ChangeLog
 
 if [ "x$do_test" != "xfalse" ]; then
@@ -58,14 +55,14 @@ python setup.py sdist
 gpg --detach-sign --default-key $keyid dist/pyhsm-$version.tar.gz
 gpg --verify dist/pyhsm-$version.tar.gz.sig
 
-git tag -u $keyid -m $version $version
+git tag -s -u $keyid -m "python-pyhsm $version" $version
 
 #Publish release
-if test ! -d "$YUBICO_GITHUB_REPO"; then
-	echo "warn: YUBICO_GITHUB_REPO not set or invalid!"
+if test ! -d "$YUBICO_WWW_REPO"; then
+	echo "warn: YUBICO_WWW_REPO not set or invalid!"
 	echo "      This release will not be published!"
 else
-	$YUBICO_GITHUB_REPO/publish python-pyhsm $version dist/pyhsm-$version.tar.gz*
+	$YUBICO_WWW_REPO/publish python-pyhsm $version dist/pyhsm-$version.tar.gz*
 fi
 
 echo "Done! Don't forget to git push && git push --tags"

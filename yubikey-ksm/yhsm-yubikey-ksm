@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright (c) 2011, 2012 Yubico AB
+# Copyright (c) 2011-2014 Yubico AB
 # See the file COPYING for licence statement.
 #
 """
@@ -45,6 +45,8 @@ sys.path.append('Lib');
 import pyhsm
 import pyhsm.yubikey
 import serial
+import daemon
+import sqlalchemy
 
 default_device = "/dev/ttyACM0"
 default_dir = "/var/cache/yubikey-ksm/aeads"
@@ -53,6 +55,7 @@ default_listen_addr = "127.0.0.1"
 default_port = 8002
 default_reqtimeout = 5
 default_pid_file = None
+default_db_url = None
 
 valid_input_from_key = re.compile('^[cbdefghijklnrtuv]{32,48}$')
 
@@ -63,6 +66,8 @@ stats = { 'ok': 0,
     'invalid': 0,
     'no_aead': 0,
     'err': 0 }
+
+context = daemon.DaemonContext()
 
 class YHSM_KSMRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     """
@@ -75,6 +80,9 @@ class YHSM_KSMRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
     def __init__(self, *other_args, **kwargs):
         self.timeout = args.reqtimeout
+        if args.engine is not None:
+	    self.engine = args.engine
+            self.aead_table = args.aead_table
         BaseHTTPServer.BaseHTTPRequestHandler.__init__(self, *other_args, **kwargs)
 
     def do_GET(self):
@@ -117,6 +125,31 @@ class YHSM_KSMRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         """ For logging client host without resolving. """
         return self.client_address[0]
 
+    def dbload(self, public_id):
+        """ Loads AEAD from the specified database. """
+	connection = self.engine.connect()
+        trans = connection.begin()
+	aead = None
+        try:
+            s = select([self.aead_table]).where(self.aead_table.c.public_id == public_id)
+            result = connection.execute(s)
+
+            for row in result:
+                kh_int = row['keyhandle']
+                aead = pyhsm.aead_cmd.YHSM_GeneratedAEAD(None, kh_int, '');
+                aead.data = row['aead']
+                aead.nonce = row['nonce']
+		trans.commit()
+
+        except Exception, e:
+            self.log_error("No AEAD in DB for public_id %s" % (public_id))
+	    aead = None
+
+	if aead is None:
+	    trans.rollback()
+	connection.close()
+	return aead
+
 class YHSM_KSMServer(BaseHTTPServer.HTTPServer):
     """
     Wrapper class to properly initialize address_family for IPv6 addresses.
@@ -126,6 +159,22 @@ class YHSM_KSMServer(BaseHTTPServer.HTTPServer):
             self.address_family = socket.AF_INET6
         BaseHTTPServer.HTTPServer.__init__(self, server_address, req_handler)
 
+def dbconnect(my_args):
+    """
+    Connect to a database
+    """
+
+    engine = None
+    try:
+        engine = create_engine(my_args.db_url)
+    except:
+        my_log_message(my_args, syslog.LOG_ERR, "Could not connect to database: %s" % (my_args.db_url))
+        sys.exit(1)
+
+    metadata = MetaData()
+    aead_table = Table('aead_table', metadata, autoload=True, autoload_with=engine)
+
+    return (engine, aead_table)
 
 def decrypt_yubikey_otp(self, from_key):
     """
@@ -149,18 +198,25 @@ def decrypt_yubikey_otp(self, from_key):
 
     aead_kh_int = None
     fn_list = []
-    for kh, kh_int in args.key_handles:
-        aead = pyhsm.aead_cmd.YHSM_GeneratedAEAD(None, kh_int, '')
-        filename = aead_filename(args.aead_dir, kh, public_id)
-        fn_list.append(filename)
-        try:
-            aead.load(filename)
-            if not aead.nonce:
-                aead.nonce = pyhsm.yubikey.modhex_decode(public_id).decode('hex')
-            aead_kh_int = kh_int
-            break
-        except IOError:
-            continue
+
+    if args.db_url is not None:
+        #loads an AEAD from the DB with the specific public_id
+        aead = self.dbload(public_id)
+        if(aead):
+            aead_kh_int = aead.key_handle
+    else :
+        for kh, kh_int in args.key_handles:
+            aead = pyhsm.aead_cmd.YHSM_GeneratedAEAD(None, kh_int, '')
+            filename = aead_filename(args.aead_dir, kh, public_id)
+            fn_list.append(filename)
+            try:
+                aead.load(filename)
+                if not aead.nonce:
+                    aead.nonce = pyhsm.yubikey.modhex_decode(public_id).decode('hex')
+                aead_kh_int = kh_int
+                break
+            except IOError:
+                continue
 
     if aead_kh_int == None:
         self.log_error("IN: %s, Found no (readable) AEAD for public_id %s" % (from_key, public_id))
@@ -232,6 +288,11 @@ def parse_args():
                         action='store_true', default=False,
                         help='Enable verbose operation'
                         )
+    parser.add_argument('-d', '--daemon',
+                        dest='daemon',
+                        action='store_true', default=False,
+                        help='Run as daemon'
+                        )
     parser.add_argument('--debug',
                         dest='debug',
                         action='store_true', default=False,
@@ -272,6 +333,13 @@ def parse_args():
                         help='PID file',
                         metavar='FILENAME',
                         )
+    parser.add_argument('--db-url',
+                        dest='db_url',
+                        default=default_db_url,
+                        required=False,
+                        help='The database url to read the AEADs from',
+                        metavar='DBURL',
+                        )
 
     return parser.parse_args()
 
@@ -291,6 +359,13 @@ def args_fixup(my_args):
         res.append((kh, kh_int,))
     my_args.key_handles = res
 
+    #evaluate database url and connect to the database
+    #execute only if in database mode
+    if my_args.db_url is not None:
+        (my_args.engine,my_args.aead_table) = dbconnect(my_args)
+    else:
+        my_args.engine = None
+
 def write_pid_file(fn):
     """ Create a file with our PID. """
     if not fn:
@@ -306,6 +381,9 @@ def run(args):
     """
     Start a BaseHTTPServer.HTTPServer and serve requests forever.
     """
+
+    write_pid_file(args.pid_file)
+    
     server_address = (args.listen_addr, args.listen_port)
     httpd = YHSM_KSMServer(server_address, YHSM_KSMRequestHandler)
     my_log_message(args, syslog.LOG_INFO, "Serving requests to 'http://%s:%s%s' with key handle(s) %s (YubiHSM: '%s', AEADs in '%s')" \
@@ -340,14 +418,18 @@ def main():
         my_log_message(args, syslog.LOG_ERR, 'Failed opening YubiHSM device "%s" : %s' %(args.device, e))
         sys.exit(1)
 
-    write_pid_file(args.pid_file)
+    context.files_preserve = [hsm.get_raw_device()]
 
-    try:
-        run(args)
-    except KeyboardInterrupt:
-        print ""
-        print "Shutting down"
-        print ""
+    if args.daemon:
+        with context:
+            run(args)
+    else:
+         try:
+             run(args)
+         except KeyboardInterrupt:
+             print ""
+             print "Shutting down"
+             print ""
 
 if __name__ == '__main__':
     main()
