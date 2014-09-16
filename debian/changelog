@@ -1,6 +1,7 @@
 python-pyhsm (1.0.4i-1) unstable; urgency=low
 
   * New upstream release.
+  * yhsm-yubikey-ksm: Depend on python-daemon and python-sqlalchemy.
 
  -- Simon Josefsson <simon@josefsson.org>  Tue, 16 Sep 2014 14:17:56 +0200
 
