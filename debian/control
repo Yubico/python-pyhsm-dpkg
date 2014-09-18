@@ -69,10 +69,12 @@ Description: Common files for YubiHSM applications
  encrypt/decrypt/decrypt-compare, HMAC-SHA1 hashing (enabling OATH code
  validation), and Random number entropy generation.
  .
- This package includes the following utilities :
+ This package includes the following utilities that talk with the YubiHSM:
  .
    * yhsm-keystore-unlock - Keystore unlock
    * yhsm-linux-add-entropy - Entropy seeder
+   * yhsm-decrypt-aead - Decrypt AEADs
+   * yhsm-generate-keys - Generate new AEADs
 
 Package: yhsm-validation-server
 Architecture: all
@@ -111,4 +113,5 @@ Description: Yubikey Key Storage Module using YubiHSM
  .
  This package provides the decryption backend for a Yubico validation
  service. It uses the YubiHSM to decrypt YubiKey OTPs and answer 'OK'
- or 'ERR'.
+ or 'ERR'.  The package also contains the yhsm-db-import and
+ yhsm-db-export tools for database management.

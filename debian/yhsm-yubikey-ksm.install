@@ -1,2 +1,4 @@
+utils/yhsm-db-export usr/sbin/
+utils/yhsm-db-import usr/sbin/
 yubikey-ksm/yhsm-import-keys usr/sbin/
 yubikey-ksm/yhsm-yubikey-ksm usr/sbin/

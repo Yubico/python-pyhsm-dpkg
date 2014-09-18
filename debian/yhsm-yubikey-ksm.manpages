@@ -1,1 +1,4 @@
-yubikey-ksm/yhsm-*.1
+utils/yhsm-db-export.1
+utils/yhsm-db-import.1
+yubikey-ksm/yhsm-import-keys.1
+yubikey-ksm/yhsm-yubikey-ksm.1
