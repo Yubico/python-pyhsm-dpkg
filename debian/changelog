@@ -1,5 +1,6 @@
-python-pyhsm (1.0.4j-2) unstable; urgency=low
+python-pyhsm (1.0.4k-1) unstable; urgency=low
 
+  * New upstream release.
   * yhsm-yubikey-ksm: Ship yhsm-db-import/yhsm-db-export.
 
  -- Simon Josefsson <simon@josefsson.org>  Thu, 18 Sep 2014 10:45:56 +0200
