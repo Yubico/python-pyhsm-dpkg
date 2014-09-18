@@ -1,3 +1,9 @@
+python-pyhsm (1.0.4k-2) unstable; urgency=low
+
+  * Add new package 'yhsm-daemon'.
+
+ -- Simon Josefsson <simon@josefsson.org>  Thu, 18 Sep 2014 14:11:32 +0200
+
 python-pyhsm (1.0.4k-1) unstable; urgency=low
 
   * New upstream release.

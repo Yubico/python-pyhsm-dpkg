@@ -18,6 +18,7 @@ Depends: ${python3:Depends},
 	 python-crypto,
 	 python-serial
 Suggests: python-argparse,
+	  yhsm-daemon
 	  yhsm-docs
 Recommends: yhsm-tools
 XB-Python-Version: ${python:Versions}
@@ -115,3 +116,19 @@ Description: Yubikey Key Storage Module using YubiHSM
  service. It uses the YubiHSM to decrypt YubiKey OTPs and answer 'OK'
  or 'ERR'.  The package also contains the yhsm-db-import and
  yhsm-db-export tools for database management.
+
+Package: yhsm-daemon
+Architecture: all
+Depends: ${python3:Depends},
+        ${misc:Depends},
+        adduser,
+        python-pyhsm (= ${binary:Version}),
+        python-argparse
+XB-Python-Version: ${python:Versions}
+Provides: ${python:Provides}
+Description: YubiHSM server daemon
+ Provides a TCP based server allowing multiple processes to use a
+ single YubiHSM in parallel.
+ .
+ To utilize the YubiHSM via the server instead of using it directly,
+ pass yhsm://localhost:5348 as the device to python-pyhsm.
