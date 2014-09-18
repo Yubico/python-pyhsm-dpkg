@@ -1,3 +1,11 @@
+2014-09-18  Simon Josefsson <simon@josefsson.org>
+
+	* Lib/pyhsm/__init__.py, NEWS, setup.py: Version 1.0.4k.
+
+2014-09-18  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS, utils/yhsm-db-export, utils/yhsm-db-import: Make it work.
+
 2014-09-16  Simon Josefsson <simon@josefsson.org>
 
 	* NEWS: Version 1.0.4j.
