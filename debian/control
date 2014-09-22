@@ -18,7 +18,7 @@ Depends: ${python3:Depends},
 	 python-crypto,
 	 python-serial
 Suggests: python-argparse,
-	  yhsm-daemon
+	  yhsm-daemon,
 	  yhsm-docs
 Recommends: yhsm-tools
 XB-Python-Version: ${python:Versions}
