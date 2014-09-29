@@ -1,3 +1,9 @@
+python-pyhsm (1.0.4k-3) unstable; urgency=low
+
+  * Update standards version to 3.9.6.
+
+ -- Simon Josefsson <simon@josefsson.org>  Mon, 29 Sep 2014 19:02:59 +0200
+
 python-pyhsm (1.0.4k-2) unstable; urgency=low
 
   * Add new package 'yhsm-daemon'.
