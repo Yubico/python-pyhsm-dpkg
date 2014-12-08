@@ -1,3 +1,3 @@
 version=3
 opts=pgpsigurlmangle=s/$/.sig/ \
-  https://developers.yubico.com/python-pyhsm/releases.html releases/pyhsm-(\d[\d.]*[a-z]?)\.tar\.gz
+  https://developers.yubico.com/python-pyhsm/Releases/ pyhsm-(\d[\d.]*[a-z]?)\.tar\.gz
