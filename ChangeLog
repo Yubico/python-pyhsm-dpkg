@@ -1,3 +1,60 @@
+2015-08-24  Dain Nilsson <dain@yubico.com>
+
+	* NEWS: Prepare for release.
+
+2015-08-24  Dain Nilsson <dain@yubico.com>
+
+	* maintainer-scripts/README: Corrected release instructions in
+	README.
+
+2015-08-24  Dain Nilsson <dain@yubico.com>
+
+	* Lib/pyhsm/__init__.py, NEWS, setup.py: Corrected version and NEWS.
+
+2015-08-21  Simon Josefsson <simon@josefsson.org>
+
+	* Lib/pyhsm/__init__.py, NEWS, setup.py: Bump version.
+
+2015-08-17  Jean Paul Galea <jeanpaul@yubico.com>
+
+	* doc/Database_Usage.adoc: Documentation fixes.  - newline between IMPORT/EXPORT examples.  - capital letters.
+
+2015-08-17  Jean Paul Galea <jeanpaul@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Changes tabs -> spaces.  - adhere with project convention, 	avoid subtle bugs due to incorrect indentation.
+
+2015-08-11  Klas Lindfors <klas@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: commit the transaction after looking
+	at all rows and print sqlalchemy exception
+
+2014-10-30  Dain Nilsson <dain@yubico.com>
+
+	* doc/Database_Usage.adoc: CAUTION instead of NOTE.
+
+2014-10-30  Dain Nilsson <dain@yubico.com>
+
+	* doc/DatabaseUsage.txt, doc/Database_Usage.adoc, doc/Intro.adoc,
+	doc/Intro.txt, doc/RunningSelfTests.txt,
+	doc/Running_Hardware_Tests.adoc, doc/YubiKeyKSM.txt,
+	doc/YubiKey_KSM.adoc: Made doc/* into asciidoc.
+
+2014-10-29  Henrik Stråth <minisu@users.noreply.github.com>
+
+	* README: Update README
+
+2014-10-29  Henrik Stråth <minisu@users.noreply.github.com>
+
+	* README: Update README
+
+2014-10-29  Henrik Stråth <henrik@yubico.com>
+
+	* README.adoc: symlinked README
+
+2014-09-22  Simon Josefsson <simon@josefsson.org>
+
+	* Lib/pyhsm/basic_cmd.py: Fix some cut'n'paste issues.
+
 2014-09-18  Simon Josefsson <simon@josefsson.org>
 
 	* Lib/pyhsm/__init__.py, NEWS, setup.py: Version 1.0.4k.
