@@ -46,12 +46,12 @@ Tests/test_soft_hsm.py
 Tests/test_stick.py
 Tests/test_util.py
 Tests/test_yubikey_validate.py
-doc/DatabaseUsage.txt
-doc/Intro.txt
+doc/Database_Usage.adoc
+doc/Intro.adoc
 doc/README
-doc/RunningSelfTests.txt
+doc/Running_Hardware_Tests.adoc
 doc/YubiHSM_if.h
-doc/YubiKeyKSM.txt
+doc/YubiKey_KSM.adoc
 doc/db_schema
 doc/html/api-objects.txt
 doc/html/class-tree.html
