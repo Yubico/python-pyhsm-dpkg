@@ -1,3 +1,9 @@
+python-pyhsm (1.0.4l-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Dain Nilsson <dain@yubico.com>  Mon, 24 Aug 2015 17:09:33 +0200
+
 python-pyhsm (1.0.4k-3) unstable; urgency=low
 
   * Update standards version to 3.9.6.
