@@ -3,6 +3,7 @@ python-pyhsm (1.0.4l-2) unstable; urgency=low
   * Let yhsm-daemon depend on python-daemon.  Closes: #801764.
   * Add gbp.conf.
   * Use extend-diff-ignore instead of diff-ignore.
+  * Update README.source.
 
  -- Simon Josefsson <simon@josefsson.org>  Fri, 16 Oct 2015 15:57:42 +0200
 
