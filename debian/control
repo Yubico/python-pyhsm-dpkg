@@ -123,7 +123,8 @@ Depends: ${python3:Depends},
         ${misc:Depends},
         adduser,
         python-pyhsm (= ${binary:Version}),
-        python-argparse
+        python-argparse,
+	python-daemon
 XB-Python-Version: ${python:Versions}
 Provides: ${python:Provides}
 Description: YubiHSM server daemon

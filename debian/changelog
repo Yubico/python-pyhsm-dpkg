@@ -1,3 +1,9 @@
+python-pyhsm (1.0.4l-2) unstable; urgency=low
+
+  * Let yhsm-daemon depend on python-daemon.  Closes: #801764.
+
+ -- Simon Josefsson <simon@josefsson.org>  Fri, 16 Oct 2015 15:57:42 +0200
+
 python-pyhsm (1.0.4l-1) unstable; urgency=low
 
   * New upstream release.
