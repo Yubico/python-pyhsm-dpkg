@@ -1,3 +1,139 @@
+2016-01-08  Dain Nilsson <dain@yubico.com>
+
+	* NEWS: Reformatted NEWS.
+
+2016-01-08  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, doc/Intro.adoc, doc/YubiKey_KSM.adoc, pyhsm/__init__.py: 
+	Updated NEWS and version for release.
+
+2016-01-08  Dain Nilsson <dain@yubico.com>
+
+	* vendor/yubicommon: Updated yubicommon.
+
+2016-01-07  Dain Nilsson <dain@yubico.com>
+
+	* doc/YubiKey_KSM.adoc: Add missing dot.
+
+2016-01-07  Dain Nilsson <dain@yubico.com>
+
+	* doc/YubiKey_KSM.adoc: Fix formatting.
+
+2016-01-07  Dain Nilsson <dain@yubico.com>
+
+	* doc/YubiKey_KSM.adoc: Updated documentatino regarding soft HSM.
+
+2016-01-07  Dain Nilsson <dain@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Refactored AEAD DB into separate
+	class.
+
+2016-01-07  Dain Nilsson <dain@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Fix db_url parameter, fix logging
+	from constructor.
+
+2016-01-07  Klas Lindfors <klas@yubico.com>
+
+	* pyhsm/cmd.py: add a drain after a bad response from the HSM this makes sure that we read all bad data before we try to send a
+	new command, should prevent cascading errors.
+
+2016-01-05  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, pyhsm/soft_hsm.py, utils/yhsm-generate-keys: Added SoftYHSM
+	support to yhsm-generate-keys.
+
+2016-01-05  Dain Nilsson <dain@yubico.com>
+
+	* examples/yhsm-monitor-exit.py, examples/yhsm-password-auth.py,
+	examples/yhsm-sysinfo.py, utils/yhsm-db-export,
+	utils/yhsm-db-import, utils/yhsm-generate-keys,
+	utils/yhsm-keystore-unlock, utils/yhsm-linux-add-entropy,
+	yhsm-val/yhsm-init-oath-token, yhsm-val/yhsm-validate-otp,
+	yhsm-val/yhsm-validation-server: Remove unneeded append to path.
+
+2016-01-05  Dain Nilsson <dain@yubico.com>
+
+	* NEWS: Updated NEWS.
+
+2016-01-05  Dain Nilsson <dain@yubico.com>
+
+	* : commit aa7a2bc15cc249b7f0a8903ca19c1c94aa5ebbbb Author: Dain
+	Nilsson <dain@yubico.com> Date:   Tue Jan 5 14:53:35 2016 +0100
+
+2016-01-05  Dain Nilsson <dain@yubico.com>
+
+	* pyhsm/soft_hsm.py, yubikey-ksm/yhsm-import-keys,
+	yubikey-ksm/yhsm-yubikey-ksm: Added SoftYHSM support to
+	yhsm-import-keys.
+
+2016-01-05  Dain Nilsson <dain@yubico.com>
+
+	* pyhsm/soft_hsm.py, test/test_common.py,
+	yubikey-ksm/yhsm-yubikey-ksm: Added SoftYHSM and support for using
+	it in yhsm-yubikey-hsm.  SoftYHSM implements just enough functionality to be used in
+	yhsm-yubikey-ksm.
+
+2016-01-05  Dain Nilsson <dain@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Cleanup of yhsm-yubikey-ksm.  Removed global variables, restructured code.
+
+2015-08-25  Dain Nilsson <dain@yubico.com>
+
+	* .gitignore: Removed doc/html from .gitignore.
+
+2015-08-25  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, README: Updated NEWS and README.
+
+2015-08-25  Dain Nilsson <dain@yubico.com>
+
+	* test/README.adoc, test/configure_hsm.py, test/test_configure.py: 
+	Updated test instructions.
+
+2015-08-25  Dain Nilsson <dain@yubico.com>
+
+	* MANIFEST.in: Updated MANIFEST.
+
+2015-08-25  Dain Nilsson <dain@yubico.com>
+
+	* maintainer-scripts/README, maintainer-scripts/generate_html.sh,
+	maintainer-scripts/make-release.sh, test/run.sh,
+	test/test_configure.py: Removed maintainer-scripts.
+
+2015-08-25  Dain Nilsson <dain@yubico.com>
+
+	* .gitignore, .gitmodules, Lib/pyhsm/__init__.py,
+	Lib/pyhsm/aead_cmd.py, Lib/pyhsm/aes_ecb_cmd.py, Lib/pyhsm/base.py,
+	Lib/pyhsm/basic_cmd.py, Lib/pyhsm/buffer_cmd.py, Lib/pyhsm/cmd.py,
+	Lib/pyhsm/db_cmd.py, Lib/pyhsm/debug_cmd.py, Lib/pyhsm/defines.py,
+	Lib/pyhsm/exception.py, Lib/pyhsm/hmac_cmd.py,
+	Lib/pyhsm/oath_hotp.py, Lib/pyhsm/soft_hsm.py, Lib/pyhsm/stick.py,
+	Lib/pyhsm/stick_client.py, Lib/pyhsm/util.py,
+	Lib/pyhsm/validate_cmd.py, Lib/pyhsm/version.py,
+	Lib/pyhsm/yubikey.py, Tests/run.sh, Tests/test_aead.py,
+	Tests/test_aes_ecb.py, Tests/test_basics.py, Tests/test_buffer.py,
+	Tests/test_common.py, Tests/test_configure.py, Tests/test_db.py,
+	Tests/test_hmac.py, Tests/test_init.py, Tests/test_misc.py,
+	Tests/test_oath.py, Tests/test_otp_validate.py,
+	Tests/test_soft_hsm.py, Tests/test_stick.py, Tests/test_util.py,
+	Tests/test_yubikey_validate.py, pyhsm/__init__.py,
+	pyhsm/aead_cmd.py, pyhsm/aes_ecb_cmd.py, pyhsm/base.py,
+	pyhsm/basic_cmd.py, pyhsm/buffer_cmd.py, pyhsm/cmd.py,
+	pyhsm/db_cmd.py, pyhsm/debug_cmd.py, pyhsm/defines.py,
+	pyhsm/exception.py, pyhsm/hmac_cmd.py, pyhsm/oath_hotp.py,
+	pyhsm/soft_hsm.py, pyhsm/stick.py, pyhsm/stick_client.py,
+	pyhsm/util.py, pyhsm/validate_cmd.py, pyhsm/version.py,
+	pyhsm/yubicommon, pyhsm/yubikey.py, setup.py, test/__init__.py,
+	test/run.sh, test/test_aead.py, test/test_aes_ecb.py,
+	test/test_basics.py, test/test_buffer.py, test/test_common.py,
+	test/test_configure.py, test/test_db.py, test/test_hmac.py,
+	test/test_init.py, test/test_misc.py, test/test_oath.py,
+	test/test_otp_validate.py, test/test_soft_hsm.py,
+	test/test_stick.py, test/test_util.py,
+	test/test_yubikey_validate.py, vendor/yubicommon: Move stuff around
+	and use yubicommon.
+
 2015-08-24  Dain Nilsson <dain@yubico.com>
 
 	* NEWS: Prepare for release.
