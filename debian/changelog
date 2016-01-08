@@ -1,6 +1,7 @@
 python-pyhsm (1.1.1-1) unstable; urgency=low
 
   * New upstream release.
+  * Removed 'yhsm-docs' package.
 
  -- Dain Nilsson <dain@yubico.com>  Fri, 08 Jan 2016 13:55:27 +0100
 
