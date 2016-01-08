@@ -1,8 +1,8 @@
-python-pyhsm (1.1.0-1) unstable; urgency=low
+python-pyhsm (1.1.1-1) unstable; urgency=low
 
   * New upstream release.
 
- -- Dain Nilsson <dain@yubico.com>  Fri, 08 Jan 2016 11:03:12 +0100
+ -- Dain Nilsson <dain@yubico.com>  Fri, 08 Jan 2016 13:55:27 +0100
 
 python-pyhsm (1.0.4l-2) unstable; urgency=low
 
