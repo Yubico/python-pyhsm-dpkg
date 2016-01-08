@@ -1,9 +1,0 @@
-Document: python-pyhsm
-Title: API documentation for python-pyhsm
-Author: Fredrik Thulin
-Abstract: API documentation for python-pyhsm
-Section: Programming
-
-Format: HTML
-Index: /usr/share/doc/yhsm-docs/html/index.html
-Files: /usr/share/doc/yhsm-docs/html/*.html

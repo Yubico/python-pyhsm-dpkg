@@ -37,21 +37,8 @@ Description: Python code for talking to a Yubico YubiHSM hardware
  This package contains the core Python code for interacting with the
  YubiHSM.
 
-Package: yhsm-docs
-Section: doc
-Priority: extra
-Suggests: python-pyhsm (= ${binary:Version})
-Architecture: all
-Depends: ${misc:Depends}
-Description: python-pyhsm documentation
- Complete API documentation (in HTML format), as well as other assorted
- documentation regarding pyhsm and related applications.
- .
- The documentation is generated from the pydoc annotations (using epydoc)
- but the HTML format might be preferable since it allows you to click on
- references for example.
-
 Package: yhsm-tools
+Section: utils
 Architecture: all
 Depends: ${python3:Depends},
 	 ${misc:Depends},
@@ -78,6 +65,7 @@ Description: Common files for YubiHSM applications
    * yhsm-generate-keys - Generate new AEADs
 
 Package: yhsm-validation-server
+Section: net
 Architecture: all
 Depends: ${python3:Depends},
 	 ${misc:Depends},
@@ -97,6 +85,7 @@ Description: Validation server using YubiHSM
  it does not provide the advanced replication features of that server.
 
 Package: yhsm-yubikey-ksm
+Section: net
 Architecture: all
 Depends: ${python3:Depends},
 	 ${misc:Depends},
@@ -118,6 +107,7 @@ Description: Yubikey Key Storage Module using YubiHSM
  yhsm-db-export tools for database management.
 
 Package: yhsm-daemon
+Section: net
 Architecture: all
 Depends: ${python3:Depends},
         ${misc:Depends},
