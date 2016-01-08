@@ -1,1 +1,1 @@
-extend-diff-ignore=Lib/pyhsm.egg-info/SOURCES.txt|Lib/pyhsm.egg-info/requires.txt
+extend-diff-ignore=pyhsm.egg-info/SOURCES.txt|pyhsm.egg-info/requires.txt
