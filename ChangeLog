@@ -1,5 +1,14 @@
 2016-01-08  Dain Nilsson <dain@yubico.com>
 
+	* pyhsm/__init__.py: Bump version for release.
+
+2016-01-08  Dain Nilsson <dain@yubico.com>
+
+	* .gitmodules, NEWS, pyhsm/__init__.py, pyhsm/yubicommon, setup.py,
+	vendor/yubicommon: Removed yubicommon.
+
+2016-01-08  Dain Nilsson <dain@yubico.com>
+
 	* NEWS: Reformatted NEWS.
 
 2016-01-08  Dain Nilsson <dain@yubico.com>

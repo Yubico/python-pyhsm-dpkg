@@ -39,11 +39,6 @@ pyhsm.egg-info/SOURCES.txt
 pyhsm.egg-info/dependency_links.txt
 pyhsm.egg-info/requires.txt
 pyhsm.egg-info/top_level.txt
-pyhsm/yubicommon/__init__.py
-pyhsm/yubicommon/setup/__init__.py
-pyhsm/yubicommon/setup/exe.py
-pyhsm/yubicommon/setup/pyinstaller_spec.py
-pyhsm/yubicommon/setup/qt.py
 test/__init__.py
 test/configure_hsm.py
 test/test_aead.py
