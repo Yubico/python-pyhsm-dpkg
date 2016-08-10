@@ -1,9 +1,14 @@
 python-pyhsm (1.1.1-1) unstable; urgency=low
 
+  [ Dain Nilsson ]
   * New upstream release.
   * Removed 'yhsm-docs' package.
 
- -- Dain Nilsson <dain@yubico.com>  Fri, 08 Jan 2016 13:55:27 +0100
+  [ Simon Josefsson ]
+  * Use https URLs in Vcs-Git.
+  * Update Standards-Version from 3.9.6 to 3.9.8.
+
+ -- Simon Josefsson <simon@josefsson.org>  Wed, 10 Aug 2016 15:29:41 +0200
 
 python-pyhsm (1.0.4l-2) unstable; urgency=low
 

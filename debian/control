@@ -6,10 +6,10 @@ Priority: optional
 Build-Depends: python-setuptools (>= 0.6b3),
 	       debhelper (>= 9),
 	       python3
-Vcs-Git: git://github.com/Yubico/python-pyhsm-dpkg.git
-Vcs-Browser: https://github.com/Yubico/python-pyhsm-dpkg
+Standards-Version: 3.9.8
 Homepage: https://developers.yubico.com/python-pyhsm/
-Standards-Version: 3.9.6
+Vcs-Browser: https://github.com/Yubico/python-pyhsm-dpkg
+Vcs-Git: https://github.com/Yubico/python-pyhsm-dpkg.git
 
 Package: python-pyhsm
 Architecture: all
