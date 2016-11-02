@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 #
 # Tool to add an OATH token to the yhsm-validation-server database.
 #
@@ -12,6 +11,7 @@ import sqlite3
 import argparse
 import pyhsm
 import pyhsm.oath_hotp
+from hashlib import sha1
 
 default_device = "/dev/ttyACM0"
 default_db_file = "/var/yubico/yhsm-validation-server.db"
@@ -138,9 +138,10 @@ def get_oath_k(args):
     else:
         t = raw_input("Enter OATH key (hex encoded) : ")
         decoded = t.decode('hex')
-    if len(decoded) != 20:
-        sys.stderr.write("Supplied OATH key is not 20 bytes (%i).\n" % (len(decoded)))
-        sys.exit(1)
+
+    if len(decoded) > 20:
+        decoded = sha1(decoded).digest()
+    decoded = decoded.ljust(20, '\0')
     return decoded
 
 class ValOathDb():
@@ -214,9 +215,9 @@ def main():
 
     nonce, aead = generate_aead(hsm, args)
     oath_c = validate_oath_c(hsm, args, nonce, aead)
-    return store_oath_entry(args, nonce, aead, oath_c)
+    if not store_oath_entry(args, nonce, aead, oath_c):
+        return 1
+
 
 if __name__ == '__main__':
-    if main():
-        sys.exit(0)
-    sys.exit(1)
+    sys.exit(main())

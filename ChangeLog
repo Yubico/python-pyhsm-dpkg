@@ -1,3 +1,140 @@
+2016-11-02  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, pyhsm/__init__.py: Prepare for release.
+
+2016-11-02  Dain Nilsson <dain@yubico.com>
+
+	* setup.py: Fix dependencies.
+
+2016-11-02  Dain Nilsson <dain@yubico.com>
+
+	* pyhsm/soft_hsm.py: Fix soft HSM keys validation.
+
+2016-11-02  Dain Nilsson <dain@yubico.com>
+
+	* MANIFEST.in: Add all test files to sdist.
+
+2016-11-02  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, pyhsm/ksm/yubikey_ksm.py: yhsm-yubikey-ksm: Read --db-url
+	from env var (close #10).
+
+2016-11-02  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, pyhsm/ksm/yubikey_ksm.py, pyhsm/soft_hsm.py: 
+	yhsm-yubikey-ksm: support "-" as device.
+
+2016-11-01  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, pyhsm/ksm/import_keys.py: Fix double-decode.
+
+2016-10-28  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, README: Update README.
+
+2016-10-26  Dain Nilsson <dain@yubico.com>
+
+	* MANIFEST.in, NEWS, {utils => man}/yhsm-daemon.1, {yubikey-ksm =>
+	man}/yhsm-db-export.1, {yubikey-ksm => man}/yhsm-db-import.1,
+	{utils => man}/yhsm-decrypt-aead.1, {utils =>
+	man}/yhsm-generate-keys.1, {yubikey-ksm => man}/yhsm-import-keys.1,
+	{yhsm-val => man}/yhsm-init-oath-token.1, {utils =>
+	man}/yhsm-keystore-unlock.1, {utils =>
+	man}/yhsm-linux-add-entropy.1, {yhsm-val =>
+	man}/yhsm-validate-otp.1, {yhsm-val =>
+	man}/yhsm-validation-server.1, {yubikey-ksm =>
+	man}/yhsm-yubikey-ksm.1, pyhsm/__init__.py, pyhsm/ksm/__init__.py,
+	pyhsm/ksm/db_export.py, pyhsm/ksm/db_import.py,
+	yubikey-ksm/yhsm-import-keys => pyhsm/ksm/import_keys.py,
+	yubikey-ksm/yhsm-yubikey-ksm => pyhsm/ksm/yubikey_ksm.py,
+	utils/yhsm-daemon => pyhsm/stick_daemon.py,
+	pyhsm/tools/__init__.py, utils/yhsm-decrypt-aead =>
+	pyhsm/tools/decrypt_aead.py, utils/yhsm-generate-keys =>
+	pyhsm/tools/generate_keys.py, utils/yhsm-keystore-unlock =>
+	pyhsm/tools/keystore_unlock.py, utils/yhsm-linux-add-entropy =>
+	pyhsm/tools/linux_add_entropy.py, pyhsm/val/__init__.py,
+	yhsm-val/yhsm-init-oath-token => pyhsm/val/init_oath_token.py,
+	yhsm-val/yhsm-validate-otp => pyhsm/val/validate_otp.py,
+	yhsm-val/yhsm-validation-server => pyhsm/val/validation_server.py,
+	setup.py, yubikey-ksm/yhsm-db-export, yubikey-ksm/yhsm-db-import: 
+	Made utils, yubikey-ksm and validation-server subpackages.
+
+2016-10-25  Dain Nilsson <dain@yubico.com>
+
+	* {utils => yubikey-ksm}/yhsm-db-export, {utils =>
+	yubikey-ksm}/yhsm-db-export.1, {utils =>
+	yubikey-ksm}/yhsm-db-import, {utils =>
+	yubikey-ksm}/yhsm-db-import.1: Move DB import/export scripts to
+	yubikey-ksm/.
+
+2016-10-25  Dain Nilsson <dain@yubico.com>
+
+	* yhsm-val/yhsm-init-oath-token.1: Fix typo in man page.
+
+2016-10-24  Dain Nilsson <dain@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Fix Exception printing.
+
+2016-10-24  Dain Nilsson <dain@yubico.com>
+
+	* pyhsm/__init__.py: Bumped version.
+
+2016-10-21  Dain Nilsson <dain@yubico.com>
+
+	* doc/README, doc/Running_Hardware_Tests.adoc, test/README.adoc: 
+	Cleanup of docs.
+
+2016-10-21  Dain Nilsson <dain@yubico.com>
+
+	* README: Remove submodule instructions from README.
+
+2016-10-21  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, pyhsm/oath_totp.py, yhsm-val/yhsm-init-oath-token,
+	yhsm-val/yhsm-validation-server: Fix tolerance parameter.
+
+2016-10-21  Dain Nilsson <dain@yubico.com>
+
+	* pyhsm/oath_hotp.py, pyhsm/oath_totp.py,
+	yhsm-val/yhsm-validation-server, yhsm-val/yhsm-validation-server.1: 
+	Cleanup TOTP support in yhsm-validation-server.  - Reduce code duplication.  - Add tolerance parameter.
+
+2016-10-21  Dain Nilsson <dain@yubico.com>
+
+	* : Merge pull request #12.
+
+2016-10-20  Dain Nilsson <dain@yubico.com>
+
+	* setup.py: Exclude test package from installation (fixes #11).
+
+2016-10-20  Dain Nilsson <dain@yubico.com>
+
+	* yubikey-ksm/yhsm-yubikey-ksm: Refactor FS/DB AEAD stores.
+
+2016-09-19  Peter Norin <peter.norin@storedsafe.com>
+
+	* pyhsm/__init__.py, pyhsm/oath_totp.py,
+	yhsm-val/yhsm-validation-server: Added TOTP RFC 6238 functionallity
+	to the YubiHSM similar to how the HOTP RFC 4226 works. Also fixed an
+	import which was missing in order for HOTP to work
+
+2016-08-10  Simon Josefsson <simon@josefsson.org>
+
+	* utils/yhsm-keystore-unlock.1: Fix typo.
+
+2016-01-19  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, pyhsm/aead_cmd.py: Fix for Windows CRLF/LF issue with AEADs.
+
+2016-01-08  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, pyhsm/__init__.py: Bumped version post release.
+
+2016-01-08  Dain Nilsson <dain@yubico.com>
+
+	* pyhsm/__init__.py: Set .post1 version to re-upload to PyPI as
+	previous upload failed.
+
 2016-01-08  Dain Nilsson <dain@yubico.com>
 
 	* pyhsm/__init__.py: Bump version for release.
@@ -112,36 +249,28 @@
 
 2015-08-25  Dain Nilsson <dain@yubico.com>
 
-	* .gitignore, .gitmodules, Lib/pyhsm/__init__.py,
-	Lib/pyhsm/aead_cmd.py, Lib/pyhsm/aes_ecb_cmd.py, Lib/pyhsm/base.py,
-	Lib/pyhsm/basic_cmd.py, Lib/pyhsm/buffer_cmd.py, Lib/pyhsm/cmd.py,
-	Lib/pyhsm/db_cmd.py, Lib/pyhsm/debug_cmd.py, Lib/pyhsm/defines.py,
-	Lib/pyhsm/exception.py, Lib/pyhsm/hmac_cmd.py,
-	Lib/pyhsm/oath_hotp.py, Lib/pyhsm/soft_hsm.py, Lib/pyhsm/stick.py,
-	Lib/pyhsm/stick_client.py, Lib/pyhsm/util.py,
-	Lib/pyhsm/validate_cmd.py, Lib/pyhsm/version.py,
-	Lib/pyhsm/yubikey.py, Tests/run.sh, Tests/test_aead.py,
-	Tests/test_aes_ecb.py, Tests/test_basics.py, Tests/test_buffer.py,
-	Tests/test_common.py, Tests/test_configure.py, Tests/test_db.py,
-	Tests/test_hmac.py, Tests/test_init.py, Tests/test_misc.py,
-	Tests/test_oath.py, Tests/test_otp_validate.py,
-	Tests/test_soft_hsm.py, Tests/test_stick.py, Tests/test_util.py,
-	Tests/test_yubikey_validate.py, pyhsm/__init__.py,
-	pyhsm/aead_cmd.py, pyhsm/aes_ecb_cmd.py, pyhsm/base.py,
-	pyhsm/basic_cmd.py, pyhsm/buffer_cmd.py, pyhsm/cmd.py,
-	pyhsm/db_cmd.py, pyhsm/debug_cmd.py, pyhsm/defines.py,
-	pyhsm/exception.py, pyhsm/hmac_cmd.py, pyhsm/oath_hotp.py,
-	pyhsm/soft_hsm.py, pyhsm/stick.py, pyhsm/stick_client.py,
-	pyhsm/util.py, pyhsm/validate_cmd.py, pyhsm/version.py,
-	pyhsm/yubicommon, pyhsm/yubikey.py, setup.py, test/__init__.py,
-	test/run.sh, test/test_aead.py, test/test_aes_ecb.py,
-	test/test_basics.py, test/test_buffer.py, test/test_common.py,
-	test/test_configure.py, test/test_db.py, test/test_hmac.py,
-	test/test_init.py, test/test_misc.py, test/test_oath.py,
-	test/test_otp_validate.py, test/test_soft_hsm.py,
-	test/test_stick.py, test/test_util.py,
-	test/test_yubikey_validate.py, vendor/yubicommon: Move stuff around
-	and use yubicommon.
+	* .gitignore, .gitmodules, {Lib/pyhsm => pyhsm}/__init__.py,
+	{Lib/pyhsm => pyhsm}/aead_cmd.py, {Lib/pyhsm =>
+	pyhsm}/aes_ecb_cmd.py, {Lib/pyhsm => pyhsm}/base.py, {Lib/pyhsm =>
+	pyhsm}/basic_cmd.py, {Lib/pyhsm => pyhsm}/buffer_cmd.py, {Lib/pyhsm
+	=> pyhsm}/cmd.py, {Lib/pyhsm => pyhsm}/db_cmd.py, {Lib/pyhsm =>
+	pyhsm}/debug_cmd.py, {Lib/pyhsm => pyhsm}/defines.py, {Lib/pyhsm =>
+	pyhsm}/exception.py, {Lib/pyhsm => pyhsm}/hmac_cmd.py, {Lib/pyhsm
+	=> pyhsm}/oath_hotp.py, {Lib/pyhsm => pyhsm}/soft_hsm.py,
+	{Lib/pyhsm => pyhsm}/stick.py, {Lib/pyhsm =>
+	pyhsm}/stick_client.py, {Lib/pyhsm => pyhsm}/util.py, {Lib/pyhsm =>
+	pyhsm}/validate_cmd.py, {Lib/pyhsm => pyhsm}/version.py,
+	pyhsm/yubicommon, {Lib/pyhsm => pyhsm}/yubikey.py, setup.py,
+	test/__init__.py, {Tests => test}/run.sh, {Tests =>
+	test}/test_aead.py, {Tests => test}/test_aes_ecb.py, {Tests =>
+	test}/test_basics.py, {Tests => test}/test_buffer.py, {Tests =>
+	test}/test_common.py, {Tests => test}/test_configure.py, {Tests =>
+	test}/test_db.py, {Tests => test}/test_hmac.py, {Tests =>
+	test}/test_init.py, {Tests => test}/test_misc.py, {Tests =>
+	test}/test_oath.py, {Tests => test}/test_otp_validate.py, {Tests =>
+	test}/test_soft_hsm.py, {Tests => test}/test_stick.py, {Tests =>
+	test}/test_util.py, {Tests => test}/test_yubikey_validate.py,
+	vendor/yubicommon: Move stuff around and use yubicommon.
 
 2015-08-24  Dain Nilsson <dain@yubico.com>
 
@@ -166,7 +295,7 @@
 
 2015-08-17  Jean Paul Galea <jeanpaul@yubico.com>
 
-	* yubikey-ksm/yhsm-yubikey-ksm: Changes tabs -> spaces.  - adhere with project convention, 	avoid subtle bugs due to incorrect indentation.
+	* yubikey-ksm/yhsm-yubikey-ksm: Changes tabs -> spaces.  - adhere with project convention,         avoid subtle bugs due to incorrect indentation.
 
 2015-08-11  Klas Lindfors <klas@yubico.com>
 
@@ -180,9 +309,9 @@
 2014-10-30  Dain Nilsson <dain@yubico.com>
 
 	* doc/DatabaseUsage.txt, doc/Database_Usage.adoc, doc/Intro.adoc,
-	doc/Intro.txt, doc/RunningSelfTests.txt,
-	doc/Running_Hardware_Tests.adoc, doc/YubiKeyKSM.txt,
-	doc/YubiKey_KSM.adoc: Made doc/* into asciidoc.
+	doc/Intro.txt, doc/{RunningSelfTests.txt =>
+	Running_Hardware_Tests.adoc}, doc/{YubiKeyKSM.txt =>
+	YubiKey_KSM.adoc}: Made doc/* into asciidoc.
 
 2014-10-29  Henrik Stråth <minisu@users.noreply.github.com>
 
@@ -294,8 +423,8 @@
 
 2014-09-16  Simon Josefsson <simon@josefsson.org>
 
-	* AUTHORS, Tests/README, doc/DatabaseUsage.txt,
-	doc/RunningSelfTests.txt, utils/README.db.import-export: Doc fixes.
+	* AUTHORS, utils/README.db.import-export => doc/DatabaseUsage.txt,
+	Tests/README => doc/RunningSelfTests.txt: Doc fixes.
 
 2014-09-16  Simon Josefsson <simon@josefsson.org>
 
@@ -505,9 +634,9 @@
 
 2013-07-16  Tommaso Galassi De Orchi <tom@yubico.com>
 
-	* utils/README.db.import-export, utils/README.yhsm-dbimport-aead,
-	utils/db_schema, utils/yhsm-db-export, utils/yhsm-db-import,
-	utils/yhsm-db-manage: added yhsm-db-import and yhsm-db-export and
+	* utils/{README.yhsm-dbimport-aead => README.db.import-export},
+	utils/db_schema, utils/yhsm-db-export, utils/{yhsm-db-manage =>
+	yhsm-db-import}: added yhsm-db-import and yhsm-db-export and
 	db_schema
 
 2013-07-12  Tommaso Galassi De Orchi <tom@yubico.com>
@@ -589,7 +718,7 @@
 
 2013-04-12  Dain Nilsson <dain@yubico.com>
 
-	* Lib/pyhsm/stick_server.py, utils/yhsm-daemon: Added yhsm-daemon.
+	* Lib/pyhsm/stick_server.py => utils/yhsm-daemon: Added yhsm-daemon.
 
 2013-04-12  Dain Nilsson <dain@yubico.com>
 
@@ -957,8 +1086,8 @@
 
 2011-12-21  Fredrik Thulin <fredrik@yubico.com>
 
-	* examples/yhsm-generate-keys, yubikey-ksm/yhsm-generate-keys: Move
-	currently useless yhsm-generate-keys to examples/.  It is currently useless since it generates secrets for YubiKeys
+	* {yubikey-ksm => examples}/yhsm-generate-keys: Move currently
+	useless yhsm-generate-keys to examples/.  It is currently useless since it generates secrets for YubiKeys
 	without allowing any YubiKeys to be programmed with these secrets.  See longer explanation in top pydoc.
 
 2011-12-21  Fredrik Thulin <fredrik@yubico.com>
@@ -1248,16 +1377,15 @@
 	Tests/test_misc.py, Tests/test_oath.py, Tests/test_otp_validate.py,
 	doc/YubiHSM_if.h, utils/yhsm-keystore-unlock: Update to support
 	YubiHSM 1.0.  The most significant change from version 0.9.8 is two new keystore
-	unlock commands (deprecating the old YSM_KEY_STORAGE_UNLOCK).  YSM_KEY_STORE_DECRYPT - decrypt (AES-256) the keystore into 		        YubiHSM RAM with a passphrase YSM_HSM_UNLOCK        -
-	unlock HSM operations using a YubiKey OTP Either one, both or none of these two may be enabled when the
+	unlock commands (deprecating the old YSM_KEY_STORAGE_UNLOCK).  YSM_KEY_STORE_DECRYPT - decrypt (AES-256) the keystore into                         YubiHSM RAM with a passphrase YSM_HSM_UNLOCK
+	- unlock HSM operations using a YubiKey OTP Either one, both or none of these two may be enabled when the
 	YubiHSM is configured.
 
 2011-08-02  Fredrik Thulin <fredrik@yubico.com>
 
-	* examples/yhsm-linux-add-entropy.py,
-	examples/yhsm-storage-unlock.py, utils/yhsm-keystore-unlock,
-	utils/yhsm-linux-add-entropy: Promote two examples to new utils/
-	dir.
+	* examples/yhsm-storage-unlock.py => utils/yhsm-keystore-unlock,
+	examples/yhsm-linux-add-entropy.py => utils/yhsm-linux-add-entropy: 
+	Promote two examples to new utils/ dir.
 
 2011-08-02  Fredrik Thulin <fredrik@yubico.com>
 
@@ -1280,7 +1408,7 @@
 
 2011-08-01  Fredrik Thulin <fredrik@yubico.com>
 
-	* doc/generate_html.sh, maintainer-scripts/generate_html.sh: rename
+	* {doc => maintainer-scripts}/generate_html.sh: rename
 
 2011-08-01  Fredrik Thulin <fredrik@yubico.com>
 
@@ -1541,8 +1669,8 @@
 
 2011-04-02  Fredrik Thulin <fredrik@yubico.com>
 
-	* yhsm-val/yhsm-validate-otp, yhsm-val/yhsm-validation-server,
-	yubikey-val/yhsm-validate-otp: init
+	* {yubikey-val => yhsm-val}/yhsm-validate-otp,
+	yhsm-val/yhsm-validation-server: init
 
 2011-04-02  Fredrik Thulin <fredrik@yubico.com>
 
@@ -1871,9 +1999,9 @@
 
 2011-03-28  Fredrik Thulin <fredrik@yubico.com>
 
-	* yhsm-generate-keys, yhsm-import-keys, yhsm-yubikey-ksm,
-	yubikey-ksm/yhsm-generate-keys, yubikey-ksm/yhsm-import-keys,
-	yubikey-ksm/yhsm-yubikey-ksm: Move to subdirectory.
+	* yhsm-generate-keys => yubikey-ksm/yhsm-generate-keys,
+	yhsm-import-keys => yubikey-ksm/yhsm-import-keys, yhsm-yubikey-ksm
+	=> yubikey-ksm/yhsm-yubikey-ksm: Move to subdirectory.
 
 2011-03-28  Fredrik Thulin <fredrik@yubico.com>
 
@@ -1911,22 +2039,20 @@
 
 2011-03-25  Fredrik Thulin <fredrik@yubico.com>
 
-	* Lib/pyhsm/__init__.py, Lib/pyhsm/base.py, Lib/pyhsm/basic_cmd.py,
-	Lib/pyhsm/cmd.py, Lib/pyhsm/debug_cmd.py, Lib/pyhsm/defines.py,
-	Lib/pyhsm/exception.py, Lib/pyhsm/secrets_cmd.py,
-	Lib/pyhsm/stick.py, Lib/pyhsm/util.py, Lib/pyhsm/validate_cmd.py,
-	Lib/pyhsm/yubikey.py, Lib/serveronstick/__init__.py,
-	Lib/serveronstick/base.py, Lib/serveronstick/basic_cmd.py,
-	Lib/serveronstick/cmd.py, Lib/serveronstick/debug_cmd.py,
-	Lib/serveronstick/defines.py, Lib/serveronstick/exception.py,
-	Lib/serveronstick/secrets_cmd.py, Lib/serveronstick/stick.py,
-	Lib/serveronstick/util.py, Lib/serveronstick/validate_cmd.py,
-	Lib/serveronstick/yubikey.py, Tests/test_basics.py,
+	* Lib/{serveronstick => pyhsm}/__init__.py, Lib/{serveronstick =>
+	pyhsm}/base.py, Lib/{serveronstick => pyhsm}/basic_cmd.py,
+	Lib/{serveronstick => pyhsm}/cmd.py, Lib/{serveronstick =>
+	pyhsm}/debug_cmd.py, Lib/pyhsm/defines.py, Lib/{serveronstick =>
+	pyhsm}/exception.py, Lib/{serveronstick => pyhsm}/secrets_cmd.py,
+	Lib/{serveronstick => pyhsm}/stick.py, Lib/{serveronstick =>
+	pyhsm}/util.py, Lib/{serveronstick => pyhsm}/validate_cmd.py,
+	Lib/{serveronstick => pyhsm}/yubikey.py,
+	Lib/serveronstick/defines.py, Tests/test_basics.py,
 	Tests/test_common.py, Tests/test_configure.py, Tests/test_init.py,
 	Tests/test_otp_validate.py, Tests/test_yubikey_validate.py,
 	examples/yhsm-monitor-exit.py, examples/yhsm-sysinfo.py, setup.py,
-	sos-generate-keys, sos-import-keys, sos-yubikey-ksm,
-	yhsm-generate-keys, yhsm-import-keys, yhsm-yubikey-ksm: Massive
+	sos-generate-keys => yhsm-generate-keys, sos-import-keys =>
+	yhsm-import-keys, sos-yubikey-ksm => yhsm-yubikey-ksm: Massive
 	rename.  In-house working name during development was Server-on-Stick, but
 	the product name will be YubiHSM.
 
