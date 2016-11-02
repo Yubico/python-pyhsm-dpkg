@@ -1,0 +1,14 @@
+[console_scripts]
+yhsm-daemon = pyhsm.stick_daemon:main [daemon]
+yhsm-db-export = pyhsm.ksm.db_export:main [db]
+yhsm-db-import = pyhsm.ksm.db_import:main [db]
+yhsm-decrypt-aead = pyhsm.tools.decrypt_aead:main
+yhsm-generate-keys = pyhsm.tools.generate_keys:main
+yhsm-import-keys = pyhsm.ksm.import_keys:main
+yhsm-init-oath-token = pyhsm.val.init_oath_token:main
+yhsm-keystore-unlock = pyhsm.tools.keystore_unlock:main
+yhsm-linux-add-entropy = pyhsm.tools.linux_add_entropy:main
+yhsm-validate-otp = pyhsm.val.validate_otp:main
+yhsm-validation-server = pyhsm.val.validation_server:main
+yhsm-yubikey-ksm = pyhsm.ksm.yubikey_ksm:main [daemon,db]
+

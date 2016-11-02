@@ -1,4 +1,8 @@
 pyserial >= 2.3
 pycrypto >= 2.1
+
+[daemon]
 python-daemon
-sqlalchemy >= 0.9.7
+
+[db]
+sqlalchemy>=0.9.7

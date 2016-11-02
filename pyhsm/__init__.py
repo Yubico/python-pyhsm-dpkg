@@ -41,7 +41,7 @@ Basic usage ::
 See help(pyhsm.base) (L{pyhsm.base.YHSM}) for more information.
 """
 
-__version__ = '1.1.1'
+__version__ = '1.2.0'
 __copyright__ = 'Yubico AB'
 __organization__ = 'Yubico'
 __license__ = 'BSD'
@@ -65,6 +65,7 @@ __all__ = ["base",
            "debug_cmd",
            "hmac_cmd",
            "oath_hotp",
+           "oath_totp",
            "validate_cmd",
            ]
 

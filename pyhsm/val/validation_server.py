@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 #
 # Copyright (c) 2011, 2012 Yubico AB
 # See the file COPYING for licence statement.
@@ -23,6 +22,12 @@
          is done inside the YubiHSM, so the OATH Key is
          never exposed outside the YubiHSM.
 
+  TOTP - OATH-TOTP validation using secrets stored on host
+         computer (in secure AEADs only decryptable inside
+         YubiHSM). The HMAC-SHA1 of the OATH timecounter value
+         is compared, so the OATH Key is never exposed
+         outside the YubiHSM.
+
   PWHASH - Uses AEAD plaintext compare in the YubiHSM to see
            if a supplied password hash matches the password
            hash used in an earlier 'set' operation. These
@@ -30,7 +35,7 @@
            `yhsm-password-auth.py --set ...'.
 
  All these modes must be explicitly enabled on the command
- line to be allowed (--otp, --hotp and --pwhash).
+ line to be allowed (--otp, --hotp, --totp and --pwhash).
 
  Examples using OATH-HOTP :
 
@@ -45,6 +50,21 @@
    ...
    < HTTP/1.0 200 OK
    < ERR Could not validate OATH-HOTP OTP
+
+ Examples using OATH-TOTP :
+
+   > GET /yhsm/validate?totp=ubftcdcdckcf216781 HTTP/1.1
+   ...
+   < HTTP/1.0 200 OK
+   < OK timecounter=2ed5376
+
+   same again (but outside of time tolerance), differently formatted :
+
+   > GET /yhsm/validate?uid=ubftcdcdckcf&totp=359152 HTTP/1.1
+   ...
+   < HTTP/1.0 200 OK
+   < ERR Could not validate OATH-TOTP OTP
+
 
  Example PWHASH (AEAD and NONCE as returned by
                  `yhsm-password-auth.py --set ...') :
@@ -72,16 +92,21 @@ import urlparse
 import BaseHTTPServer
 import pyhsm
 import pyhsm.yubikey
+import pyhsm.oath_hotp
+import pyhsm.oath_totp
 
 default_device = "/dev/ttyACM0"
 default_serve_url = "/yhsm/validate?"
 default_db_file = "/var/yubico/yhsm-validation-server.db"
 default_clients_file = "/var/yubico/yhsm-validation-server_client-id.conf"
 default_hotp_window = 5
+default_totp_interval = 30
+default_totp_tolerance = 1
 default_pid_file = None
 
 ykotp_valid_input = re.compile('^[cbdefghijklnrtuv]{32,48}$')
 hotp_valid_input = re.compile('^[cbdefghijklnrtuv0-9]{6,20}$')
+totp_valid_input = re.compile('^[cbdefghijklnrtuv0-9]{6,20}$')
 
 hsm = None
 args = None
@@ -127,6 +152,12 @@ class YHSM_VALRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                     res = validate_oath_hotp(self, params)
                 else:
                     res = "ERR 'hotp' disabled"
+            elif "totp" in params:
+                if args.mode_totp:
+                    mode = 'OATH-TOTP'
+                    res = validate_oath_totp(self, params)
+                else:
+                    res = "ERR 'totp' disabled"
             elif "pwhash" in params:
                 if args.mode_pwhash:
                     mode = 'Password hash'
@@ -300,7 +331,7 @@ def make_signature(params, hmac_key):
 
     Returns base64 encoded signature as string.
     """
-    # produce a list of "key=value" for all entrys in params except `h'
+    # produce a list of "key=value" for all entries in params except `h'
     pairs = [x + "=" + ''.join(params[x]) for x in sorted(params.keys()) if x != "h"]
     sha = hmac.new(hmac_key, '&'.join(pairs), hashlib.sha1)
     return base64.b64encode(sha.digest())
@@ -350,6 +381,52 @@ def validate_oath_hotp(self, params):
         self.log_error("IN: %s, database error updating counter : %s" % (params, e))
         return "ERR Internal error"
 
+def validate_oath_totp(self, params):
+    """
+    Validate OATH-TOTP code using YubiHSM HMAC-SHA1 hashing with token keys
+    secured in AEAD's that we have stored in an SQLite3 database.
+    """
+    from_key = params["totp"][0]
+    if not re.match(totp_valid_input, from_key):
+        self.log_error("IN: %s, Invalid OATH-TOTP OTP" % (params))
+        return "ERR Invalid OATH-TOTP OTP"
+    uid, otp, = get_oath_totp_bits(params)
+    if not uid or not otp:
+        self.log_error("IN: %s, could not get UID/OTP ('%s'/'%s')" % (params, uid, otp))
+        return "ERR Invalid OATH-TOTP input"
+    if args.debug:
+        print "OATH-TOTP uid %s, OTP %s" % (uid, otp)
+
+    # Fetch counter value for `uid' from database
+    try:
+        db = ValOathDb(args.db_file)
+        entry = db.get(uid)
+    except Exception, e:
+        self.log_error("IN: %s, database error : '%s'" % (params, e))
+        return "ERR Internal error"
+
+    # Check for correct OATH-TOTP OTP
+    nonce = entry.data["nonce"].decode('hex')
+    aead = entry.data["aead"].decode('hex')
+    new_timecounter = pyhsm.oath_totp.search_for_oath_code(
+        hsm, entry.data["key_handle"], nonce, aead, otp, args.interval, args.tolerance)
+
+    if args.debug:
+        print "OATH-TOTP counter: %i, interval: %i -> new timecounter == %s" \
+             % (entry.data["oath_c"], args.interval, new_timecounter)
+    if type(new_timecounter) != int:
+        return "ERR Could not validate OATH-TOTP OTP"
+    try:
+        # Must successfully store new_timecounter before we return OK
+        # Can use existing hotp function since it would be identical
+        if db.update_oath_hotp_c(entry, new_timecounter):
+            return "OK timecounter=%04x" % (new_timecounter)
+        else:
+            return "ERR replayed OATH-TOTP"
+    except Exception, e:
+        self.log_error("IN: %s, database error updating counter : %s" % (params, e))
+        return "ERR Internal error"
+
 def validate_pwhash(_self, params):
     """
     Validate password hash using YubiHSM.
@@ -380,6 +457,14 @@ def get_oath_hotp_bits(params):
     if "uid" in params:
         return params["uid"][0], int(params["hotp"][0])
     m = re.match("^([cbdefghijklnrtuv]*)([0-9]{6,8})", params["hotp"][0])
+    uid, otp, = m.groups()
+    return uid, int(otp),
+
+def get_oath_totp_bits(params):
+    """ Extract the OATH-TOTP uid and OTP from params. """
+    if "uid" in params:
+        return params["uid"][0], int(params["totp"][0])
+    m = re.match("^([cbdefghijklnrtuv]*)([0-9]{6,8})", params["totp"][0])
     uid, otp, = m.groups()
     return uid, int(otp),
 
@@ -482,6 +567,11 @@ def parse_args():
                         action='store_true', default=False,
                         help='Enable OATH-HOTP validation',
                         )
+    parser.add_argument('--totp',
+                        dest='mode_totp',
+                        action='store_true', default=False,
+                        help='Enable OATH-TOTP validation',
+                        )
     parser.add_argument('--pwhash',
                         dest='mode_pwhash',
                         action='store_true', default=False,
@@ -511,6 +601,20 @@ def parse_args():
                         help='Number of OATH-HOTP codes to search',
                         metavar='NUM',
                         )
+    parser.add_argument('--totp-interval',
+                        dest='interval',
+                        type=int, required=False,
+                        default = default_totp_interval,
+                        help='Timeframe in seconds for a valid OATH-TOTP code',
+                        metavar='NUM',
+                        )
+    parser.add_argument('--totp-tolerance',
+                        dest='tolerance',
+                        type=int, required=False,
+                        default = default_totp_tolerance,
+                        help='Tolerance in time-steps for a valid OATH-TOTP code',
+                        metavar='NUM',
+                        )
     parser.add_argument('--pid-file',
                         dest='pid_file',
                         default=default_pid_file,
@@ -530,7 +634,7 @@ def args_fixup():
 
     args.key_handle = pyhsm.util.key_handle_to_int(args.hmac_kh)
 
-    if not (args.mode_otp or args.mode_short_otp or args.mode_hotp or args.mode_pwhash):
+    if not (args.mode_otp or args.mode_short_otp or args.mode_totp or args.mode_hotp or args.mode_pwhash):
         my_log_message(args, syslog.LOG_ERR, 'No validation mode enabled')
         sys.exit(1)
 
@@ -638,7 +742,7 @@ def main():
         hsm = pyhsm.YHSM(device = args.device, debug = args.debug)
     except serial.SerialException, e:
         my_log_message(args, syslog.LOG_ERR, 'Failed opening YubiHSM device "%s" : %s' %(args.device, e))
-        sys.exit(1)
+        return 1
 
     write_pid_file(args.pid_file)
 
@@ -649,5 +753,6 @@ def main():
         print "Shutting down"
         print ""
 
+
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
