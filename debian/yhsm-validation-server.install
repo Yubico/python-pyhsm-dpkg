@@ -1,3 +1,4 @@
-yhsm-val/yhsm-validation-server usr/sbin/
-yhsm-val/yhsm-validate-otp usr/sbin/
-yhsm-val/yhsm-init-oath-token usr/sbin/
+debian/tmp/usr/lib/python*/*-packages/pyhsm/val/
+debian/tmp/usr/bin/yhsm-validation-server usr/sbin/
+debian/tmp/usr/bin/yhsm-validate-otp usr/sbin/
+debian/tmp/usr/bin/yhsm-init-oath-token usr/sbin/

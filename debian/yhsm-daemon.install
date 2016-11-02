@@ -1,1 +1,1 @@
-utils/yhsm-daemon usr/sbin/
+debian/tmp/usr/bin/yhsm-daemon usr/sbin/

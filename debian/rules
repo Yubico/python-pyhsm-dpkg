@@ -4,4 +4,4 @@ override_dh_installchangelogs:
 	dh_installchangelogs ChangeLog
 
 %:
-	dh $@ --with python3 --buildsystem=python_distutils
+	dh $@ --with python2 --buildsystem=python_distutils

@@ -1,2 +1,2 @@
 debian/tmp/usr/lib/python*/*-packages/*.egg-info
-debian/tmp/usr/lib/python*/*-packages/*/
+debian/tmp/usr/lib/python*/*-packages/pyhsm/*.py*

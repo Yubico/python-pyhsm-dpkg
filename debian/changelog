@@ -1,3 +1,12 @@
+python-pyhsm (1.2.0-1) unstable; urgency=low
+
+  [ Dain Nilsson ]
+  * New upstream release.
+  * Fix packaging incorrectly using python 3.
+  * Update packaging for new upstream layout changes.
+
+ -- Dain Nilsson <dain@yubico.com>  Wed, 02 Nov 2016 13:57:22 +0100
+
 python-pyhsm (1.1.1-1) unstable; urgency=low
 
   [ Dain Nilsson ]

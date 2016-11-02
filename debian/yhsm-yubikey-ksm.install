@@ -1,4 +1,5 @@
-utils/yhsm-db-export usr/sbin/
-utils/yhsm-db-import usr/sbin/
-yubikey-ksm/yhsm-import-keys usr/sbin/
-yubikey-ksm/yhsm-yubikey-ksm usr/sbin/
+debian/tmp/usr/lib/python*/*-packages/pyhsm/ksm/
+debian/tmp/usr/bin/yhsm-db-export usr/sbin/
+debian/tmp/usr/bin/yhsm-db-import usr/sbin/
+debian/tmp/usr/bin/yhsm-import-keys usr/sbin/
+debian/tmp/usr/bin/yhsm-yubikey-ksm usr/sbin/

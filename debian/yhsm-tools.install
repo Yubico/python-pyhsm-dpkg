@@ -1,4 +1,5 @@
-utils/yhsm-keystore-unlock usr/sbin/
-utils/yhsm-linux-add-entropy usr/sbin/
-utils/yhsm-generate-keys usr/bin/
-utils/yhsm-decrypt-aead usr/bin/
+debian/tmp/usr/lib/python*/*-packages/pyhsm/tools/
+debian/tmp/usr/bin/yhsm-keystore-unlock usr/sbin/
+debian/tmp/usr/bin/yhsm-linux-add-entropy usr/sbin/
+debian/tmp/usr/bin/yhsm-generate-keys usr/bin/
+debian/tmp/usr/bin/yhsm-decrypt-aead usr/bin/

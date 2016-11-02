@@ -1,1 +1,3 @@
-yhsm-val/yhsm-*.1
+man/yhsm-validation-server.1
+man/yhsm-init-oath-token.1
+man/yhsm-validate-otp.1
