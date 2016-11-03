@@ -40,5 +40,11 @@ YHSM_KSM_UNLOCK_PASSPHRASE=""
 # The port to listen on.  Default is 8002.
 #DAEMON_ARGS="$DAEMON_ARGS --port 8003"
 
+# If you are using a reverse proxy in front of the yhsm-yubikey-ksm daemon,
+# you might want to forward the client ip using the X-Forwarded-For header.
+# This header is only taken into consideration if the reverse proxy's IP
+# address is listed in the --proxy argument to yhsm-yubikey-ksm.
+#DAEMON_ARGS="$DAEMON_ARGS --proxy 127.0.0.1"
+
 [ "x$YHSM_KSM_DEVICE" != "x" ] && DAEMON_ARGS="$DAEMON_ARGS -D $YHSM_KSM_DEVICE"
 [ "x$YHSM_KSM_KEYHANDLES" != "x" ] && DAEMON_ARGS="$DAEMON_ARGS --key-handles $YHSM_KSM_KEYHANDLES"
