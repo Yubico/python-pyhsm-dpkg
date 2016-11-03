@@ -1,3 +1,22 @@
+2016-11-03  Dain Nilsson <dain@yubico.com>
+
+	* NEWS, pyhsm/__init__.py: Prepare 1.2.1 release.
+
+2016-11-03  Dain Nilsson <dain@yubico.com>
+
+	* man/yhsm-yubikey-ksm.1, pyhsm/ksm/yubikey_ksm.py: 
+	yhsm-yubikey-ksm: Add --proxy/--proxies argument.  When one or more IPs are given, any incoming request originating
+	from one of these which contains an X-Forwarded-For header will be
+	logged as originating from the value of that header.
+
+2016-11-03  Dain Nilsson <dain@yubico.com>
+
+	* setup.py: Remove min version for sqlalchemy.
+
+2016-11-03  Dain Nilsson <dain@yubico.com>
+
+	* pyhsm/__init__.py: Bump version.
+
 2016-11-02  Dain Nilsson <dain@yubico.com>
 
 	* NEWS, pyhsm/__init__.py: Prepare for release.
