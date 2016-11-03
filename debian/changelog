@@ -1,3 +1,10 @@
+python-pyhsm (1.2.1-1) unstable; urgency=low
+
+  [ Jean Paul Galea ]
+  * New upstream release.
+
+ -- Jean Paul Galea <jeanpaul@yubico.com>  Thu, 03 Nov 2016 15:07:17 +0100
+
 python-pyhsm (1.2.0-1) unstable; urgency=low
 
   [ Dain Nilsson ]
